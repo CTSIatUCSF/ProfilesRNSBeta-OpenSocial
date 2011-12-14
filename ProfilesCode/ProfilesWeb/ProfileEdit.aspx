@@ -7,6 +7,16 @@
 <%@ Register Src="UserControls/ucProfileBaseInfo.ascx" TagName="ProfileBaseInfo"
     TagPrefix="ucProfileBaseInfo" %>
 <%@ Register Assembly="FUA" Namespace="Subgurim.Controles" TagPrefix="cc1" %>
+ <%--
+    Copyright (c) 2008-2010 by the President and Fellows of Harvard College. All rights reserved.  
+    Profiles Research Networking Software was developed under the supervision of Griffin M Weber, MD, PhD.,
+    and Harvard Catalyst: The Harvard Clinical and Translational Science Center, with support from the 
+    National Center for Research Resources and Harvard University.
+
+
+    Code licensed under a BSD License. 
+    For details, see: LICENSE.txt 
+ --%> 
 <asp:Content ID="Content1" ContentPlaceHolderID="MiddleContentPlaceHolder" runat="Server">
 
     <script src="Scripts/JScript.js" type="text/jscript"></script>
@@ -37,7 +47,19 @@
         }
 
         function exclusiveCheckbox(rbNum) {
+
             var rbNamePre = "ctl00_ctl00_middle_MiddleContentPlaceHolder_dlPhotos_ctl0";
+
+            var test = document.getElementById(rbNamePre);
+
+            if (test == null) {                
+                rbNamePre = "middle_MiddleContentPlaceHolder_dlPhotos_ctl0";
+                test = document.getElementById(rbNamePre);
+            }
+            if (test == null) { return; }
+
+
+
             var rbNamePost = "_rbPhoto";
 
             var i = 0;
@@ -56,9 +78,16 @@
             if (rbNum == 9)
                 customMode = true;
 
-            document.getElementById("ctl00_ctl00_middle_MiddleContentPlaceHolder_rbPhotoCustom").checked = customMode;
+            if (document.getElementById("ctl00_ctl00_middle_MiddleContentPlaceHolder_rbPhotoCustom") != null) {
+                document.getElementById("ctl00_ctl00_middle_MiddleContentPlaceHolder_rbPhotoCustom").checked = customMode;
+            }
+            else { document.getElementById("middle_MiddleContentPlaceHolder_rbPhotoCustom").checked = customMode; }
 
-            document.getElementById("ctl00_ctl00_middle_MiddleContentPlaceHolder_hidRbTrack").value = rbNum;
+
+            if (document.getElementById("ctl00_ctl00_middle_MiddleContentPlaceHolder_hidRbTrack") != null) {
+                document.getElementById("ctl00_ctl00_middle_MiddleContentPlaceHolder_hidRbTrack").value = rbNum;
+            } else { document.getElementById("middle_MiddleContentPlaceHolder_hidRbTrack").value = rbNum; }
+
 
             return true;
         }
@@ -122,7 +151,7 @@
                         <table width="100%" border="0">
                             <tr>
                                 <td>
-                                    <ucProfileBaseInfo:ProfileBaseInfo ID="ucProfileBaseInfo" runat="server" Visible="true" />
+                                    <ucProfileBaseInfo:ProfileBaseInfo ID="ucProfileBaseInfo" runat="server" Visible="true" EditMode="true"/>
                                 </td>
                                 <td style="vertical-align: top; text-align: right;">
                                     <asp:Panel ID="pnlEditPhoto" runat="server">
@@ -981,6 +1010,40 @@
                         </div>
                     </ContentTemplate>
                 </asp:UpdatePanel>
+
+	          <%-- Profiles OpenSocial Extension by UCSF --%>    
+                <asp:Panel ID="pnlOpenSocialGadgets" runat="server">
+                    <script type="text/javascript" language="javascript">
+                        my.current_view = "home";
+                    </script>                
+                    <div id="OpenSocial">
+                        <table width="100%">
+                            <tr style="height: 6px">
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:Panel ID="pnlOpenSocialGadgetsInner" runat="server" CssClass="Borders" >
+                                        <table width="100%">
+                                            <tr>
+                                                <td style="text-align: left;">
+                                                    <h3>Add more to your profile <span style="font-weight:normal"> with websites related to your research, information about Faculty Mentorship <em>(Student Mentorship information coming soon)</em> and even post your presentations here.</span></h3>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div id="gadgets-edit" class="gadgets-gadget-parent"></div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </asp:Panel>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </asp:Panel>
+                
                 <asp:Panel ID="pnlControl" runat="server" Visible="false">
                     <asp:PlaceHolder ID="plToControl" runat="server" />
                 </asp:Panel>

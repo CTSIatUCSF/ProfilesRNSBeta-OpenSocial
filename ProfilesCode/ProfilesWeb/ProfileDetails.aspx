@@ -7,6 +7,17 @@
 <%@ Register Src="UserControls/ucModifyNetwork.ascx" TagName="ModifyNetwork" TagPrefix="ucModifyNetwork" %>
 <%@ Register Src="UserControls/ucProfileBaseInfo.ascx" TagName="ProfileBaseInfo"
     TagPrefix="ucProfileBaseInfo" %>
+     <%--
+    Copyright (c) 2008-2010 by the President and Fellows of Harvard College. All rights reserved.  
+    Profiles Research Networking Software was developed under the supervision of Griffin M Weber, MD, PhD.,
+    and Harvard Catalyst: The Harvard Clinical and Translational Science Center, with support from the 
+    National Center for Research Resources and Harvard University.
+
+
+    Code licensed under a BSD License. 
+    For details, see: LICENSE.txt 
+ --%> 
+    
 <asp:Content ID="Content3" ContentPlaceHolderID="LeftContentPlaceHolder" runat="Server">
     <ucModifyNetwork:ModifyNetwork ID="ucModifyNetwork" runat="server" />
 </asp:Content>
@@ -33,7 +44,7 @@
         <table width="100%" cellpadding="1" cellspacing="1">
             <tr>
                 <td>
-                    <ucProfileBaseInfo:ProfileBaseInfo ID="ucProfileBaseInfo" runat="server" Visible="true" />
+                    <ucProfileBaseInfo:ProfileBaseInfo ID="ucProfileBaseInfo" runat="server" Visible="true" EditMode="false"/>
                 </td>
                 <td style="vertical-align: top; width: 120px">
                     <asp:Image ID="imgReadPhoto" runat="server" Height="120px" Width="120px" Style="border: solid 1px #999;"
@@ -75,6 +86,17 @@
                 <asp:Label ID="lblReadOnlyNarrative" runat="server" CssClass="narrativeText" />
             </div>
         </div>
+        
+        <%-- Profiles OpenSocial Extension by UCSF --%>    
+        <div id="pnlOpenSocialGadgets" runat="server" style="margin-top:18px">
+            <script type="text/javascript" language="javascript">
+                my.current_view = "profile";
+            </script>                
+            <div id="gadgets-view" class="gadgets-gadget-parent"></div>
+        </div>
+        <div style="clear: both">
+        </div>
+        
         <div id="pnlReadOnlyPublications" runat="server">
             <div class="sectionHeader">
                 <asp:Literal ID="ltrReadPublications" runat="server" Text="Publications" Visible="true" />

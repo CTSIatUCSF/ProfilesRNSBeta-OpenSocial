@@ -1,4 +1,16 @@
-﻿using System;
+﻿/*  
+ 
+    Copyright (c) 2008-2010 by the President and Fellows of Harvard College. All rights reserved.  
+    Profiles Research Networking Software was developed under the supervision of Griffin M Weber, MD, PhD.,
+    and Harvard Catalyst: The Harvard Clinical and Translational Science Center, with support from the 
+    National Center for Research Resources and Harvard University.
+
+
+    Code licensed under a BSD License. 
+    For details, see: LICENSE.txt 
+  
+*/
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Web.Script.Services;
@@ -8,6 +20,8 @@ using System.Web.UI.WebControls;
 using Connects.Profiles.BusinessLogic;
 using Connects.Profiles.Service.DataContracts;
 using Connects.Profiles.Utility;
+using Microsoft.Practices.EnterpriseLibrary.Data;
+using System.Data.Common;
 
 public partial class Search : BasePage
 {
@@ -21,6 +35,10 @@ public partial class Search : BasePage
     protected bool _pagejumpchange = false;
     protected bool _rebound = false;
     private Random _myRandom = new Random();
+
+    // Profiles OpenSocial Extension by UCSF 
+    public List<Int32> OS_personIds = null;
+    public string OS_message = null;
 
     #region Page Events
 
@@ -36,6 +54,11 @@ public partial class Search : BasePage
             this.ProcessQueryStrings();
 
             Session["ProfileSearchRequestCriteriaList"] = new List<string>();
+
+            // Profiles OpenSocial Extension by UCSF
+            OpenSocialHelper os = SetOpenSocialHelper(Profile.UserId, -1, Page);
+            os.RemovePubsubGadgetsWithoutData();
+            GenerateOpensocialJavascipt();
 
             LoadPersonFilter();
         }
@@ -57,6 +80,12 @@ public partial class Search : BasePage
         ddlInstitution.DataBind();
         ddlInstitution.Items.Insert(0, new ListItem("--Select--"));
         ddlInstitution.Items[0].Selected = true;
+
+        ddlDivision.DataSource = new DivisionBL().GetDivisions();
+        ddlDivision.DataTextField = "DivisionName";
+        ddlDivision.DataBind();
+        ddlDivision.Items.Insert(0, new ListItem("--Select--"));
+        ddlDivision.Items[0].Selected = true;
 
         ddlFacultyRank.DataSource = new FacultyBL().GetFacultyRanks();
         ddlFacultyRank.DataTextField = "FacultyRank";
@@ -166,18 +195,31 @@ public partial class Search : BasePage
             ((GridView)sender).BottomPagerRow.Visible = true;
     }
 
-    protected void lstSearchKeywordDisplay_ItemDataBound(object sender, EventArgs e)
+    protected void lstSearchKeywordDisplay_ItemDataBound(object sender, RepeaterItemEventArgs e)
     {
-        if ((((DataListItemEventArgs)e).Item.ItemType == ListItemType.Item) || (((DataListItemEventArgs)e).Item.ItemType == ListItemType.AlternatingItem))
+        if ((e.Item.ItemType == ListItemType.Item) || ((e).Item.ItemType == ListItemType.AlternatingItem))
         {
-            DataList dlKeywords = ((DataList)((DataListItemEventArgs)e).Item.FindControl("lstKeywordMatchMeshHeader"));
+            DataList dlKeywords = ((DataList)(e).Item.FindControl("lstKeywordMatchMeshHeader"));
 
             if (dlKeywords != null)
             {
-                dlKeywords.DataSource = ((MatchingKeyword)((DataListItemEventArgs)e).Item.DataItem).MatchingMeshHeader;
+                dlKeywords.DataSource = ((MatchingKeyword)(e).Item.DataItem).MatchingMeshHeader;
                 dlKeywords.DataBind();
             }
         }
+
+        if ((e).Item.ItemType == ListItemType.Footer)
+        {
+            try
+            {
+                Panel direct = ((Panel)(e).Item.FindControl("divDirect"));
+                if (ConfigUtil.GetConfigItem("DirectServiceURL") != null)
+                    direct.Visible = true;
+            }
+            catch (Exception ex) { }
+        }
+
+
 
     }
 
@@ -303,6 +345,43 @@ public partial class Search : BasePage
             // Read the QueryId returned and modify the current search request to include this
             ((Profiles)Session["ProfileSearchRequest"]).QueryDefinition.QueryID = Convert.ToString(e.OutputParameters["queryID"]);
 
+            // Profiles OpenSocial Extension by UCSF
+            OS_message = null;
+            OS_personIds = new List<Int32>();
+            OpenSocialHelper os = SetOpenSocialHelper(Profile.UserId, -1, Page);
+            if (OpenSocial().IsVisible() && OpenSocial().HasGadgetListeningTo(OpenSocialHelper.JSON_PERSONID_CHANNEL))
+            {
+                IDataReader reader = null;
+                try
+                {
+                    Database db = DatabaseFactory.CreateDatabase();
+
+                    string sqlCommand = "select personid from api_query_results where QueryID = '" + Convert.ToString(e.OutputParameters["queryID"]) + "';";
+                    DbCommand dbCommand = db.GetSqlStringCommand(sqlCommand);
+                    reader = db.ExecuteReader(dbCommand);
+                    while (reader.Read())
+                    {
+                        OS_personIds.Add((Int32)reader["Personid"]);
+                    }
+                    OS_message = "" + OS_personIds.Count + " Profiles found";
+                }
+                catch (Exception ex)
+                {
+                    OS_message = "Error : " + ex.Message;
+                }
+                finally
+                {
+                    if (reader != null)
+                    {
+                        reader.Close();
+                    }
+                }
+            }
+            Session["OpenSocialJSONPersonIds"] = this.GetJSONPersonIds();
+            OpenSocial().SetPubsubData(OpenSocialHelper.JSON_PERSONID_CHANNEL, this.GetJSONPersonIds());
+            GenerateOpensocialJavascipt();
+            // END Profiles OpenSocial Extension by UCSF
+
             Session["LastSearchTotalRowCount"] = _totalRowCount;
         }
     }
@@ -409,6 +488,20 @@ public partial class Search : BasePage
             searchReq.QueryDefinition.AffiliationList.Affiliation[0].InstitutionName.Exclude = chkInstitution.Checked;
         }
 
+        // Division Selection
+        if (ddlDivision.SelectedIndex != 0)
+        {
+            AffiliationDivisionName affilDivname = new AffiliationDivisionName();
+            affilDivname.Text = ddlDivision.SelectedItem.Text;
+            searchReq.QueryDefinition.AffiliationList.Affiliation[0].DivisionName = affilDivname;
+
+            // Set the appropriate message on the right 
+            ((List<string>)Session["ProfileSearchRequestCriteriaList"]).Add(chkInstitution.Checked == true ? "All except " + affilDivname.Text : affilDivname.Text);
+
+            searchReq.QueryDefinition.AffiliationList.Affiliation[0].DivisionName.Exclude = chkDivision.Checked;
+        }
+
+
         // Department Selection
         if (ddlDepartment.SelectedIndex != 0)
         {
@@ -475,9 +568,12 @@ public partial class Search : BasePage
 
                 searchReq.QueryDefinition.Keywords.KeywordString.Text = keywordString;
 
+
                 ((List<string>)Session["ProfileSearchRequestKeywordList"]).Add(keywordString);
             }
         }
+
+        searchReq.Version = 2;
 
         // Save the search request into a session object so that the 
         // object data source can use it during the Select event
@@ -520,11 +616,19 @@ public partial class Search : BasePage
 
             AffiliationInstitutionName affilInstname = new AffiliationInstitutionName();
             affilInstname.Text = inst;
-            profiles.QueryDefinition.AffiliationList.Affiliation[0].InstitutionName = affilInstname;
+            profiles.QueryDefinition.AffiliationList.Affiliation[0].InstitutionName = affilInstname;            
             ((List<string>)Session["ProfileSearchRequestCriteriaList"]).Add(inst);
         }
+        // Division Selection
+        if (Request.QueryString["Division"] != null)
+        {
+            string inst = this.HTMLEncode(Request.QueryString["Division"].ToString().Trim());
 
-
+            AffiliationDivisionName affilDivname = new AffiliationDivisionName();
+            affilDivname.Text = inst;
+            profiles.QueryDefinition.AffiliationList.Affiliation[0].DivisionName = affilDivname;
+            ((List<string>)Session["ProfileSearchRequestCriteriaList"]).Add(inst);
+        }
         // Department Selection
         if (Request.QueryString["DeptName"] != null)
         {
@@ -542,6 +646,8 @@ public partial class Search : BasePage
             profiles.QueryDefinition.Keywords.KeywordString.Text = keyword;
             ((List<string>)Session["ProfileSearchRequestKeywordList"]).Add(keyword);
         }
+
+        profiles.Version = 2;
 
         // Save the search request into a session object so that the 
         // object data source can use it during the Select event
@@ -571,7 +677,7 @@ public partial class Search : BasePage
         // Keywords
         if (keywordString.Length > 0)
         {
-            profiles.QueryDefinition.Keywords.KeywordString.Text =  keywordString;
+            profiles.QueryDefinition.Keywords.KeywordString.Text = keywordString;
             //if there is a space char in the string, then its a group of words coming from the Most Viewed..
             if (keywordString.Trim().Contains(" "))
             {
@@ -580,6 +686,8 @@ public partial class Search : BasePage
             // Add the searched keyword to the right side of the page
             ((List<string>)Session["ProfileSearchRequestKeywordList"]).Add(keywordString);
         }
+
+        profiles.Version = 2;
 
         // Save the search request into a session object so that the 
         // object data source can use it during the Select event
@@ -626,6 +734,8 @@ public partial class Search : BasePage
 
             ((List<string>)Session["ProfileSearchRequestCriteriaList"]).Add(affilDeptname.Text);
         }
+
+        profiles.Version = 2;
 
         // Save the search request into a session object so that the 
         // object data source can use it during the Select event
@@ -706,10 +816,20 @@ public partial class Search : BasePage
         // Set the initial page
         this.grdSearchResults.PageIndex = System.Convert.ToInt32(Session["ProfileSearchResultsPage"]);
 
+        // Profiles OpenSocial Extension by UCSF
+        OpenSocialHelper os = SetOpenSocialHelper(Profile.UserId, -1, Page);
+        os.SetPubsubData(OpenSocialHelper.JSON_PERSONID_CHANNEL, this.GetJSONPersonIds());
+        os.RemoveGadget("Activities");  // do not show Activities gadget on search results page
+        GenerateOpensocialJavascipt();
+        pnlOpenSocialGadgets.Visible = OpenSocial().IsVisible();
+
         if (grdSearchResults.Rows.Count == 0 && initialPage > -1)
         {
             LtMsg.Visible = true;
-            LtMsg.Text = "<span style='color:#990000'>No matching people could be found</span>";
+            LtMsg.Text = "<span style='color:#990000; font-weight:bold'>" +
+                (OpenSocial() != null && GetKeyword() != null && OpenSocial().IsVisible() && GetKeyword().Length > 0 && !HasAdditionalSearchCriteria() ?
+                "No keyword matches found.  Please check Full Text Search results below." :
+                "No matching people could be found. Please check your entry and try again.") + "</span>";
 
             // Kill the session variable used to bind the results grid
             Session["ProfileSearchRequest"] = null;
@@ -723,10 +843,8 @@ public partial class Search : BasePage
                 _rebound = true;
 
 
-
                 try { if (Request["page"].ToString() != "0") { ProcessProfileSearch(); } }
                 catch { ProcessProfileSearch(); }
-
 
 
             }
@@ -786,6 +904,25 @@ public partial class Search : BasePage
 
     }
 
+    public string GetKeyword()
+    {
+               
+      
+
+        string keyword = "";
+
+        if (this.txtKeyword.Text.Length > 0)
+            keyword = this.txtKeyword.Text;
+        else if (Session["ProfileSearchRequestKeywordList"] != null)
+        {
+            if (((List<string>)Session["ProfileSearchRequestKeywordList"]).Count > 0)
+                keyword = ((List<string>)Session["ProfileSearchRequestKeywordList"])[0];
+        }
+
+      
+        return keyword;
+    }
+
     private void ShowMiniSearch(bool visible)
     {
         //Find Control in Masterpage
@@ -815,8 +952,17 @@ public partial class Search : BasePage
         // Hide institution if specified in web.config
         rowInstitution.Visible = !Convert.ToBoolean(ConfigUtil.GetConfigItem("HideInstitutionSelectionForSearch"));
 
+        // Hide department if specified in web.config
+        rowDepartment.Visible = !Convert.ToBoolean(ConfigUtil.GetConfigItem("HideDepartmentSelectionForSearch"));
+
+        // Hide division if specified in web.config
+        rowDivision.Visible = !Convert.ToBoolean(ConfigUtil.GetConfigItem("HideDivisionSelectionForSearch"));
+
         divSpotlight.Visible = true;
         divSearchCriteria.Visible = false;
+
+        // Profiles OpenSocial Extension by UCSF
+        pnlOpenSocialGadgets.Visible = false;
 
         // 
         searchResultsPersonSummaryContainer.Visible = false;
@@ -885,7 +1031,6 @@ public partial class Search : BasePage
 
     #endregion
 
-
     #region Search Results Control Events
     protected void lstSelectCol_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -931,6 +1076,10 @@ public partial class Search : BasePage
             ((ListBox)sender).SelectedValue = Session["LastSearchPageSize"].ToString();
         else
             ((ListBox)sender).SelectedValue = "15";
+
+
+
+
     }
 
     protected void valPagNumRange_DataBinding(object sender, EventArgs e)
@@ -1074,6 +1223,7 @@ public partial class Search : BasePage
     }
 
     #endregion
+
     #region Grid Data Binding Helpers
 
     protected string GetInstitutionText(object affiliationList)
@@ -1134,17 +1284,41 @@ public partial class Search : BasePage
 
     protected void SetGridColumns()
     {
-
         bool needToRefreshColumns = true;
 
         if (lstColumns.Items.Count != 0)
+        {
             needToRefreshColumns = false;
+            Session["SEARCH_COLS"] = lstColumns;
+        }
+      
 
         //when selected column names count = 0  
         if (needToRefreshColumns)
         {
             //get Default selected columns from web.config in appSettings
             string l_defaultColumnsFromConfig = ConfigUtil.GetConfigItem("ProfileSearchDefaultColumns");
+
+
+                ListBox lstcolumns = null;
+                if (Session["SEARCH_COLS"] != null) {
+                    lstcolumns = (ListBox)Session["SEARCH_COLS"];
+                    foreach(ListItem item in lstcolumns.Items)
+                    {
+                        if (item.Selected)
+                        {
+                            if (!l_defaultColumnsFromConfig.Contains(item.Text)) {
+                                l_defaultColumnsFromConfig = l_defaultColumnsFromConfig + "," + item.Text;
+                            }
+                        }
+                    }
+                    
+
+                }
+
+
+
+
             string[] l_defaultColumnsArr = l_defaultColumnsFromConfig.Split(',');
 
             List<string> l_AllColumns = new List<string>();
@@ -1155,32 +1329,35 @@ public partial class Search : BasePage
                     l_AllColumns.Add(l_GridColumn.HeaderText);
             }
 
-            l_AllColumns.Remove("Division");
+            //l_AllColumns.Remove("Division");
 
             //bind listBox
-            lstColumns.Items.Clear();
-            lstColumns.DataSource = l_AllColumns;
-            lstColumns.DataBind();
-
-            //check "default" listBoxItems 
-            foreach (ListItem l_Item in lstColumns.Items)
-            {
-                foreach (string columnName in l_defaultColumnsArr)
+            
+                lstColumns.Items.Clear();
+                lstColumns.DataSource = l_AllColumns;
+                lstColumns.DataBind();
+            
+            
+                //check "default" listBoxItems 
+                foreach (ListItem l_Item in lstColumns.Items)
                 {
-                    //after split operation <string.split(',')> the last element usually is space
-                    //so we must validate each value
-                    if (!string.IsNullOrEmpty(columnName))
+                    foreach (string columnName in l_defaultColumnsArr)
                     {
-                        if (columnName == l_Item.Value)
+                        //after split operation <string.split(',')> the last element usually is space
+                        //so we must validate each value
+                        if (!string.IsNullOrEmpty(columnName))
                         {
-                            l_Item.Selected = true;
+                            if (columnName == l_Item.Value)
+                            {
+                                l_Item.Selected = true;
+                            }
                         }
                     }
-                }
 
-                if (l_Item.Value == "Name")
-                    l_Item.Enabled = false;
-            }
+                    if (l_Item.Value == "Name")
+                        l_Item.Enabled = false;
+                }
+            
         }
 
         for (int i = 1; i < grdSearchResults.Columns.Count; i++)
@@ -1203,6 +1380,7 @@ public partial class Search : BasePage
                     }
                 }
             }
+
             l_Field.Visible = l_isVisibleColumn;
         }
 
@@ -1214,7 +1392,6 @@ public partial class Search : BasePage
             else
                 grdSearchResults.Columns[grdSearchResults.Columns.Count - 2].Visible = false;
         }
-
 
     }
 
@@ -1293,6 +1470,39 @@ public partial class Search : BasePage
         return show;
     }
 
+    #endregion
+
+    // Profiles OpenSocial Extension by UCSF
+    #region OpenSocial Helpers
+    [System.Web.Services.WebMethod]
+    public static string GetPublishedPeople(string queryID)
+    {
+        return queryID;
+    }
+
+    public string GetJSONPersonIds()
+    {
+        if (this.OS_message != null)
+        {
+            return OpenSocialHelper.BuildJSONPersonIds(OS_personIds, OS_message);
+        }
+        else if (Session["OpenSocialJSONPersonIds"] != null)
+        {
+            return (string)Session["OpenSocialJSONPersonIds"];
+        }
+        return "{}";
+    }
+
+    public bool HasAdditionalSearchCriteria()
+    {
+        return (Session["ProfileSearchRequestCriteriaList"] != null && ((List<string>)Session["ProfileSearchRequestCriteriaList"]).Count > 0) ||
+            (Request.QueryString["Lname"] != null && Request.QueryString["Lname"].ToString().Trim().Length > 0) ||
+            (Request.QueryString["Institute"] != null && Request.QueryString["Institute"].ToString().Trim().Length > 0) ||
+            (Request.QueryString["DeptName"] != null && Request.QueryString["DeptName"].ToString().Trim().Length > 0) ||
+            txtLastName.Text.Trim().Length > 0 || txtFirstName.Text.Trim().Length > 0 ||
+            ddlInstitution.SelectedIndex != 0 || ddlDepartment.SelectedIndex != 0 || ddlFacultyRank.SelectedIndex != 0 ||
+            (((HiddenField)ctcFirst.FindControl("hdnSelectedText")).Value.Length > 0 && ((HiddenField)ctcFirst.FindControl("hdnSelectedText")).Value != "--Select--");
+    }
     #endregion
 
 

@@ -1,4 +1,16 @@
-﻿using System;
+﻿/*  
+ 
+    Copyright (c) 2008-2010 by the President and Fellows of Harvard College. All rights reserved.  
+    Profiles Research Networking Software was developed under the supervision of Griffin M Weber, MD, PhD.,
+    and Harvard Catalyst: The Harvard Clinical and Translational Science Center, with support from the 
+    National Center for Research Resources and Harvard University.
+
+
+    Code licensed under a BSD License. 
+    For details, see: LICENSE.txt 
+  
+*/
+using System;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Connects.Profiles.Common;
@@ -46,6 +58,7 @@ public partial class ProfileDetails : BasePage
     protected void Page_Load(object sender, EventArgs e)
     {
         Session["EmailImgText"] = "none";
+        Session["ProfileEdit"] = "false";
 
         // Get the profile ID from the query string
         _personId = GetPersonFromQueryString();
@@ -54,7 +67,9 @@ public partial class ProfileDetails : BasePage
         {
             if (_personId > 0)
             {
+
                 personProfileList = new Connects.Profiles.Service.ServiceImplementation.ProfileService().GetPersonFromPersonId(_personId);
+
                 personProfile = personProfileList.Person[0];
 
                 if (personProfile != null)
@@ -64,7 +79,7 @@ public partial class ProfileDetails : BasePage
 
 
                     this.EditUserId = Profile.UserId;
-                    
+
                     // Handle situation where it's the logged-in user viewing their own page
                     ProcessSelfProxyAndHidden();
 
@@ -81,7 +96,25 @@ public partial class ProfileDetails : BasePage
                     // Set the page titles 
                     Page.Title = personProfile.Name.FirstName + " " + personProfile.Name.LastName + " | " + Page.Title;
                     ltProfileName.Text = personProfile.Name.FullName;
+
+                    // Profiles OpenSocial Extension by UCSF
+                    OpenSocialHelper os = SetOpenSocialHelper(Profile.UserId, _personId, Page);
+                    os.SetPubsubData(OpenSocialHelper.JSON_PERSONID_CHANNEL, OpenSocialHelper.BuildJSONPersonIds(_personId, personProfile.Name.FullName));
+                    // PMID
+                    UserPreferences userPreference = new UserPreferences();
+                    userPreference = _userBL.GetUserPreferences(_personId);
+                    if (userPreference.Publications.Equals("Y"))
+                    {
+                        os.SetPubsubData(OpenSocialHelper.JSON_PMID_CHANNEL, OpenSocialHelper.BuildJSONPubMedIds(personProfile));
+                    }
+                    os.RemovePubsubGadgetsWithoutData();
+                    GenerateOpensocialJavascipt();
+                    pnlOpenSocialGadgets.Visible = OpenSocial().IsVisible();
+
+                    // record that their profile was viewed
+                    OpenSocialHelper.PostActivity(_personId, "profile was viewed");
                 }
+
             }
         }
 
@@ -94,7 +127,7 @@ public partial class ProfileDetails : BasePage
     private void ProcessSelfProxyAndHidden()
     {
         if (_personId == Profile.ProfileId)
-        {
+        { 
             imgReach.ImageUrl = "images/reachyou.gif";
             imgReach.Visible = true;
             ShowControl("pnlChkList", false);
@@ -131,7 +164,6 @@ public partial class ProfileDetails : BasePage
     }
 
     #endregion
-
 
     #region User ReadOnly Section
     private void ReadOnlySection(int personId)

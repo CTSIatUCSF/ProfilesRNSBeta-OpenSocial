@@ -1,5 +1,5 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/ProfilesPage.master" CodeFile="Search.aspx.cs" ValidateRequest="true"
-    Inherits="Search" Title="Profiles | Search" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/ProfilesPage.master" CodeFile="Search.aspx.cs"
+    ValidateRequest="true" Inherits="Search" Title="Profiles | Search" %>
 
 <%@ Register Src="UserControls/ucProfileBaseInfo.ascx" TagName="ProfileBaseInfo"
     TagPrefix="ucProfileBaseInfo" %>
@@ -7,6 +7,16 @@
 <%@ Register Src="UserControls/ComboTreeCheck.ascx" TagName="ComboTreeCheck" TagPrefix="uc1" %>
 <%@ Reference Control="UserControls/ucMiniSearch.ascx" %>
 <%@ MasterType VirtualPath="~/ProfilesPage.master" %>
+<%--
+    Copyright (c) 2008-2010 by the President and Fellows of Harvard College. All rights reserved.  
+    Profiles Research Networking Software was developed under the supervision of Griffin M Weber, MD, PhD.,
+    and Harvard Catalyst: The Harvard Clinical and Translational Science Center, with support from the 
+    National Center for Research Resources and Harvard University.
+
+
+    Code licensed under a BSD License. 
+    For details, see: LICENSE.txt 
+ --%>
 <asp:Content ID="Content4" ContentPlaceHolderID="HeadContentPlaceHolder2" runat="Server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="HeadingContentPlaceHolder" runat="Server">
@@ -43,8 +53,8 @@
             if (i != '') { s += '<div class="label">Institution</div>'; s += '<div class="data">' + i + '</div>'; }
             if (d != '') { s += '<div class="label">Department</div>'; s += '<div class="data">' + d + '</div>'; }
             if (v != '') { s += '<div class="label">Division</div>'; s += '<div class="data">' + v + '</div>'; }
-            if (t != '') { s += '<div class="label">Title</div>'; s += '<div class="data">' + t + '</div>'; }
             if (f != '') { s += '<div class="label">Faculty Rank</div>'; s += '<div class="data">' + f + '</div>'; }
+            if (t != '') { s += '<div class="label">Title</div>'; s += '<div class="data">' + t + '</div>'; }
             if (q != '') { s += '<div class="label">Query Relevance</div>'; s += '<div class="data">' + q + '</div>'; s += '<div class="data" style="font-size:10px;">(Click Why for details.)</div>'; }
             // set html
             $("div[id='divPersonSummary']").html("Person Summary");
@@ -142,7 +152,7 @@
                                 <b>except</b> the one selected</span>
                         </td>
                     </tr>
-                    <tr>
+                    <tr runat="server" id="rowDepartment">
                         <th>
                             Department
                         </th>
@@ -152,6 +162,19 @@
                         </td>
                         <td class="fieldOptions">
                             <asp:CheckBox ID="chkDepartment" runat="server" />&nbsp;<span style="color: #666666;">All
+                                <b>except</b> the one selected</span>
+                        </td>
+                    </tr>
+                    <tr runat="server" id="rowDivision">
+                        <th style="text-align: right;">
+                            Division
+                        </th>
+                        <td class="fieldMain">
+                            <asp:DropDownList ID="ddlDivision" runat="server" Width="255px" AutoPostBack="false"
+                                ToolTip="Select Division" />
+                        </td>
+                        <td class="fieldOptions">
+                            <asp:CheckBox ID="chkDivision" runat="server" />&nbsp;<span style="color: #666666;">All
                                 <b>except</b> the one selected</span>
                         </td>
                     </tr>
@@ -171,7 +194,7 @@
                             &nbsp;
                         </td>
                     </tr>
-                    <tr id="trMoreOptions" >
+                    <tr id="trMoreOptions">
                         <th>
                             More Options
                         </th>
@@ -183,9 +206,6 @@
                         </td>
                     </tr>
                 </table>
-
-              
-
             </div>
             <table class="submitTable">
                 <tr>
@@ -225,7 +245,15 @@
             </div>
         </asp:PlaceHolder>
     </asp:Panel>
+    <script type="text/javascript" language="javascript">        
+        // hack for OpenSocial google search
+        var profilesHasSearchResults = false;        
+    </script>
     <asp:Panel ID="pnlSearchResults" runat="server" Visible="false">
+        <script type="text/javascript" language="javascript">        
+            // hack for OpenSocial google search
+            profilesHasSearchResults = true;        
+        </script>
         <table cellpadding="1" cellspacing="1" border="0" width="600px" style="margin-left: 8px">
             <tr>
                 <td valign="middle" align="right">
@@ -244,18 +272,19 @@
                         <%-- <asp:ListItem Selected="False" Value="Division">Division (A-Z)</asp:ListItem>
                         <asp:ListItem Selected="False" Value="Division_DESC">Division (Z-A)</asp:ListItem>--%>
                     </asp:ListBox>
-                    <span style="display: none" id="spanDisplayColumns">
-                        &nbsp;<span class="selectSortLabel">Display Columns:</span>
+                    <span style="display: none" id="spanDisplayColumns">&nbsp;<span class="selectSortLabel">Display
+                        Columns:</span>
                         <asp:ListBox SelectionMode="Multiple" runat="server" ID="lstColumns" Height="20"
                             AutoPostBack="true" OnSelectedIndexChanged="lstColumns_SelectedIndexChanged" />
                     </span>
                 </td>
             </tr>
         </table>
-        
-                <script language="javascript" type="text/javascript">
-                    document.getElementById('spanDisplayColumns').style.display = '';   
-                </script>
+
+        <script language="javascript" type="text/javascript">
+            document.getElementById('spanDisplayColumns').style.display = '';   
+        </script>
+
         <div>
             <asp:GridView ID="grdSearchResults" EnableViewState="false" runat="server" AutoGenerateColumns="False"
                 AllowPaging="True" AllowSorting="true" CellSpacing="0" GridLines="Both" DataKeyNames="PersonID,Name"
@@ -333,11 +362,6 @@
                             <asp:Label ID="lblInstitution" runat="server" Text='<%# GetInstitutionText(Eval("AffiliationList"))%>' />
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Faculty Rank" SortExpression="FacultyRank">
-                        <ItemTemplate>
-                            <asp:Label ID="lblFacultyRank" runat="server" Text='<%# GetFacultyRank(Eval("AffiliationList"))%>' />
-                        </ItemTemplate>
-                    </asp:TemplateField>
                     <asp:TemplateField HeaderText="Department" SortExpression="Department">
                         <ItemTemplate>
                             <asp:Label ID="lblDepartment" runat="server" Text='<%# GetDepartmentText(Eval("AffiliationList"))%>' />
@@ -346,6 +370,11 @@
                     <asp:TemplateField HeaderText="Division" SortExpression="Division">
                         <ItemTemplate>
                             <asp:Label ID="lblDivision" runat="server" Text='<%# GetDivisionText(Eval("AffiliationList"))%>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Faculty Rank" SortExpression="FacultyRank">
+                        <ItemTemplate>
+                            <asp:Label ID="lblFacultyRank" runat="server" Text='<%# GetFacultyRank(Eval("AffiliationList"))%>' />
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:HyperLinkField HeaderText="Why?" Text="Why?" DataNavigateUrlFields="PersonId"
@@ -364,7 +393,32 @@
         EnableCaching="true" CacheDuration="120" CacheKeyDependency="profilesObjDataSourceKey"
         EnablePaging="true" MaximumRowsParameterName="maximumRows" EnableViewState="true">
     </asp:ObjectDataSource>
+
+<%-- Profiles OpenSocial Extension by UCSF --%>    
+    <asp:Panel ID="pnlOpenSocialGadgets" runat="server" Visible="false">
+        <script type="text/javascript" language="javascript">
+            // find the 'Search' gadget(s).  
+            var searchGadgets = my.findGadgetsAttachingTo("gadgets-search");
+            var keyword = '<%=GetKeyword()%>';
+            // add params to these gadgets
+            if (keyword && <%=HasAdditionalSearchCriteria() ? 0 : 1 %>) {
+                for (var i = 0; i < searchGadgets.length; i++) {
+                    var searchGadget = searchGadgets[i];
+                    searchGadget.additionalParams = searchGadget.additionalParams || {};
+                    searchGadget.additionalParams["keyword"] = keyword;
+                    // hack to open if no results are returned
+                    searchGadget.start_closed = profilesHasSearchResults;
+                }
+            }
+            else {  // remove these gadgets
+                my.removeGadgets(searchGadgets);
+            }            
+        </script>
+        <div id="gadgets-search" class="gadgets-gadget-parent"></div>
+    </asp:Panel>
+
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="RightContentPlaceHolder" runat="Server">
     <div id="divSpotlight" runat="server" class="passive_container">
         <!-- Passive Networks Start -->
@@ -419,7 +473,7 @@
             </asp:Repeater>
         </div>
         <div class="passive_section_body">
-            <asp:Repeater ID="lstSearchKeywordDisplay" runat="server">
+            <asp:Repeater ID="lstSearchKeywordDisplay" OnItemDataBound="lstSearchKeywordDisplay_ItemDataBound" runat="server">
                 <HeaderTemplate>
                     <div class="menuWidgetTitleRight">
                         <b>Keywords</b></div>
@@ -431,8 +485,16 @@
                     </li>
                 </ItemTemplate>
                 <FooterTemplate>
-                    </ul></FooterTemplate>
+                    </ul>
+                    
+                    <asp:Panel id="divDirect" runat="server" Visible="false">                                            
+                        </p>
+                        </hr>
+                        <a href="direct.aspx?SearchPhrase=<%=GetKeyword()%>">Search other institutions</a>
+                    </asp:Panel>
+                </FooterTemplate>
             </asp:Repeater>
+            
         </div>
     </div>
     <div id="searchResultsPersonSummaryContainer" runat="server">
