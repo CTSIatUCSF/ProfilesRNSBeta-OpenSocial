@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/ProfilesWeb/schema
+END
+Request.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/ProfilesWeb/schema/Request.xsd
+END
+Response.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/ProfilesWeb/schema/Response.xsd
+END

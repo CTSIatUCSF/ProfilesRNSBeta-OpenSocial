@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Service/Connects.Profiles.Service.ServiceImplementation
+END
+Connects.Profiles.Service.ServiceImplementation.csproj
+K 25
+svn:wc:ra_dav:version-url
+V 197
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Service/Connects.Profiles.Service.ServiceImplementation/Connects.Profiles.Service.ServiceImplementation.csproj
+END
+NetworkBrowserService.cs
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Service/Connects.Profiles.Service.ServiceImplementation/NetworkBrowserService.cs
+END
+NetworkBrowserServiceAdapter.cs
+K 25
+svn:wc:ra_dav:version-url
+V 174
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Service/Connects.Profiles.Service.ServiceImplementation/NetworkBrowserServiceAdapter.cs
+END
+ProfileService.cs
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Service/Connects.Profiles.Service.ServiceImplementation/ProfileService.cs
+END
+ProfileServiceAdapter.cs
+K 25
+svn:wc:ra_dav:version-url
+V 167
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Service/Connects.Profiles.Service.ServiceImplementation/ProfileServiceAdapter.cs
+END

@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Connects.Profiles.BusinessLogic
+END
+NetworkBrowserBL.cs
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Connects.Profiles.BusinessLogic/NetworkBrowserBL.cs
+END
+DepartmentBL.cs
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Connects.Profiles.BusinessLogic/DepartmentBL.cs
+END
+Thumbs.db
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Connects.Profiles.BusinessLogic/Thumbs.db
+END
+FacultyBL.cs
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Connects.Profiles.BusinessLogic/FacultyBL.cs
+END
+PublicationBL.cs
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Connects.Profiles.BusinessLogic/PublicationBL.cs
+END
+BaseBL.cs
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Connects.Profiles.BusinessLogic/BaseBL.cs
+END
+RoleProviderBL.cs
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Connects.Profiles.BusinessLogic/RoleProviderBL.cs
+END
+UserBL.cs
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Connects.Profiles.BusinessLogic/UserBL.cs
+END
+ProfilesDBMembershipProviderBL.cs
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Connects.Profiles.BusinessLogic/ProfilesDBMembershipProviderBL.cs
+END
+Connects.Profiles.BusinessLogic.csproj
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Connects.Profiles.BusinessLogic/Connects.Profiles.BusinessLogic.csproj
+END
+SystemBL.cs
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Connects.Profiles.BusinessLogic/SystemBL.cs
+END
+DivisionBL.cs
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Connects.Profiles.BusinessLogic/DivisionBL.cs
+END
+ProfileSearchBL.cs
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Connects.Profiles.BusinessLogic/ProfileSearchBL.cs
+END
+BusinessLayerException.cs
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Connects.Profiles.BusinessLogic/BusinessLayerException.cs
+END
+InstitutionBL.cs
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Connects.Profiles.BusinessLogic/InstitutionBL.cs
+END
+SystemBL_HMS.cs
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Connects.Profiles.BusinessLogic/SystemBL_HMS.cs
+END
+ProfilesMembershipUserCollection.cs
+K 25
+svn:wc:ra_dav:version-url
+V 154
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Connects.Profiles.BusinessLogic/ProfilesMembershipUserCollection.cs
+END

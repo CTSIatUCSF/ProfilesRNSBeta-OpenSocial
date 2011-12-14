@@ -1,0 +1,233 @@
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/ProfilesWeb/UserControls
+END
+ucCoAuthorGrid.ascx
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/ProfilesWeb/UserControls/ucCoAuthorGrid.ascx
+END
+ucModifyNetwork.ascx
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/ProfilesWeb/UserControls/ucModifyNetwork.ascx
+END
+ucSearchList.ascx
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/ProfilesWeb/UserControls/ucSearchList.ascx
+END
+ucSameDept.ascx
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/ProfilesWeb/UserControls/ucSameDept.ascx
+END
+ucProfileRightSide.ascx
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/ProfilesWeb/UserControls/ucProfileRightSide.ascx
+END
+ucSimilarPeopleMap.ascx
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/ProfilesWeb/UserControls/ucSimilarPeopleMap.ascx
+END
+ucModifyNetwork.ascx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/ProfilesWeb/UserControls/ucModifyNetwork.ascx.cs
+END
+ucSearchList.ascx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/ProfilesWeb/UserControls/ucSearchList.ascx.cs
+END
+ucSimilarPeople.ascx
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/ProfilesWeb/UserControls/ucSimilarPeople.ascx
+END
+ucProfileRightSide.ascx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/ProfilesWeb/UserControls/ucProfileRightSide.ascx.cs
+END
+ucKeywords.ascx
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/ProfilesWeb/UserControls/ucKeywords.ascx
+END
+ucSimilarPeopleMap.ascx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/ProfilesWeb/UserControls/ucSimilarPeopleMap.ascx.cs
+END
+ucSimilarPeople.ascx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/ProfilesWeb/UserControls/ucSimilarPeople.ascx.cs
+END
+ucKeywords.ascx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/ProfilesWeb/UserControls/ucKeywords.ascx.cs
+END
+ucNeighbors.ascx
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/ProfilesWeb/UserControls/ucNeighbors.ascx
+END
+ucPersonProfileBase.ascx
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/ProfilesWeb/UserControls/ucPersonProfileBase.ascx
+END
+ucCoAuthorMap.ascx
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/ProfilesWeb/UserControls/ucCoAuthorMap.ascx
+END
+ucMiniSearch.ascx
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/ProfilesWeb/UserControls/ucMiniSearch.ascx
+END
+ucPassiveNetwork.ascx
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/ProfilesWeb/UserControls/ucPassiveNetwork.ascx
+END
+ComboTreeCheck.ascx
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/ProfilesWeb/UserControls/ComboTreeCheck.ascx
+END
+ucKeywordMap.ascx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/ProfilesWeb/UserControls/ucKeywordMap.ascx.cs
+END
+ucSearchHistory.ascx
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/ProfilesWeb/UserControls/ucSearchHistory.ascx
+END
+ComboTreeCheck.ascx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/ProfilesWeb/UserControls/ComboTreeCheck.ascx.cs
+END
+ucSearchHistory.ascx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/ProfilesWeb/UserControls/ucSearchHistory.ascx.cs
+END
+ucCoAuthorGrid.ascx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/ProfilesWeb/UserControls/ucCoAuthorGrid.ascx.cs
+END
+ucMyNetwork.ascx
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/ProfilesWeb/UserControls/ucMyNetwork.ascx
+END
+ucMyNetwork.ascx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/ProfilesWeb/UserControls/ucMyNetwork.ascx.cs
+END
+ucSameDept.ascx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/ProfilesWeb/UserControls/ucSameDept.ascx.cs
+END
+ucProfileBaseInfo.ascx
+K 25
+svn:wc:ra_dav:version-url
+V 134
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/ProfilesWeb/UserControls/ucProfileBaseInfo.ascx
+END
+ucCoAuthors.ascx
+K 25
+svn:wc:ra_dav:version-url
+V 128
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/ProfilesWeb/UserControls/ucCoAuthors.ascx
+END
+ucProfileBaseInfo.ascx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/ProfilesWeb/UserControls/ucProfileBaseInfo.ascx.cs
+END
+ucCoAuthors.ascx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/ProfilesWeb/UserControls/ucCoAuthors.ascx.cs
+END
+ucKeywordMap.ascx
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/ProfilesWeb/UserControls/ucKeywordMap.ascx
+END
+ucNeighbors.ascx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/ProfilesWeb/UserControls/ucNeighbors.ascx.cs
+END
+ucPersonProfileBase.ascx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/ProfilesWeb/UserControls/ucPersonProfileBase.ascx.cs
+END
+ucCoAuthorMap.ascx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/ProfilesWeb/UserControls/ucCoAuthorMap.ascx.cs
+END
+ucMiniSearch.ascx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/ProfilesWeb/UserControls/ucMiniSearch.ascx.cs
+END
+ucPassiveNetwork.ascx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/ProfilesWeb/UserControls/ucPassiveNetwork.ascx.cs
+END

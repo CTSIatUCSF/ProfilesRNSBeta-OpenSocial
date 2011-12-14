@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Data/Profiles.DataAccess/Profiles.DataAccess
+END
+FacultyDA.cs
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Data/Profiles.DataAccess/Profiles.DataAccess/FacultyDA.cs
+END
+XmlDataUtility.cs
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Data/Profiles.DataAccess/Profiles.DataAccess/XmlDataUtility.cs
+END
+PublicationDA.cs
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Data/Profiles.DataAccess/Profiles.DataAccess/PublicationDA.cs
+END
+RoleProviderDA.cs
+K 25
+svn:wc:ra_dav:version-url
+V 149
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Data/Profiles.DataAccess/Profiles.DataAccess/RoleProviderDA.cs
+END
+UserDA.cs
+K 25
+svn:wc:ra_dav:version-url
+V 141
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Data/Profiles.DataAccess/Profiles.DataAccess/UserDA.cs
+END
+ProfilesDBMembershipProviderDA.cs
+K 25
+svn:wc:ra_dav:version-url
+V 165
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Data/Profiles.DataAccess/Profiles.DataAccess/ProfilesDBMembershipProviderDA.cs
+END
+DataLayerException.cs
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Data/Profiles.DataAccess/Profiles.DataAccess/DataLayerException.cs
+END
+SystemDA.cs
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Data/Profiles.DataAccess/Profiles.DataAccess/SystemDA.cs
+END
+DivisionDA.cs
+K 25
+svn:wc:ra_dav:version-url
+V 145
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Data/Profiles.DataAccess/Profiles.DataAccess/DivisionDA.cs
+END
+ProfileSearchDA.cs
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Data/Profiles.DataAccess/Profiles.DataAccess/ProfileSearchDA.cs
+END
+PhotoDA.cs
+K 25
+svn:wc:ra_dav:version-url
+V 142
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Data/Profiles.DataAccess/Profiles.DataAccess/PhotoDA.cs
+END
+InstitutionDA.cs
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Data/Profiles.DataAccess/Profiles.DataAccess/InstitutionDA.cs
+END
+Connects.Profiles.Data.csproj
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Data/Profiles.DataAccess/Profiles.DataAccess/Connects.Profiles.Data.csproj
+END
+NetworkBrowserDA.cs
+K 25
+svn:wc:ra_dav:version-url
+V 151
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Data/Profiles.DataAccess/Profiles.DataAccess/NetworkBrowserDA.cs
+END
+DepartmentDA.cs
+K 25
+svn:wc:ra_dav:version-url
+V 147
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Data/Profiles.DataAccess/Profiles.DataAccess/DepartmentDA.cs
+END

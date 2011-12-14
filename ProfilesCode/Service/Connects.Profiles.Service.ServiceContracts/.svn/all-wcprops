@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Service/Connects.Profiles.Service.ServiceContracts
+END
+App.config
+K 25
+svn:wc:ra_dav:version-url
+V 148
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Service/Connects.Profiles.Service.ServiceContracts/App.config
+END
+INetworkBrowserService.cs
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Service/Connects.Profiles.Service.ServiceContracts/INetworkBrowserService.cs
+END
+Connects.Profiles.Service.ServiceContracts.csproj
+K 25
+svn:wc:ra_dav:version-url
+V 187
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Service/Connects.Profiles.Service.ServiceContracts/Connects.Profiles.Service.ServiceContracts.csproj
+END
+IProfileService.cs
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/osr/!svn/ver/1626/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Service/Connects.Profiles.Service.ServiceContracts/IProfileService.cs
+END

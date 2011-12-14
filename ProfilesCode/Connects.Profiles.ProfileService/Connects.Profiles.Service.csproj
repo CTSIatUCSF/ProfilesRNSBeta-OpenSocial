@@ -101,8 +101,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="schema\PersonList.xsd" />
-    <None Include="schema\Profiles.xsd" />
+    <None Include="schema\Request.xsd" />
+    <None Include="schema\Response.xsd" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
