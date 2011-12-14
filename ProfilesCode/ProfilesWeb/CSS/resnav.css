@@ -1,0 +1,303 @@
+body {
+	margin:0 0 10px 0;
+	padding:0px;
+}
+/*
+body {
+	background-color: #cad1d6;
+	margin:0px;
+	padding:0px;
+	color:#333;
+}
+*/
+body, td, th, textarea, select, h2, h3, h4, h5, h6 {
+	font-family: arial, sans-serif;
+	font-size: 12px;
+}
+form {
+	margin:0;
+	padding:0;
+}
+p {
+	margin:12px 0;
+}
+h1 {
+	margin:0 0 12px 0;
+	padding:3px 0px;
+	font-size:1.5em;
+	color:#274873;
+	border-bottom:#CCC dotted 2px;
+	display:block;
+	font-weight:normal;
+}
+h2 {
+	margin:0;
+	padding:0;
+	font-size:1.3em;
+	color:#4c7296;
+	font-weight:bold;
+}
+h3 {
+	margin:0;
+	padding:0;
+	font-size:1.2em;
+	color:#746a42;
+	font-weight:bold;
+}
+h4 {
+	margin:0;
+	padding:0;
+	font-weight:bold;
+}
+
+
+/*
+#header {
+	width:100%;
+	height:99px;
+	background-image: url(images/topLine.gif);
+	overflow:hidden;
+}
+#headerBox {
+	width:967px;
+	height:99px;
+	background-image: url(images/topBack.jpg);
+	overflow:hidden;
+	text-align:left;
+}
+#footer
+{
+    width: 100%;
+    height: 24px;
+    background-image: url(images/botLine.gif);
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+#footerBox
+{
+    width: 967px;
+    height: 24px;
+    background-image: url(images/botBack.gif);
+    overflow: hidden;
+}
+
+#copyright
+{
+    color: #FFF;
+    font-size: 10px;
+    text-align: right;
+    line-height: 10px;
+    padding: 10px 8px 0 0;
+}
+*/
+
+#content {
+	width:967px;
+	background-color:#FFF;
+	overflow:hidden;
+}
+#contentBox {
+	background-color:#FFF;
+	padding:9px 12px 15px 12px;
+	text-align:left;
+}
+
+.btn {
+	width:80px;
+}
+
+.formBox {
+	border:1px solid #999;
+	border-collapse:collapse;
+}
+.formHead {
+	background-color:#f0edde;
+	padding:2px 5px;
+	font-weight:bold;
+	text-align:left;
+}
+.formBody {
+	padding:10px;
+}
+
+
+#headerTop {
+	height:74px;
+	text-align:right;
+	padding:0 3px;
+	font-weight:bold;
+	color:#514c3a;
+}
+.logout {
+	background-color:#FFF;
+	padding:0 2px;
+	font-size:11px;
+	color:#514c3a;
+	text-decoration:none;
+}
+.logout:hover {
+	text-decoration:underline;
+}
+
+.headerNav {
+	height:25px;
+	overflow:hidden;
+	margin:0 3px;
+	padding:0;
+}
+.headerNav ul {
+	list-style-type:none;
+	margin:0;
+	padding:0;
+}
+.headerNav li {
+	float:left;
+	line-height:25px;
+	display:inline;
+	padding:0;
+	margin:0;
+	text-align:center;
+	color:#FFF;
+	font-weight:bold;
+	font-size:13px;
+}
+.headerNav li a {
+	color:#FFF;
+	display:block;
+	text-decoration:none;
+	padding:0 20px;
+}
+.headerNav li a:hover {
+	background-color:#b9cad6;
+}
+
+.headerRightLnk 
+{
+	color:#C21D03;	
+	text-decoration:none;
+}
+
+.headerRightLnk:hover 
+{
+	color:#C21D03;	
+	text-decoration:underline;
+}
+
+
+#contentColumns {
+	margin-bottom:10px;
+}
+#contentColumns td {
+	vertical-align:top;
+	
+}
+#sidebar {
+	width:170px;
+	border:1px solid #cccccc;
+	background-image:url(../images/sidebarBack.gif);
+	background-repeat:no-repeat;
+	text-align:left;
+	padding:10px 0px;
+}
+#contentMain {
+	padding:0 0 0 10px;
+}
+#callout {
+	width:130px;
+	border:1px solid #cccccc;
+	background-image:url(../images/calloutBack.gif);
+	background-repeat:no-repeat;
+	padding:10px;
+}
+#callout p {
+	margin:10px 0;
+}
+
+.tbl {
+	border-collapse:collapse;
+}
+.tbl th {
+	background-color:#f0edde;
+	border:1px solid #999;
+	padding:2px 8px;
+	text-align:center;
+	font-weight:bold;
+	vertical-align:middle;
+}
+.tbl td {
+	border:1px solid #999;
+	padding:2px 4px;
+}
+
+#contentMain a
+{
+    color: #3366cc;
+    text-decoration: none;
+    font-family: Arial, Sans-Serif;
+    font-size: 12px;
+}
+
+#contentMain a:hover
+{
+    color: #3366cc;
+    text-decoration: underline;
+}
+
+
+#sidebar ul {
+	list-style-type:none;
+	margin:0;
+	padding:0;
+}
+#sidebar li {
+	line-height:12px;
+	text-indent: -10px;
+	color:#5d7098;
+	margin-bottom:10px;
+}
+#sidebar li a {
+	color:#4a5c7e;
+	text-decoration:none;
+}
+#sidebar li a:hover {
+	text-decoration:underline;
+}
+.sidebarCurrentPage {
+	color:#2f5a8f;
+	font-weight:bold;
+}
+
+.topMost 
+{
+	z-index:2000;
+}
+
+.notesPopup
+{
+	background-color: #e7e7e7;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #000000;
+	max-width:400px;
+	max-height: 400px;
+	width:300px;
+	overflow-x:none;
+	overflow-y:scroll;
+}
+
+.modalPopup
+{
+	background-color: #ffffff;
+	border-width: 1px;
+	border-style: solid;
+	border-color: Gray;
+	max-height:600px;
+/*	height: 400px;*/
+}
+
+#pnlMenu
+{
+	margin-left: 8px;
+	margin-right: 8px;	
+}

@@ -1,0 +1,422 @@
+
+/* People Profile Style Sheet*/
+#sidebarTop
+{
+    padding: 0 10px;
+}
+
+.searchResultsTable
+{
+    border-collapse: collapse;
+    margin: 15px;
+    border: 1px solid #999;
+}
+.searchResultsTable th
+{
+    background-color: #f0edde;
+    padding: 2px 8px;
+    text-align: center;
+    font-weight: bold;
+    vertical-align: middle;
+}
+.searchResultsTable th a
+{
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+}
+.searchResultsTable th a:hover
+{
+    text-decoration: underline;
+}
+.searchResultsTable td
+{
+    padding: 2px 4px;
+    text-align: center;
+}
+.searchResultsTableHeader
+{
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+}
+.searchResultsTableHeader:hover
+{
+    text-decoration: underline;
+}
+
+.mainTable
+{
+    border-collapse: collapse;
+    margin-bottom: 15px;
+    border: 1px solid #999;
+}
+.mainTable th
+{
+    background-color: #f0edde;
+    border: 1px solid #999;
+    padding: 2px 8px;
+    text-align: center;
+    font-weight: bold;
+    vertical-align: middle;
+}
+.mainTable td
+{
+    border: 1px solid #999;
+    padding: 2px 4px;
+    text-align: center;
+}
+.institution
+{
+    display: block;
+    text-align: left;
+}
+.institutionLink
+{
+    text-decoration: none;
+    color: #333;
+    text-align: left;
+    display: block;
+}
+.institutionLink:hover
+{
+    text-decoration: underline;
+    color: #36c;
+    cursor: pointer;
+}
+
+
+/* Grid View*/
+.grid-viewHover
+{
+    background-color: #5b7098;
+    color: #FFFFFF;
+}
+
+.grid-view
+{
+    padding: 0;
+    margin: 0;
+    border: 1px solid #333;
+    font-family: "Verdana, Arial, Helvetica, sans-serif, Trebuchet MS";
+    font-size: 0.9em;
+}
+
+.grid-view tr.header
+{
+    color: Black;
+    background-color: #f0edde;
+    height: 25px;
+    vertical-align: middle;
+    text-align: center;
+    font-weight: bold;
+}
+
+.grid-view tr.alternate
+{
+    color: White;
+    background-color: #5B7098;
+    height: 25px;
+    vertical-align: middle;
+    text-align: left;
+}
+
+.grid-viewText
+{
+    text-decoration: none;
+    color: #333;
+    display: block;
+}
+.grid-view:hover
+{
+    text-decoration: none;
+    display: block;
+    background-color: #5b7098;
+    color: #ffffff;
+}
+
+.pagerstyle tr td
+{
+    border-style: none;
+}
+
+.pagerstyle a
+{
+    text-decoration: none;
+    color: #333;
+    display: block;
+}
+.pagerstyle:hover
+{
+    text-decoration: underline;
+    color: #36c;
+}
+
+.LineSeparator
+{
+    margin-top: 10px;
+    height: 10px;
+    border-top-color: #cccccc;
+    border-top-style: dotted;
+    border-top-width: 2px;
+}
+
+.LineSeparatorRight
+{
+    padding-top: 10px;
+    border-top-color: #cccccc;
+    border-top-style: dotted;
+    border-top-width: 2px;
+}
+
+.LineSeperatorRightTop
+{
+    margin-top: 10px;
+}
+
+/* Master Page Mini SearchForm*/
+
+.tblMinisearch td
+{
+    text-align: center;
+}
+.tblMinisearch th
+{
+    color: black;
+    font-weight: bold;
+    text-align: left;
+}
+.tblMinisearch Button
+{
+    vertical-align: middle;
+}
+
+
+/* Collapsible Panel styles*/
+
+.collapsePanel
+{
+    width: 172px;
+    height: 0px;
+    overflow: hidden;
+}
+
+.collapsePanelHeader
+{
+    width: 172px;
+    height: 17px;
+    color: black;
+    background-color: #cedbe9;
+    font-weight: bold;
+    padding: 4px 0px 2px;
+    cursor: pointer;
+}
+
+.BorderTopLines
+{
+    width: 172px;
+    border-top: 1px solid #999;
+}
+
+
+/* ProfileInfo Page Styles*/
+.ProfileContent
+{
+    width: 700px;
+}
+
+.Borders
+{
+    border: 1px solid #999;
+}
+
+/*Profile Details hyperlinks*/
+.NormalText
+{
+    font-weight: bold;
+    color: Black;
+    cursor: default;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.hypLinks
+{
+    text-decoration: none;
+    color: #36c;
+    text-align: left;
+    display: inline-block;
+}
+
+.hypLinks:hover
+{
+    text-decoration: underline;
+    color: #36c;
+    cursor: pointer;
+}
+
+/* SPOT LIGHT: ASP Repeater */
+.spotlightTopLine
+{
+    border-top: solid 1px #CCC;
+    margin: 8px 0px 8px 0px;
+    padding-top: 18px;
+}
+
+.spotlight td
+{
+    width: 165px;
+}
+
+.spotlight th
+{
+    width: 70px;
+}
+
+/*Search List*/
+
+.SearchList
+{
+    width: 100%;
+}
+
+.SearchList td
+{
+    xwidth: 100px;
+    padding: 1px 10px 0px 1px;
+}
+
+.SearchList td a
+{
+    text-decoration: none;
+    color: #333;
+    text-align: left;
+    display: inline-block;
+}
+.SearchList td a:hover
+{
+    text-decoration: underline;
+    color: #36c;
+}
+
+.SearchListLink
+{
+    text-decoration: none;
+    color: #36c;
+    text-align: left;
+    display: inline-block;
+}
+
+.SearchListLink:hover
+{
+    text-decoration: underline;
+    color: #36c;
+}
+
+.LeftNavLink
+{
+    text-decoration: none;
+    color: #36c;
+    text-align: center;
+    display: inline-block;
+}
+
+.LeftNavLink:hover
+{
+    text-decoration: underline;
+    color: #36c;
+}
+
+/*AJAX Client Error Message  */
+#ErrBox
+{
+    left: 40%;
+    top: 40%;
+    position: absolute;
+    width: 200px;
+    padding: 12px;
+    border: #000000 1px solid;
+    background-color: white;
+    text-align: left;
+    visibility: hidden;
+    z-index: 99;
+}
+#ErrButtons
+{
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+}
+
+
+/*Grid Theme Styles*/
+.gridHover
+{
+    background-color: #5b7098;
+    color: #ffffff;
+    cursor: pointer;
+    
+}
+
+.gridHover a
+{
+    background-color: #ffffff;
+}
+
+.hiddenColumn
+{
+    display: none;
+}
+
+.lblBold
+{
+    font-weight: bold;
+}
+
+.grdTopMargin
+{
+    margin-top: 8px;
+}
+
+.profileHypLinks
+{
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+
+
+/*PubMed Styles*/
+
+.textBoxSmall
+{
+    width: 75px;
+}
+
+.textBoxBig
+{
+    width: 250px;
+}
+
+.textBoxBigger
+{
+    width: 550px;
+}
+
+.pubHeader
+{
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.pubSubHeader
+{
+    font-weight: bold;
+    color: #666666;
+}
+
+.pubSubSpacer
+{
+    margin-top: 10px;    
+}

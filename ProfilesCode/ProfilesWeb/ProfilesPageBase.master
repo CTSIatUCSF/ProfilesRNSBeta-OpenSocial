@@ -1,0 +1,62 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="ProfilesPageBase.master.cs"
+    Inherits="ProfilesPageBase" %>
+
+<%--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">--%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<?xml version="1.0" encoding="utf-8" ?>
+<html>
+<head id="Head1" runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title></title>
+     <!--[if IE 6]>
+    <link rel="stylesheet" type="text/css" href="CSS/IEmasterLayout.css" />
+    <![endif]-->
+    <!--[if !IE]><!-->
+    <link rel="stylesheet" type="text/css" href="CSS/masterLayout.css" />
+    <!--<![endif]-->
+    <!--[if gte IE 7]><!-->
+    <link rel="stylesheet" type="text/css" href="CSS/masterLayout.css" />
+    <!--<![endif]-->
+    <asp:ContentPlaceHolder ID="HeadContentPlaceHolder" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body id="bodyMaster" runat="server">
+    <div id="page-container" >
+        <asp:ContentPlaceHolder ID="heading" runat="server">
+        </asp:ContentPlaceHolder>
+        <div class="colmask holygrail" id="divContainer" runat="server" >
+            <div class="col13top">
+                <div class="col13topSpace" id="divCol13topSpace" runat="server">
+                </div>
+            </div>
+            <!-- Start Container -->
+            <div class="colmid">
+            <div class="colleft">
+                    <form id="formMain" runat="server">
+                    <asp:ContentPlaceHolder ID="container" runat="server">
+                    </asp:ContentPlaceHolder>
+                    <div class="col1wrap">
+                        <div class="col1" runat="server" id="divCol1">
+                            <asp:ContentPlaceHolder ID="middle" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </div>
+                    </div>
+                    <div class="col2" runat="server" id="divCol2">
+                        <asp:ContentPlaceHolder ID="left" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                    <div class="col3" runat="server" id="divCol3">
+                        <asp:ContentPlaceHolder ID="right" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- End Container -->
+        <div class="main_container_bottom" id="divMainContainerBottom" runat="server"></div>
+        <asp:ContentPlaceHolder ID="footer" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+</body>
+</html>

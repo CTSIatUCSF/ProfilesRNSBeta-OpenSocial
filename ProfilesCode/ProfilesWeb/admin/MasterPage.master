@@ -1,0 +1,72 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server" />
+    <link rel="Stylesheet" type="text/css" href="../CSS/admin.css" />
+<%--    <link rel="stylesheet" type="text/css" href="../JQuery/ui.dropdownchecklist.css" />
+    <script type="text/javascript" src="../JQuery/jquery.js"></script>
+    <script type="text/javascript" src="../JQuery/ui.core.js"></script>
+    <script type="text/javascript" src="../JQuery/ui.dropdownchecklist.js"></script>
+--%> 
+</head>
+<body>
+    <form id="form1" runat="server">
+    <h1 class="title">ADMIN SCREEN</h1>
+        <table cellpadding="0" cellspacing="0" class="shadowPanel">
+            <tr class="top">
+                <td class="left">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td class="right">&nbsp;</td>
+            </tr>
+            <tr class="middle">
+                <td class="left">&nbsp;</td>
+                <td class="center">
+                    <div class="tabs">
+                        <table cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td>
+                                    <asp:Panel ID="pLinks" runat="server">
+                                        <table cellpadding="0" cellspacing="0" class="leftTabs">
+                                            <tr>
+                                                <td>
+                                                    <a href="AllUsers.aspx" id="hlUsers" runat="server">Users</a>
+                                                </td>
+                                                <td>
+                                                    <a href="AllRoles.aspx" id="hlRoles" runat="server">Roles</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </asp:Panel>
+                                </td>
+                                <td>
+                                    <table cellpadding="0" cellspacing="0" class="rightTabs" align="right">
+                                        <tr>
+                                            <th>
+                                                <asp:HyperLink ID="hlMyProf" runat="server" Text="My Profile" />
+                                            </th>
+                                            <td>
+                                                <asp:LoginStatus runat="server" ID="loginStatus" OnLoggedOut="logout_clicked" LogoutAction="RedirectToLoginPage" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server" />
+                </td>
+                <td class="right">&nbsp;</td>
+            </tr>
+            <tr class="bottom">
+                <td class="left">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td class="right">&nbsp;</td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

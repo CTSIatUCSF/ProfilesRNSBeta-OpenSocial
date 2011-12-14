@@ -1,0 +1,20 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Connects.Profiles.Service.ServiceImplementation.NetworkBrowserService" Factory="Connects.Profiles.Service.AppServiceHostFactory" %>
+using System;
+using System.ServiceModel;
+using System.ServiceModel.Activation;
+using Microsoft.ServiceModel.Web;
+
+namespace Connects.Profiles.Service
+{
+  class AppServiceHostFactory : ServiceHostFactory
+  {
+    protected override ServiceHost CreateServiceHost(Type serviceType, Uri[] baseAddresses)
+    {
+        try
+        {
+            return new WebServiceHost2(serviceType, true, baseAddresses);
+        }
+        catch (Exception ex) { throw ex; }
+    }
+  }
+}

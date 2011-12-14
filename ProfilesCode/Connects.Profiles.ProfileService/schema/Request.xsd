@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 rel. 3 sp1 (x64) (http://www.altova.com) by Griffin Weber (Harvard Medical School) -->
+<xsd:schema xmlns="http://connects.profiles.schema/profiles/query" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://connects.profiles.schema/profiles/query">
+	<xsd:simpleType name="ST_OutputFilter">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
+	<xsd:simpleType name="ST_InstitutionName">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Allied Institutions"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ST_DepartmentName">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Administration and Finance"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:element name="QueryDefinition">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="PersonID" minOccurs="0"/>
+				<xsd:element ref="Name" minOccurs="0"/>
+				<xsd:element ref="PersonFilterList" minOccurs="0"/>
+				<xsd:element ref="AffiliationList" minOccurs="0"/>
+				<xsd:element ref="Keywords" minOccurs="0"/>
+				<xsd:element ref="FacultyRankList" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="PersonID">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string"/>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="Profiles">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="QueryDefinition" minOccurs="0"/>
+				<xsd:element ref="OutputOptions"/>
+			</xsd:sequence>
+			<xsd:attribute name="Operation" use="required">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string"/>
+				</xsd:simpleType>
+			</xsd:attribute>
+			<xsd:attribute name="Version" use="required">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:int">
+						<xsd:enumeration value="2"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="PersonFilterList">
+		<xsd:complexType/>
+	</xsd:element>
+	<xsd:element name="OutputOptions">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="OutputFilterList" minOccurs="0"/>
+			</xsd:sequence>
+			<xsd:attribute name="StartRecord">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:int"/>
+				</xsd:simpleType>
+			</xsd:attribute>
+			<xsd:attribute name="SortType">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string"/>
+				</xsd:simpleType>
+			</xsd:attribute>
+			<xsd:attribute name="MaxRecords">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:int"/>
+				</xsd:simpleType>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="OutputFilterList">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="OutputFilter" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="OutputFilter">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="ST_OutputFilter">
+					<xsd:attribute name="Summary" type="xsd:boolean" use="required"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Name">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="LastName"/>
+				<xsd:element ref="FirstName"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="LastName">
+		<xsd:complexType mixed="true">
+			<xsd:attribute name="MatchType" use="required">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string"/>
+				</xsd:simpleType>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Keywords">
+		<xsd:complexType mixed="true">
+			<xsd:sequence>
+				<xsd:element ref="KeywordString"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="KeywordString">
+		<xsd:complexType mixed="true">
+			<xsd:attribute name="MatchType" use="required">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string"/>
+				</xsd:simpleType>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="FirstName">
+		<xsd:complexType mixed="true"/>
+	</xsd:element>
+	<xsd:element name="FacultyRankList">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="FacultyRank"/>
+			</xsd:sequence>
+			<xsd:attribute name="ExcludeVisiting" type="xsd:boolean" use="required"/>
+			<xsd:attribute name="ExcludeFullTime" type="xsd:boolean" use="required"/>
+			<xsd:attribute name="ExcludeEmeritus" type="xsd:boolean" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="FacultyRank">
+		<xsd:complexType mixed="true"/>
+	</xsd:element>
+	<xsd:element name="AffiliationList">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="Affiliation"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Affiliation">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="InstitutionName" minOccurs="0"/>
+				<xsd:element ref="DepartmentName" minOccurs="0"/>
+			</xsd:sequence>
+			<xsd:attribute name="Primary" type="xsd:boolean" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="InstitutionName">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="ST_InstitutionName">
+					<xsd:attribute name="Exclude" type="xsd:boolean" use="required"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="DepartmentName">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="ST_DepartmentName">
+					<xsd:attribute name="Exclude" type="xsd:boolean" use="required"/>
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>
