@@ -2,7 +2,7 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<head id="Head1" runat="server">
     <title></title>
     <link rel="stylesheet" type="text/css" href="CSS/People.css" />
     <link rel="stylesheet" type="text/css" href="CSS/resnav.css" />
@@ -46,7 +46,9 @@
             similar to
             <asp:Label ID="lblPerson" runat="server"></asp:Label><br />
             <span style="color: #00C; font-weight: bold;">Blue lines</span> connect people who
-            have published papers together.</div>
+            have published papers together.<br />
+	    Please note: we are working to improve the address data for the map view. You may see errors on 
+            these maps.</div>
         <div style="background-color: #999; width: 552px; height: 1px; overflow: hidden;
             margin: 5px 0px;">
         </div>

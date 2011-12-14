@@ -1,0 +1,167 @@
+/* $Id $ */
+/* www.roopletheme.com */
+
+/* another son of suckerfish...
+http://www.htmldog.com/articles/suckerfish/dropdowns/
+http://www.alistapart.com/articles/horizdropdowns
+*/
+
+#suckerfish-container {
+	margin: 0 auto; /* center page */
+	text-align: left; /* overrides text-align: center */
+}
+* html #suckerfish-container { margin-top: -5px; }
+*+html #suckerfish-container { margin-top: -5px; }
+
+#suckerfishmenu { width: 100%; background: #659191;  /* VH */
+	float: right;
+}
+
+#suckerfishmenu h2 {
+	display: none;
+}
+
+#suckerfishmenu	.block {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+#suckerfishmenu	.block, #suckerfishmenu	.box {
+  padding: 0;
+}
+
+#suckerfishmenu	h2.title {
+  display: inline;
+}
+
+#suckerfishmenu	 {
+  line-height: 30px;
+}
+
+#suckerfishmenu	 ul.menu { /* top level ul */
+  padding: 0 0 0 0px;
+  list-style: none;
+  z-index: 100;
+  display: inline;
+} 
+
+/* VH active-trail */
+#suckerfishmenu li.active-trail a { background: #558282; } 
+#suckerfishmenu li.active-trail a { background: #457272; } 
+#suckerfishmenu li.active-trail a:active,
+#suckerfishmenu li.active-trail a:hover { background: #75A2A2; }
+#suckerfishmenu li.active-trail a.active { background: #558282; } 
+#suckerfishmenu li.active-trail li.active-trail a { background: #558282; }  
+#suckerfishmenu li.active-trail a.active { background: #457272; } 
+#suckerfishmenu li.active-trail li.active-trail a { background: #457272; }  
+#suckerfishmenu li.active-trail li.active-trail a:active,
+#suckerfishmenu li.active-trail li.active-trail a:hover { background: #75A2A2; }
+#suckerfishmenu li.active-trail li a { background: #659191; }  
+#suckerfishmenu li.active-trail li a:active,
+#suckerfishmenu li.active-trail li a:hover { background: #75A2A2; }
+
+#suckerfishmenu	 a {
+  display: block;
+  padding: 0px 12px; /* padding between menu elements */
+  padding: 0px 20px; /* padding between menu elements */
+  margin: 0;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1em; color: #FFF;  /* VH */
+  background: #659191; 
+}
+
+#suckerfishmenu	 a:active,
+#suckerfishmenu	 a:hover {
+  text-decoration: none;
+  background: #75A2A2;           /* VH */
+}
+
+#suckerfishmenu	 li {
+  display: inline;
+  float: left;
+  margin: 0;
+  padding: 0;
+  height: 1%;
+  font-variant: normal;
+  border-right: 1px solid #AAAA99;  /* Profiles */
+}
+ 
+/* second-level lists */
+
+#suckerfishmenu	 ul.menu ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  border-right: none;
+}
+
+#suckerfishmenu	 ul.menu li ul {
+  position: absolute;
+  width: 181px;
+  left: -999em; /* to hide menus because display: none isn't read by screen readers */
+}
+
+
+#suckerfishmenu	 ul.menu li li {
+  /* height: auto; */
+  float: right;
+  width: 181px;
+}
+
+
+#suckerfishmenu	 ul.menu li li a:link,
+#suckerfishmenu	 ul.menu li li a:visited {
+  font-weight: normal;
+  width: 181px;
+}
+
+#suckerfishmenu	 ul.menu li li {
+}
+
+#suckerfishmenu	 ul.menu li ul a {
+  padding: 3px 0 4px 20px;
+  width: 181px;
+  line-height: 1.3em;
+}
+
+#suckerfishmenu	 ul.menu li ul a:active,
+#suckerfishmenu	 ul.menu li ul a:hover {
+  text-decoration: none;
+}
+
+/* margin for pullouts */
+#suckerfishmenu	 ul.menu li ul ul {
+  margin: -24px 0 0 181px;
+}
+
+#suckerfishmenu	 ul.menu li:hover ul ul, #suckerfishmenu	 ul.menu li:hover ul ul ul, #suckerfishmenu	 ul.menu li.sfhover ul ul, #suckerfishmenu	 ul.menu li.sfhover ul ul ul {
+  left: -999em;
+}
+
+#suckerfishmenu	 ul.menu li:hover ul, #suckerfishmenu	 ul.menu li li:hover ul, #suckerfishmenu	 ul.menu li li li:hover ul, #suckerfishmenu	 ul.menu li.sfhover ul, #suckerfishmenu	 ul.menu li li.sfhover ul, #suckerfishmenu	 ul.menu li li li.sfhover ul {
+  left: auto;
+}
+
+
+/** added code to remove arrow from 3rd level http://www.roopletheme.com/forum/index.php?topic=631.0 */
+
+#suckerfishmenu	 ul.menu li ul ul ul{
+  margin: -24px 0 0 181px;
+}
+
+#suckerfishmenu	 ul.menu ul li:hover ul ul, #suckerfishmenu	 ul.menu ul li:hover ul ul ul, #suckerfishmenu	 ul.menu ul li.sfhover ul ul, #suckerfishmenu	 ul.menu ul li.sfhover ul ul ul {
+  left: -999em;
+}
+
+#suckerfishmenu	 ul.menu ul li:hover ul, #suckerfishmenu	 ul.menu ul li li:hover ul, #suckerfishmenu	 ul.menu ul li li li:hover ul, #suckerfishmenu	 ul.menu ul li.sfhover ul, #suckerfishmenu	 ul.menu ul li li.sfhover ul, #suckerfishmenu	 ul.menu ul li li li.sfhover ul {
+  left: auto;
+}
+/* VH display only 1st level dropdown 
+#suckerfishmenu ul.menu ul.menu li.expanded a { width: 155px; padding-right: 20px }
+*/
+#suckerfishmenu ul.menu li li li { display: none; } 
+
+/* #suckerfishmenu li.active-trail a,    VH */
+#suckerfishmenu ul.menu li ul.menu li.active-trail a  { background-color: #558282; }
+#suckerfishmenu ul.menu li ul.menu li.active-trail a  { background-color: #457272; }
+

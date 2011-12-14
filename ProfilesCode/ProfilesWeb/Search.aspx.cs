@@ -1,18 +1,8 @@
-﻿/*  
- 
-    Copyright (c) 2008-2010 by the President and Fellows of Harvard College. All rights reserved.  
-    Profiles Research Networking Software was developed under the supervision of Griffin M Weber, MD, PhD.,
-    and Harvard Catalyst: The Harvard Clinical and Translational Science Center, with support from the 
-    National Center for Research Resources and Harvard University.
-
-
-    Code licensed under a BSD License. 
-    For details, see: LICENSE.txt 
-  
-*/
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Common;
+using Microsoft.Practices.EnterpriseLibrary.Data;
 using System.Web.Script.Services;
 using System.Web.Services;
 using System.Web.UI;
@@ -20,8 +10,6 @@ using System.Web.UI.WebControls;
 using Connects.Profiles.BusinessLogic;
 using Connects.Profiles.Service.DataContracts;
 using Connects.Profiles.Utility;
-using Microsoft.Practices.EnterpriseLibrary.Data;
-using System.Data.Common;
 
 public partial class Search : BasePage
 {
@@ -35,6 +23,7 @@ public partial class Search : BasePage
     protected bool _pagejumpchange = false;
     protected bool _rebound = false;
     private Random _myRandom = new Random();
+    private bool _newsVisible = true;
 
     // Profiles OpenSocial Extension by UCSF 
     public List<Int32> OS_personIds = null;
@@ -55,13 +44,18 @@ public partial class Search : BasePage
 
             Session["ProfileSearchRequestCriteriaList"] = new List<string>();
 
+            LoadPersonFilter();
+
             // Profiles OpenSocial Extension by UCSF
             OpenSocialHelper os = SetOpenSocialHelper(Profile.UserId, -1, Page);
             os.RemovePubsubGadgetsWithoutData();
             GenerateOpensocialJavascipt();
-
-            LoadPersonFilter();
         }
+        // Default to showNews // Eric Meeks
+        ShowNews();
+        string logMeIn = System.Configuration.ConfigurationManager.AppSettings["LoginURL"].ToString() + "?EditMyProfile=true";
+        hypLogMeIn2.NavigateUrl = logMeIn;
+        hypLogMeIn3.NavigateUrl = logMeIn;
     }
     #endregion
 
@@ -80,12 +74,6 @@ public partial class Search : BasePage
         ddlInstitution.DataBind();
         ddlInstitution.Items.Insert(0, new ListItem("--Select--"));
         ddlInstitution.Items[0].Selected = true;
-
-        ddlDivision.DataSource = new DivisionBL().GetDivisions();
-        ddlDivision.DataTextField = "DivisionName";
-        ddlDivision.DataBind();
-        ddlDivision.Items.Insert(0, new ListItem("--Select--"));
-        ddlDivision.Items[0].Selected = true;
 
         ddlFacultyRank.DataSource = new FacultyBL().GetFacultyRanks();
         ddlFacultyRank.DataTextField = "FacultyRank";
@@ -195,31 +183,18 @@ public partial class Search : BasePage
             ((GridView)sender).BottomPagerRow.Visible = true;
     }
 
-    protected void lstSearchKeywordDisplay_ItemDataBound(object sender, RepeaterItemEventArgs e)
+    protected void lstSearchKeywordDisplay_ItemDataBound(object sender, EventArgs e)
     {
-        if ((e.Item.ItemType == ListItemType.Item) || ((e).Item.ItemType == ListItemType.AlternatingItem))
+        if ((((DataListItemEventArgs)e).Item.ItemType == ListItemType.Item) || (((DataListItemEventArgs)e).Item.ItemType == ListItemType.AlternatingItem))
         {
-            DataList dlKeywords = ((DataList)(e).Item.FindControl("lstKeywordMatchMeshHeader"));
+            DataList dlKeywords = ((DataList)((DataListItemEventArgs)e).Item.FindControl("lstKeywordMatchMeshHeader"));
 
             if (dlKeywords != null)
             {
-                dlKeywords.DataSource = ((MatchingKeyword)(e).Item.DataItem).MatchingMeshHeader;
+                dlKeywords.DataSource = ((MatchingKeyword)((DataListItemEventArgs)e).Item.DataItem).MatchingMeshHeader;
                 dlKeywords.DataBind();
             }
         }
-
-        if ((e).Item.ItemType == ListItemType.Footer)
-        {
-            try
-            {
-                Panel direct = ((Panel)(e).Item.FindControl("divDirect"));
-                if (ConfigUtil.GetConfigItem("DirectServiceURL") != null)
-                    direct.Visible = true;
-            }
-            catch (Exception ex) { }
-        }
-
-
 
     }
 
@@ -488,20 +463,6 @@ public partial class Search : BasePage
             searchReq.QueryDefinition.AffiliationList.Affiliation[0].InstitutionName.Exclude = chkInstitution.Checked;
         }
 
-        // Division Selection
-        if (ddlDivision.SelectedIndex != 0)
-        {
-            AffiliationDivisionName affilDivname = new AffiliationDivisionName();
-            affilDivname.Text = ddlDivision.SelectedItem.Text;
-            searchReq.QueryDefinition.AffiliationList.Affiliation[0].DivisionName = affilDivname;
-
-            // Set the appropriate message on the right 
-            ((List<string>)Session["ProfileSearchRequestCriteriaList"]).Add(chkInstitution.Checked == true ? "All except " + affilDivname.Text : affilDivname.Text);
-
-            searchReq.QueryDefinition.AffiliationList.Affiliation[0].DivisionName.Exclude = chkDivision.Checked;
-        }
-
-
         // Department Selection
         if (ddlDepartment.SelectedIndex != 0)
         {
@@ -568,12 +529,9 @@ public partial class Search : BasePage
 
                 searchReq.QueryDefinition.Keywords.KeywordString.Text = keywordString;
 
-
                 ((List<string>)Session["ProfileSearchRequestKeywordList"]).Add(keywordString);
             }
         }
-
-        searchReq.Version = 2;
 
         // Save the search request into a session object so that the 
         // object data source can use it during the Select event
@@ -616,19 +574,11 @@ public partial class Search : BasePage
 
             AffiliationInstitutionName affilInstname = new AffiliationInstitutionName();
             affilInstname.Text = inst;
-            profiles.QueryDefinition.AffiliationList.Affiliation[0].InstitutionName = affilInstname;            
+            profiles.QueryDefinition.AffiliationList.Affiliation[0].InstitutionName = affilInstname;
             ((List<string>)Session["ProfileSearchRequestCriteriaList"]).Add(inst);
         }
-        // Division Selection
-        if (Request.QueryString["Division"] != null)
-        {
-            string inst = this.HTMLEncode(Request.QueryString["Division"].ToString().Trim());
 
-            AffiliationDivisionName affilDivname = new AffiliationDivisionName();
-            affilDivname.Text = inst;
-            profiles.QueryDefinition.AffiliationList.Affiliation[0].DivisionName = affilDivname;
-            ((List<string>)Session["ProfileSearchRequestCriteriaList"]).Add(inst);
-        }
+
         // Department Selection
         if (Request.QueryString["DeptName"] != null)
         {
@@ -646,8 +596,6 @@ public partial class Search : BasePage
             profiles.QueryDefinition.Keywords.KeywordString.Text = keyword;
             ((List<string>)Session["ProfileSearchRequestKeywordList"]).Add(keyword);
         }
-
-        profiles.Version = 2;
 
         // Save the search request into a session object so that the 
         // object data source can use it during the Select event
@@ -677,7 +625,7 @@ public partial class Search : BasePage
         // Keywords
         if (keywordString.Length > 0)
         {
-            profiles.QueryDefinition.Keywords.KeywordString.Text = keywordString;
+            profiles.QueryDefinition.Keywords.KeywordString.Text =  keywordString;
             //if there is a space char in the string, then its a group of words coming from the Most Viewed..
             if (keywordString.Trim().Contains(" "))
             {
@@ -686,8 +634,6 @@ public partial class Search : BasePage
             // Add the searched keyword to the right side of the page
             ((List<string>)Session["ProfileSearchRequestKeywordList"]).Add(keywordString);
         }
-
-        profiles.Version = 2;
 
         // Save the search request into a session object so that the 
         // object data source can use it during the Select event
@@ -734,8 +680,6 @@ public partial class Search : BasePage
 
             ((List<string>)Session["ProfileSearchRequestCriteriaList"]).Add(affilDeptname.Text);
         }
-
-        profiles.Version = 2;
 
         // Save the search request into a session object so that the 
         // object data source can use it during the Select event
@@ -798,6 +742,7 @@ public partial class Search : BasePage
 
     private void BindSearchResults(int initialPage)
     {
+        XmlUtilities.logit("Binding search results, page " + initialPage);
         LtMsg.Visible = false;
         LtMsg.Text = "";
 
@@ -805,7 +750,9 @@ public partial class Search : BasePage
         Cache.Remove(profilesObjDataSource.CacheKeyDependency);
 
         // Tell the grid to bind the data
+        XmlUtilities.logit("Start Data Bind");
         grdSearchResults.DataBind();
+        XmlUtilities.logit("Finish Data Bind");
 
         if (grdSearchResults.BottomPagerRow != null)
             grdSearchResults.BottomPagerRow.Visible = true;
@@ -827,7 +774,7 @@ public partial class Search : BasePage
         {
             LtMsg.Visible = true;
             LtMsg.Text = "<span style='color:#990000; font-weight:bold'>" +
-                (OpenSocial() != null && GetKeyword() != null && OpenSocial().IsVisible() && GetKeyword().Length > 0 && !HasAdditionalSearchCriteria() ?
+                (OpenSocial() != null && GetKeyword() != null && OpenSocial().IsVisible() && GetKeyword().Length > 0 && !HasAdditionalSearchCriteria() ? 
                 "No keyword matches found.  Please check Full Text Search results below." :
                 "No matching people could be found. Please check your entry and try again.") + "</span>";
 
@@ -840,27 +787,42 @@ public partial class Search : BasePage
         {
             if ((grdSearchResults.Rows.Count < this.grdSearchResults.PageSize) && this.grdSearchResults.PageIndex == 0 && !_rebound && NotFromQuickSearch() && Request["From"] == null)
             {
+                XmlUtilities.logit("Attempting to rebind search");
+                /*
                 _rebound = true;
-
-
-                try { if (Request["page"].ToString() != "0") { ProcessProfileSearch(); } }
-                catch { ProcessProfileSearch(); }
-
-
+                try 
+                { 
+                    if (Request["page"].ToString() != "0") 
+                    { 
+                        ProcessProfileSearch(); 
+                    } 
+                }
+                catch 
+                { 
+                    ProcessProfileSearch(); 
+                }
+                 */
             }
 
             _rebound = false;
 
             pnlSearchResults.Visible = true;
             pnlSearch.Visible = false;
+            pnlNationalSearch.Visible = false;
             divSpotlight.Visible = false;
             divSearchCriteria.Visible = true;
 
             ShowRightColumn();
             ShowSearchCriteria();
+			//Eric Meeks
+            ShowMiniSearch(true);
+            // turn off news
+            _newsVisible = false;
+            ShowNews();
 
             searchResultsPersonSummaryContainer.Visible = true;
         }
+        XmlUtilities.logit("Finished binding search results");
 
         Session["BackPage"] = String.Format("~/Search.aspx?page={0}", Convert.ToString(Session["ProfileSearchResultsPage"]));
         //lnkSelectSort.Text = "Sort By " + GetSortTextFromEnum(((Profiles)Session["ProfileSearchRequest"]).OutputOptions.SortType);
@@ -904,25 +866,7 @@ public partial class Search : BasePage
 
     }
 
-    public string GetKeyword()
-    {
-               
-      
-
-        string keyword = "";
-
-        if (this.txtKeyword.Text.Length > 0)
-            keyword = this.txtKeyword.Text;
-        else if (Session["ProfileSearchRequestKeywordList"] != null)
-        {
-            if (((List<string>)Session["ProfileSearchRequestKeywordList"]).Count > 0)
-                keyword = ((List<string>)Session["ProfileSearchRequestKeywordList"])[0];
-        }
-
-      
-        return keyword;
-    }
-
+    /** Eric Meeks
     private void ShowMiniSearch(bool visible)
     {
         //Find Control in Masterpage
@@ -930,6 +874,13 @@ public partial class Search : BasePage
 
         // Refresh the update panel
         RefreshUpdatePanel("upnlMinisearch");
+    }
+    **/
+
+    // Eric Meeks
+    private void ShowNews()
+    {
+        ((System.Web.UI.Control)Master.Master.FindControl("left").FindControl("divLeftNews")).Visible = _newsVisible;
     }
 
     private void SetInitialPage()
@@ -941,7 +892,7 @@ public partial class Search : BasePage
         Session["PersonIsMy"] = "This Person";
 
         FillDropdownLists();
-        ltHeader.Text = "Search";
+        ltHeader.Text = "Find people by research topic";
 
         // Hide min-search section
         ((System.Web.UI.Control)Master.Master.FindControl("left").FindControl("divLeftTop")).Visible = false;
@@ -952,17 +903,13 @@ public partial class Search : BasePage
         // Hide institution if specified in web.config
         rowInstitution.Visible = !Convert.ToBoolean(ConfigUtil.GetConfigItem("HideInstitutionSelectionForSearch"));
 
-        // Hide department if specified in web.config
-        rowDepartment.Visible = !Convert.ToBoolean(ConfigUtil.GetConfigItem("HideDepartmentSelectionForSearch"));
-
-        // Hide division if specified in web.config
-        rowDivision.Visible = !Convert.ToBoolean(ConfigUtil.GetConfigItem("HideDivisionSelectionForSearch"));
-
         divSpotlight.Visible = true;
         divSearchCriteria.Visible = false;
-
         // Profiles OpenSocial Extension by UCSF
         pnlOpenSocialGadgets.Visible = false;
+
+        // show search options only if user is logged in
+        //pnlMoreOptions.Visible = (Profile.UserId > 0);
 
         // 
         searchResultsPersonSummaryContainer.Visible = false;
@@ -1031,6 +978,7 @@ public partial class Search : BasePage
 
     #endregion
 
+
     #region Search Results Control Events
     protected void lstSelectCol_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -1076,10 +1024,6 @@ public partial class Search : BasePage
             ((ListBox)sender).SelectedValue = Session["LastSearchPageSize"].ToString();
         else
             ((ListBox)sender).SelectedValue = "15";
-
-
-
-
     }
 
     protected void valPagNumRange_DataBinding(object sender, EventArgs e)
@@ -1223,7 +1167,6 @@ public partial class Search : BasePage
     }
 
     #endregion
-
     #region Grid Data Binding Helpers
 
     protected string GetInstitutionText(object affiliationList)
@@ -1284,41 +1227,17 @@ public partial class Search : BasePage
 
     protected void SetGridColumns()
     {
+
         bool needToRefreshColumns = true;
 
         if (lstColumns.Items.Count != 0)
-        {
             needToRefreshColumns = false;
-            Session["SEARCH_COLS"] = lstColumns;
-        }
-      
 
         //when selected column names count = 0  
         if (needToRefreshColumns)
         {
             //get Default selected columns from web.config in appSettings
             string l_defaultColumnsFromConfig = ConfigUtil.GetConfigItem("ProfileSearchDefaultColumns");
-
-
-                ListBox lstcolumns = null;
-                if (Session["SEARCH_COLS"] != null) {
-                    lstcolumns = (ListBox)Session["SEARCH_COLS"];
-                    foreach(ListItem item in lstcolumns.Items)
-                    {
-                        if (item.Selected)
-                        {
-                            if (!l_defaultColumnsFromConfig.Contains(item.Text)) {
-                                l_defaultColumnsFromConfig = l_defaultColumnsFromConfig + "," + item.Text;
-                            }
-                        }
-                    }
-                    
-
-                }
-
-
-
-
             string[] l_defaultColumnsArr = l_defaultColumnsFromConfig.Split(',');
 
             List<string> l_AllColumns = new List<string>();
@@ -1329,35 +1248,32 @@ public partial class Search : BasePage
                     l_AllColumns.Add(l_GridColumn.HeaderText);
             }
 
-            //l_AllColumns.Remove("Division");
+            l_AllColumns.Remove("Division");
 
             //bind listBox
-            
-                lstColumns.Items.Clear();
-                lstColumns.DataSource = l_AllColumns;
-                lstColumns.DataBind();
-            
-            
-                //check "default" listBoxItems 
-                foreach (ListItem l_Item in lstColumns.Items)
+            lstColumns.Items.Clear();
+            lstColumns.DataSource = l_AllColumns;
+            lstColumns.DataBind();
+
+            //check "default" listBoxItems 
+            foreach (ListItem l_Item in lstColumns.Items)
+            {
+                foreach (string columnName in l_defaultColumnsArr)
                 {
-                    foreach (string columnName in l_defaultColumnsArr)
+                    //after split operation <string.split(',')> the last element usually is space
+                    //so we must validate each value
+                    if (!string.IsNullOrEmpty(columnName))
                     {
-                        //after split operation <string.split(',')> the last element usually is space
-                        //so we must validate each value
-                        if (!string.IsNullOrEmpty(columnName))
+                        if (columnName == l_Item.Value)
                         {
-                            if (columnName == l_Item.Value)
-                            {
-                                l_Item.Selected = true;
-                            }
+                            l_Item.Selected = true;
                         }
                     }
-
-                    if (l_Item.Value == "Name")
-                        l_Item.Enabled = false;
                 }
-            
+
+                if (l_Item.Value == "Name")
+                    l_Item.Enabled = false;
+            }
         }
 
         for (int i = 1; i < grdSearchResults.Columns.Count; i++)
@@ -1380,7 +1296,6 @@ public partial class Search : BasePage
                     }
                 }
             }
-
             l_Field.Visible = l_isVisibleColumn;
         }
 
@@ -1392,6 +1307,7 @@ public partial class Search : BasePage
             else
                 grdSearchResults.Columns[grdSearchResults.Columns.Count - 2].Visible = false;
         }
+
 
     }
 
@@ -1482,7 +1398,7 @@ public partial class Search : BasePage
 
     public string GetJSONPersonIds()
     {
-        if (this.OS_message != null)
+        if (this.OS_message != null )
         {
             return OpenSocialHelper.BuildJSONPersonIds(OS_personIds, OS_message);
         }
@@ -1506,4 +1422,24 @@ public partial class Search : BasePage
     #endregion
 
 
+
+
+    #region DIRECT
+    //**********************************************************************************
+    //In ProfilesWeb\Search.aspx.cs, add the following method to the Search class:
+    public string GetKeyword()
+    {
+        string keyword = "";
+
+        if (this.txtKeyword.Text.Length > 0)
+            keyword = this.txtKeyword.Text;
+        else if (Session["ProfileSearchRequestKeywordList"] != null)
+        {
+            if (((List<string>)Session["ProfileSearchRequestKeywordList"]).Count > 0)
+                keyword = ((List<string>)Session["ProfileSearchRequestKeywordList"])[0];
+        }
+
+        return keyword;
+    }
+    #endregion
 }

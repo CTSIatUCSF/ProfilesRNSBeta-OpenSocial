@@ -1,0 +1,4 @@
+<site-description>
+<name>UCSF</name> 
+<aggregate-query>http://profiles.ucsf.edu/DirectService.aspx?Request=IncomingCount&amp;SearchPhrase=</aggregate-query> 
+</site-description>

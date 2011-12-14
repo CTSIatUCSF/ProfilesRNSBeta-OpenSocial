@@ -8,15 +8,15 @@
                     <asp:Label ID="lblAcademicTitleText" runat="server" Text="Title" CssClass="basicInfoLabel"></asp:Label>
                 </td>
                 <td>
-                    <asp:Label ID="lblAcademicTitle" runat="server" Text='<%# GetJobTitle(Eval("AffiliationList"),0) %>'></asp:Label>
+                    <asp:Label ID="lblAcademicTitle" runat="server" class="title role" Text='<%# GetJobTitle(Eval("AffiliationList"),0) %>'></asp:Label>
                 </td>
             </tr>
           <tr id="Tr4" runat="server" visible='<%# GetInstitutionText(Eval("AffiliationList"),0) == null ? false : true %>'>
                 <td class="basicInfoLabelCol">
-                    <asp:Label ID="lblInstitutionText" runat="server" Text="Institution" CssClass="basicInfoLabel"></asp:Label>
+                    <asp:Label ID="lblInstitutionText" runat="server" Text="School" CssClass="basicInfoLabel"></asp:Label>
                 </td>
                 <td>
-                    <asp:Label ID="lblInstitution" runat="server" Text='<%# GetInstitutionText(Eval("AffiliationList"),0) %>'></asp:Label>
+                    <asp:Label ID="lblInstitution" runat="server" class="org" Text='<%# GetInstitutionText(Eval("AffiliationList"),0) %>'></asp:Label>
                 </td>
             </tr>
             <tr id="Tr3" runat="server" visible='<%# GetDepartmentText(Eval("AffiliationList"),0) == null ? false : true %>'>
@@ -41,6 +41,11 @@
                     <asp:Label ID="lblAddressText" runat="server" Text="Address" CssClass="basicInfoLabel"></asp:Label>
                 </td>
                 <td>
+                    <asp:Label ID="lblAddress1" runat="server"
+                        Visible='<%# Eval("Address.Address1")==null ? false : true %>'
+                        Text='<%# DataBinder.Eval(Container.DataItem, "Address.Address1") + "<br>"%>'
+                        CssClass="basicInfoAddress"></asp:Label>
+
                     <asp:Label ID="lblAddress2" runat="server"
                         Visible='<%# Eval("Address.Address2")==null ? false : true %>'
                         Text='<%# DataBinder.Eval(Container.DataItem, "Address.Address2") + "<br>"%>'
@@ -63,7 +68,7 @@
                     <asp:Label ID="lblTelePhoneText" runat="server" Text="Telephone" CssClass="basicInfoLabel"></asp:Label>
                 </td>
                 <td>
-                    <asp:Label ID="lblTelePhone" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Address.Telephone")%>'></asp:Label>
+                    <asp:Label ID="lblTelePhone" runat="server" class="tel" Text='<%# DataBinder.Eval(Container.DataItem, "Address.Telephone")%>'></asp:Label>
                 </td>
             </tr>
             <tr id="Tr6" runat="server" visible='<%# DataBinder.Eval(Container.DataItem, "Address.Fax") == null ? false : true %>'>
@@ -82,7 +87,7 @@
                     <asp:Image ID="ImageEmail" runat="server" />
                     <asp:Label ID="lblReadEmail" runat="server" />
                 </td>
-            </tr>
+            </tr>            
         </table>
     </ItemTemplate>
 </asp:DataList>
@@ -126,7 +131,4 @@
             </tr>
         </table>
     </ItemTemplate>
-    <SeparatorTemplate>
-        <tr><td colspan="2">&nbsp;</td></tr>
-    </SeparatorTemplate>
 </asp:Repeater>

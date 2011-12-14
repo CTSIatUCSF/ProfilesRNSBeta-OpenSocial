@@ -22,7 +22,7 @@
             <HeaderTemplate>
                 Co-Authors&nbsp;<img onclick="javascript:togCoAuthors();" style="cursor:pointer" src="<%=Page.ResolveUrl("~/Images/Info.png")%>" id="imgCoAuthors" />&nbsp;
                 <div class="passive_section_description" id="divCoAuthors" style="display: none">
-                    People in Profiles who have published with this person.</div>
+                    People in UCSF Profiles who have published with this person.</div>
             </HeaderTemplate>
             <ItemTemplate>
                 <asp:HyperLink ID="hypLnkAuthors" runat="server" Text='<%# Eval("CoAuthors") %>' />

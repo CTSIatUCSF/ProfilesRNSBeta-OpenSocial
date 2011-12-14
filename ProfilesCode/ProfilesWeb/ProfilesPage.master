@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" MasterPageFile="~/ProfilesPageBase.master" AutoEventWireup="true"
+<%@ Master Language="C#" MasterPageFile="~/ProfilesPageBase.master" AutoEventWireup="true"
     CodeFile="ProfilesPage.master.cs" Inherits="ProfilesPage" %>
 
 <%@ Register Src="UserControls/ucMyNetwork.ascx" TagName="MyNetwork" TagPrefix="ucMyNetwork" %>
@@ -6,37 +6,128 @@
 <%@ Register Src="UserControls/ucMiniSearch.ascx" TagName="MiniSearch" TagPrefix="ucMiniSearch" %>
 <%@ Register Src="header.ascx" TagName="Header" TagPrefix="ucHeader" %>
 <%@ Register Src="footer.ascx" TagName="Footer" TagPrefix="ucFooter" %>
- <%--
-    Copyright (c) 2008-2010 by the President and Fellows of Harvard College. All rights reserved.  
-    Profiles Research Networking Software was developed under the supervision of Griffin M Weber, MD, PhD.,
-    and Harvard Catalyst: The Harvard Clinical and Translational Science Center, with support from the 
-    National Center for Research Resources and Harvard University.
-
-
-    Code licensed under a BSD License. 
-    For details, see: LICENSE.txt 
- --%> 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContentPlaceHolder" runat="Server">
-    <base href="<%=CheckForSecureConnection()%>" />
+    <base href="<%=ConfigurationManager.AppSettings["URLBase"].ToString() %>" />
     <link rel="stylesheet" type="text/css" href="CSS/People.css" />
     <link rel="stylesheet" type="text/css" href="CSS/resnav.css" />
     <link rel="stylesheet" type="text/css" href="CSS/header_footer.css" />
     <link rel="stylesheet" type="text/css" href="CSS/profiles.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/gadgets.css" />
     <link rel="stylesheet" type="text/css" href="JQuery/ui.dropdownchecklist.css" />
 
+    <script src=" http://code.jquery.com/jquery-1.4.2.min.js" type="text/javascript"></script>
+    <script src="JQuery/jquery.colorbox-min.js" type="text/javascript"></script>
+
     <%-- Profiles OpenSocial Extension by UCSF --%>    
-    <link rel="stylesheet" type="text/css" href="CSS/gadgets.css" />
     <asp:Panel ID="pnlOpenSocialScripts" runat="server" Visible="False">
         <asp:Literal ID="GadgetJavascriptLiteral" runat="server"></asp:Literal>
     </asp:Panel>
 
+
+
     <link rel="stylesheet" type="text/css" href="CSS/comboTreeCheck.css" />
+		<style type="text/css" media="all">
+       		   @import "template_files/suckerfish.css";
+        	   @import "template_files/ctsi.css";
+		</style>
+
+   		<!--[if lte IE 6]>
+   		<script type="text/javascript" src="template_files/suckerfish.js"></script>
+   		<![endif]-->
     <asp:Literal ID="JavascriptLiteral" runat="server"></asp:Literal>
     <asp:ContentPlaceHolder ID="HeadContentPlaceHolder2" runat="server">
     </asp:ContentPlaceHolder>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="heading" runat="Server">
-    <ucHeader:Header ID="ucHeader" runat="server" />
+    <span id="top"></span>
+  <div id="leaderboard">
+    <div id="ucsfnav-container">
+      <div id="ucsfnav">
+        <a class="ucsf-logo" target="_blank" href="http://www.ucsf.edu/">UCSF</a>
+         <ul>
+         <li class="first">
+           <a title="University of California, San Francisco" href="http://www.ucsf.edu/" target="_blank">University of California, San Francisco</a>
+         </li>
+         <li>
+           <a title="About UCSF" href="http://www.ucsf.edu/about" target="_blank">About UCSF</a>
+         </li>
+         <li>
+           <a title="Search UCSF" href="http://www.ucsf.edu/ucsf/search" target="_blank">Search UCSF</a>
+         </li>
+         <li>
+           <a title="UCSF Medical Center" href="http://www.ucsfhealth.org/" target="_blank">UCSF Medical Center</a>
+         </li>
+         </ul>
+       </div>
+     </div>
+  </div>
+<div id="ctsiheader-container">
+    <div id="ctsiheader" style="line-height:1.7em;">
+            <ul class="nav">
+                <li><a href="http://dev.ctsi.ucsf.edu" class="ctsilink">CTSI</a>
+                    <a href="http://dev.ctsi.ucsf.edu" class="globallink">CTSI at UCSF</a></li>
+                <li><a href="http://dev.accelerate.ucsf.edu/" class="serviceslink">Services</a>
+                    <a href="http://dev.accelerate.ucsf.edu/" class="globallink">Services for Researchers</a></li>
+                <li class="active"><a class="profileslink" href="./">Profiles</a>
+                    <a href="./" class="globallink">UCSF Profiles</a></li>
+            </ul>
+<!--  
+            <div class="cite">CTSI at UCSF is a unit of the Executive Vice Chancellor and Provost Office</div>
+-->
+        </div>
+    </div>
+    <div id="header">
+       <div class="site-logo">
+          <asp:HyperLink ID="logo" runat="server" NavigateUrl="~/">UCSF Profiles <br />
+          <span>search, discover, network</span></asp:HyperLink>
+        </div>
+        <div id="header-right">
+          <h4 id="powered"><a href="http://ctsi.ucsf.edu">Powered by CTSI</a></h4>
+        </div>
+     </div>
+            
+     <div id="suckerfish-container">
+       <div id="suckerfishmenu">
+         <div class="content">
+           <ul class="menu">
+              <li class="leaf first item-home"><asp:HyperLink ID="navResearch" runat="server" Text="Home" NavigateUrl="~/"></asp:HyperLink></li>
+              <li class="expanded"><a href="AboutUCSFProfiles.aspx">About</a>
+                 <ul class="menu">
+                     <li class="leaf first"><a href="AboutUCSFProfiles.aspx">About UCSF Profiles</a></li>
+                     <li class="leaf"><a href="HowProfilesWorks.aspx">
+                      How Profiles Works / FAQ</a></li>
+                   <li class="leaf"><a href="ForDevelopers.aspx">
+                      Use UCSF Profiles Data to <br />&nbsp;&nbsp;&nbsp;Enhance Your Website</a></li>
+                     <li class="leaf"><a href="GadgetLibrary.aspx">
+                      How UCSF Has Extended <br />&nbsp;&nbsp;&nbsp;Profiles</a></li>
+                    <li class="leaf"><a href="Help.aspx">
+                      Help</a></li>
+                  </ul>
+               </li>
+               <li><asp:HyperLink ID="hypViewMyProfileNavbar" runat="server" CssClass="SearchListLink" Visible="false">My Profile</asp:HyperLink>
+                 <ul class="menu">
+                   <li><asp:HyperLink ID="hypViewMyProfileNavbar2" runat="server" CssClass="SearchListLink" Visible="false">View</asp:HyperLink></li>
+                   <li><asp:HyperLink ID="hypEditMyProfileNavbar" runat="server" CssClass="SearchListLink" Visible="false">Edit</asp:HyperLink></li>
+                   <li><asp:HyperLink ID="hypManageProxiesNavbar" runat="server" CssClass="SearchListLink" Visible="false">Manage Proxies</asp:HyperLink></li>
+                   <li><asp:HyperLink ID="hypLogoutNavbar" runat="server" CssClass="SearchListLink" NavigateUrl="~/Logout.aspx" Visible="false">Logout</asp:HyperLink></li>
+                 </ul>
+               </li>
+               <li><asp:Panel ID="pnlNotLoggedInNavbar" runat="server" Visible="false">
+               <asp:HyperLink ID="hypNotLoggedInNavbar" runat="server" CssClass="SearchListLink" Text="Edit My Profile"></asp:HyperLink>
+               </asp:Panel></li>
+           </ul>
+         </div>
+       </div>
+     </div>
+     <div id="header-bottom" class="clear-block">
+<!--
+       <div class="pageTitleUCSF">
+         <asp:HyperLink ID="hypUCSFProfiles" runat="server" Text="UCSF Profiles" NavigateUrl="~/"></asp:HyperLink>
+       </div> 
+-->
+       <div class="pageTitleTopLineUCSF">
+       </div>
+     </div>
     <asp:ContentPlaceHolder ID="HeadingContentPlaceHolder" runat="server">
     </asp:ContentPlaceHolder>
 </asp:Content>
@@ -80,12 +171,8 @@
                                     Menu</div>
                                 <div style="margin-top: 3px;">
                                     <asp:HyperLink ID="hypSearch" runat="server" CssClass="SearchListLink" Text="New Search"
-                                        NavigateUrl="~/Search.aspx"></asp:HyperLink>
+                                        NavigateUrl="~/"></asp:HyperLink>
                                 </div>
-                                <div style="margin-top: 3px;">
-                                    <asp:HyperLink ID="hypAboutProfiles" runat="server" CssClass="SearchListLink" NavigateUrl="~/About.aspx">About Profiles</asp:HyperLink>
-                                </div>
-                            </asp:Panel>
                             <asp:Panel ID="pnlLoggedIn" runat="server" Visible="false">
                                 <div style="margin-top: 3px;">
                                     <asp:HyperLink ID="hypViewMyProfile" runat="server" CssClass="SearchListLink" Visible="false">View My Profile</asp:HyperLink>
@@ -115,6 +202,15 @@
                                     <asp:HyperLink ID="hypLogMeIn" runat="server" CssClass="SearchListLink" Text="Login To Profiles"></asp:HyperLink>
                                 </div>
                             </asp:Panel>
+<!--
+                                <div style="margin-top: 3px;">
+                                    <asp:HyperLink ID="hypAboutProfiles" runat="server" CssClass="SearchListLink" NavigateUrl="~/HowProfilesWorks.aspx">How Profiles Works</asp:HyperLink>
+                                </div>
+                                <div style="margin-top: 3px;">
+                                    <asp:HyperLink ID="hypAboutUCSFProfiles" runat="server" CssClass="SearchListLink" NavigateUrl="~/AboutUCSFProfiles.aspx">About UCSF Profiles</asp:HyperLink>
+                                </div>
+-->
+                            </asp:Panel>
                         </ContentTemplate>
                     </asp:UpdatePanel>
                     <asp:UpdatePanel ID="pnlMyNetwork" runat="server" UpdateMode="Conditional" ChildrenAsTriggers="true">
@@ -134,12 +230,72 @@
     </div>
     <div class="activeBottom">
         &nbsp;</div>
-        
+
+    <div id="divLeftNews" runat="server" visible="false">
+
+<!--            
+        <div class="activeTop">
+            &nbsp;</div>
+        <div class="activeMainWrapper">
+            <div class="activeMain">
+                <div>
+                    <div class="leftColumnWidget">
+                         <div class="menuWidgetTitle" style="margin-bottom:-5px; text-indent: 0; padding: 3px 4px 0 8px; line-height:20px;">
+                           Live Updates!<br />
+                           <span style="background-color:#659191;color:#FFF;padding:1px 2px 1px 5px;margin-right:4px;
+                              letter-spacing:3px;font-family: 'Courier New', Courier, monospace;">
+                              <%=ProfilesStatistics.GetEditedCount() %></span>
+                           researchers <br /><span style="font-weight:normal">have edited their profiles</span>
+                         </div>
+                    </div>
+                </div>
+             </div>
+         </div>
+         <div class="activeBottom">
+            &nbsp;</div>
+-->         
+
+<!--
+        <div class="activeTop">
+            &nbsp;</div>
+        <div class="activeMainWrapper">
+            <div class="activeMain">
+                <div>
+                    <div class="leftColumnWidget">
+                         <div class="menuWidgetTitle">
+                              What's New</div>
+                         <div style="margin-top: 0px;padding-bottom:6px;">
+                            What can UCSF Profiles do for you? 
+                            <asp:HyperLink ID="hypIntroduction" runat="server" 
+                            NavigateUrl="~/UCSF_Profiles_Introduction.pptx" target="_new" onClick="javascript: pageTracker._trackEvent('ppt', 'intro', 'hp');">View an Introduction</asp:HyperLink>
+                            <span style="font-size:11px;color:#999999">(ppt 5MB)</span>
+</div>
+                         <div style="padding-top:6px;border-top:1px solid #CCC;padding-bottom:6px;border-bottom:1px solid #CCC;width:142px">
+                            Share your ideas and feedback at the
+                            <a href="<%=ConfigurationManager.AppSettings["VirtualHomeBase"].ToString() %>forums/ucsfprofiles"> 
+                            UCSF Profiles Open Forum</a>
+                         </div>
+                         <div style="padding-top:6px;padding-bottom:6px;border-bottom:1px solid #CCC;width:142px">
+                            Enhance your website with UCSF Profiles data. 
+                            <a href="mailto:ctsi@ucsf.edu">Contact us</a> for details
+                         </div>
+                         <div style="margin-top: 6px;">
+                             UCSF Profiles Gives Faculty Power of Building Networks on Campus                            <a href="http://today.ucsf.edu/stories/ucsf-profiles-gives-faculty-power-of-building-networks-on-campus/" target="_new"><em>UCSF Today</em></a>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="activeBottom">
+            &nbsp;</div>
+-->    
+    </div> <!-- end divLeftNews -->
+
     <%-- Profiles OpenSocial Extension by UCSF --%>    
     <asp:Panel ID="pnlOpenSocialTools" runat="server" Visible="false">
         <div id="gadgets-tools" class="gadgets-gadget-parent"></div>
     </asp:Panel>
-
+    
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="right" runat="Server">
     <asp:ContentPlaceHolder ID="RightContentPlaceHolder" runat="server">
@@ -153,4 +309,19 @@
     <asp:ContentPlaceHolder ID="FooterPlaceHolder1" runat="server">
     </asp:ContentPlaceHolder>
     <ucFooter:Footer ID="ucFooter" runat="server" />
+     <div id="footer">
+       <p><span style="font-weight:bold;">NIH Funding Acknowledgment</span>: <em>Important</em> &mdash; All publications resulting from the utilization of CTSI resources are required to credit the CTSI grant by including the <a href="<%=ConfigurationManager.AppSettings["VirtualHomeBase"].ToString() %>cite" target="_blank">NIH Funding acknowledgment</a> and must comply with <a href="http://publicaccess.nih.gov/" title="Visit the PubMed Central website" target="_blank">NIH Public Access Policy</a>.</p>
+       <div id="footer-menu">
+         <ul class="menu">
+          <li class="leaf"><a href="./" class="active">Home</a></li>
+          <li class="leaf"><asp:HyperLink ID="hypHeaderLogin" runat="server" NavigateUrl="~/Login.aspx" Visible="true">UCSF Login</asp:HyperLink></li>                                
+          <li class="leaf"><asp:HyperLink ID="hypHeaderLogout" runat="server" NavigateUrl="~/Logout.aspx" Visible="false">Logout</asp:HyperLink></li>
+          <li class="leaf"><a href="mailto:ctsi@ucsf.edu">Contact Us</a></li>
+         </ul>
+         <div id="footer-message">
+          <p>The University of California Copyright &copy; 2011 The Regents of the University of California. All Rights Reserved.<br />
+          Services on this website are for the use of UCSF researchers, CTSI affiliates, industry and community members who wish to establish explicit ties to UCSF.</p>
+         </div>
+       </div>
+    </div> <!-- end footer -->
 </asp:Content>

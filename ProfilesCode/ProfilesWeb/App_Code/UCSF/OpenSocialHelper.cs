@@ -170,13 +170,16 @@ public class OpenSocialHelper
         // sort the gadgets
         gadgets.Sort();
 
-        // trigger the javascript to render gadgets
-        HtmlGenericControl body = (HtmlGenericControl)page.Master.FindControl("bodyMaster");
-        if (body == null)
+        if (gadgets.Count != 0)
         {
-            body = (HtmlGenericControl)page.Master.Master.FindControl("bodyMaster");
+            // trigger the javascript to render gadgets
+            HtmlGenericControl body = (HtmlGenericControl)page.Master.FindControl("bodyMaster");
+            if (body == null)
+            {
+                body = (HtmlGenericControl)page.Master.Master.FindControl("bodyMaster");
+            }
+            body.Attributes.Add("onload", "my.init();");
         }
-        body.Attributes.Add("onload", "my.init();"); 
     }
 
     private string GetGadgetFileNameFromURL(string url)
@@ -321,7 +324,9 @@ public class OpenSocialHelper
 
     public bool IsVisible()
     {
-        return (ConfigUtil.GetConfigItem("OpenSocialURL") != null && GetVisibleGadgets().Count > 0);
+        // always have turned on for ProfileDetails.aspx because we want to generate the "profile was viewed" in Javascript (bot proof) 
+        // regardless of any gadgets being visible, and we need this to be True for the shindig javascript libraries to load
+        return (ConfigUtil.GetConfigItem("OpenSocialURL") != null && (GetVisibleGadgets().Count > 0) || GetPageName().Equals("ProfileDetails.aspx"));
     }
 
     public List<PreparedGadget> GetVisibleGadgets()
@@ -381,7 +386,14 @@ public class OpenSocialHelper
             Socket tempSocket =
                 new Socket(ipe.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
 
-            tempSocket.Connect(ipe);
+            try
+            {
+                tempSocket.Connect(ipe);
+            }
+            catch
+            {
+                // ignore error, move on to the next entry
+            }
 
             if (tempSocket.Connected)
             {

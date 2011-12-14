@@ -14,6 +14,7 @@
 	padding-bottom: 8px;
 }
 
+h1.pageTitle { border: none; margin: 12px 0 0 0; padding: 0 0 8px 0 }
 
 .pageSubTitledivContainer
 {
@@ -67,13 +68,6 @@
 	text-indent: 6px;
 }
 
-
-.keywordsList
-{
-	padding-left: 8px;
-	text-indent: 8px;
-}
-
 .narrativeText
 {
 	line-height: 18px;
@@ -110,12 +104,11 @@ a
 {
 	padding-bottom:0px;
 	padding-left: 8px;
-	padding-right: 0px;
+	padding-right: 4px;
 	line-height: 14px;	
 	margin-top: 0px;
 	margin-bottom: 0px;
 	background-color: White;
-	width:158px;
 	
 }
 
@@ -161,7 +154,7 @@ a
 
 .menuWidgetTitle
 {
-	width: 162px;
+	width: 100%;
 	background-color: #EEEBE5;
 	font-weight: bold;
 	margin-left: -8px;
@@ -242,7 +235,12 @@ a
 }
 /* END Search Form */
 
-
+/* Login Screen */
+.loginPanel
+{
+	margin-left: 200px;
+	margin-top: 80px;
+}
 
 .loginControl
 {
@@ -1698,16 +1696,4 @@ pubMatchDetail
 .keywordCategories a:hover {
 	xtext-decoration:none;
 	xcolor:#36C
-}
-
-
-.active_section_body ul {
-	list-style-type:none;
-	margin:0px 0px 4px 0px;
-	padding:0px;
-}
-.active_section_body li {
-	padding:4px 0 0 10px;
-	text-indent:-10px;
-	line-height:14px;
 }

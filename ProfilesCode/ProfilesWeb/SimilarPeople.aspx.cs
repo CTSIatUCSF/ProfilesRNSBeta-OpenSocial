@@ -2,6 +2,8 @@
 using System.Data;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Collections.Generic;
+using Connects.Profiles.BusinessLogic;
 using Connects.Profiles.Service.DataContracts;
 
 public partial class SimilarPeople : BasePage
@@ -9,6 +11,7 @@ public partial class SimilarPeople : BasePage
     #region "LocalVars"
 
     public int userId = 0;
+    private UserBL _userBL = new UserBL();
 
     #endregion
 
@@ -45,7 +48,20 @@ public partial class SimilarPeople : BasePage
                     Session["Lname"] = pList.Person[0].Name.LastName;
                     Session["Fname"] = pList.Person[0].Name.FirstName;
 
-                   // if (pList.Person[0].Address.Latitude == 0)
+                    // Profiles OpenSocial Extension by UCSF
+                    OpenSocialHelper os = SetOpenSocialHelper(Profile.UserId, userId, Page);
+                    if (os.IsVisible() && os.HasGadgetListeningTo(OpenSocialHelper.JSON_PERSONID_CHANNEL))
+                    {
+                        int count = 0;
+                        List<Int32> OS_personIds = new List<Int32>();
+                        foreach (DataRow row in _userBL.GetUserSimilarPeople(userId, "False", ref count).Rows)
+                        {
+                            OS_personIds.Add((Int32)row.ItemArray[0]);
+                        }
+                        os.SetPubsubData(OpenSocialHelper.JSON_PERSONID_CHANNEL, OpenSocialHelper.BuildJSONPersonIds(OS_personIds, "Similar people to " + pList.Person[0].Name.FullName));
+                        GenerateOpensocialJavascipt();
+                    }
+                    // if (pList.Person[0].Address.Latitude == 0)
                      //   SimilarPeopleMap.HideMapTab();
                 }
             }

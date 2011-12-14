@@ -1,0 +1,480 @@
+body { 
+  background:url("../template_files/bg.png") repeat-x scroll 0 0 #B8D0D0; 
+}
+
+#page-container { background-color: #FFFFFF; width: 980px; margin: 0 auto; }
+
+#leaderboard img { border: none; }
+#leaderboard { width: 100%; }
+#leaderboard div#ucsfnav-container { background: #000;  width: 100%; }
+#leaderboard div#ucsfnav { width: 980px; height:30px; margin: 0 auto; padding-left: 20px; }
+* html #leaderboard div#ucsfnav { width: 972px; }
+#leaderboard div#ucsfnav a.ucsf-logo{ display: block; float: left; background: #000 url(../template_files/global-images.png) no-repeat 0 0; width:43px; height:29px; text-indent: -99999px; }
+#leaderboard ul{ position: relative; float:left; margin: 8px 0 0; padding-left: 20px; list-style-type: none;}
+#leaderboard ul li{ display: inline; color:#fff; }
+#leaderboard div#ucsfnav ul li a { font-size:11px; color:#fff; border-left:1px solid #fff; padding:0 5px 0 10px; }
+#leaderboard div#ucsfnav ul li.first a{ border: none; padding-left:5px; }
+
+#ctsiheader-container { clear: left; background: #BFBFBF; }
+#ctsiheader { width: 980px; margin: 0; height:50px; background:url(../template_files/global-images.png) repeat-x #bfbfbf; background-position:0px -184px; }
+
+#ctsiheader ul.nav { position:relative; float:left; padding:10px 0 0; margin: 0 22px; list-style-type: none;}
+* html #ctsiheader ul.nav { margin: 0 5px; }
+#ctsiheader ul.nav li{ position:relative; float:left; background:url(../template_files/global-images.png) repeat-x #e6e6e6; background-position:0px -140px; height:40px; margin-right:1px; border:1px solid #f0f0f0; border-width:0 1px 0; }
+* html #ctsiheader ul.nav li{line-height: 16px; }
+#ctsiheader ul.nav li a{ display:block; position:relative; float:left; padding:10px 0 0 10px; height:30px; }
+#ctsiheader ul.nav li a.ctsilink, #ctsiheader ul.nav li a.serviceslink, #ctsiheader ul.nav li a.profileslink{ height:10px; background:url(../template_files/global-images.png) no-repeat; text-indent: -99999px; }
+#ctsiheader ul.nav li a.ctsilink{ width:10px;  background-position:-48px 0px; margin:10px 0 0 10px; }
+#ctsiheader ul.nav li a.serviceslink{ width:5px; background-position:-72px 0px; margin:8px 0 0 10px; }
+#ctsiheader ul.nav li a.profileslink{ width:24px; background-position:-90px 0px; margin:8px 0 0 10px; }
+#ctsiheader ul.nav li a.globallink{ font-size:11px; color:#404040; padding-right:10px; }
+* html #ctsiheader ul.nav li a.ctsilink { margin-left:4px}
+* html #ctsiheader ul.nav li a.serviceslink { margin-left:4px}
+* html #ctsiheader ul.nav li a.profileslink{ margin-left:4px}
+#ctsiheader ul.nav li a.globallink:hover,
+#ctsiheader ul.nav li a.profileslink:hover,
+#ctsiheader ul.nav li a.serviceslink:hover { text-decoration:none; }
+#ctsiheader ul.nav li.active, #ctsiheader ul li:hover { background: none; background-color: #f6f6f6; }
+#ctsiheader .cite{ position:relative; float:right; color:#404040; font-size:11px; font-style:italic; padding-top:20px; padding-right: 10px;}
+
+#header-right { float: left; width: 434px; height: 95px; background-color: #F6F6F6; }
+* html #header-right { width: 424px; }
+.site-logo { background-color: #F6F6F6; padding-left: 46px; width: 500px; height: 95px; float: left; }
+* html .site-logo { width: 510px; }
+
+h4#powered {
+  float:right;
+  margin: 8px 30px 0 0;
+  padding: 0;
+}
+a.ctsi, h4#powered a {
+  background:url("../template_files/favicon.gif") no-repeat scroll 0 -1px transparent;
+  padding-left: 20px;
+  color: #D18146;
+  font-size: 13px; line-height: 20px;
+}
+h4#powered a:hover {
+  color: #D18146;
+}
+
+#suckerfish-container { clear: both; margin-bottom: 5px; }
+#suckerfishmenu li.ctsi {
+  background:url("../template_files/see-all.gif") no-repeat scroll 73px bottom transparent; 
+  height: 37px;
+  margin-bottom: -9px; 
+  border-right: none;
+  width: 191px;
+}
+* html #suckerfishmenu li.ctsi {
+  background-image:none; 
+  height: 30px;
+  margin-bottom: -30px; 
+}
+#suckerfishmenu li.ctsi a { padding-right: 0; padding-left: 11px;
+  background:url("../template_files/ctsi-border.gif") repeat-x scroll 0 0 #D18145; 
+}
+#suckerfishmenu ul.menu li.ctsi li a { background-image:none; padding-left: 11px; }
+#suckerfishmenu li.ctsi a:hover { background-color: #D89360; }
+#header-bottom { clear: both; /* border-top: 3px solid #AAAA99; */ height: 10px; }
+
+a, .SearchListLink, .hypLinks, .tabContainer a { color:#3B6394; text-decoration: none; }
+a:active, .SearchListLink:active, .hypLinks:active, .tabContainer a:active  { color:#1E416C; text-decoration: none; outline: none; }
+a:visited, .SearchListLink:visited, .hypLinks:visited, .tabContainer a:visited { color: #3B6394; text-decoration: none; outline: none; }
+a img, a:hover img, a:visited img { border:0; outline: none; }
+a:hover, .SearchListLink:hover, .hypLinks:hover, .tabContainer a:hover { color:#1E416C; text-decoration: underline; }
+.site-logo a, .site-logo a:visited {
+  display: block;
+  padding: 20px 0 8px;
+  font-size: 44px; font-weight: bold;
+  height: 70px; width: 500px;
+  line-height: 30px;
+  color: #659191;
+  letter-spacing: 1px;
+  background: transparent url("../template_files/ProfilesLogo.gif") no-repeat 320px 14px; 
+}
+.site-logo a span { font-style: italic; font-size: 20px; letter-spacing: 0; }
+.site-logo a:hover { color: #457272; text-decoration: none; }
+.site-logo a span, .site-logo a span:hover { color: #A7C1BE; }
+
+h2 { color:#CA7C29; font-size:13px }
+h3 { color: #444; font-size: 12px }
+blockquote { 
+  background:url("../template_files/quote-begin.png") no-repeat scroll 0 0 transparent;
+  margin-left:0; padding-left: 25px; width: 460px;
+}
+
+/* unholygrail */
+.col1wrap { float: right; margin-right: 180px; width: 600px; 
+}
+* html .col1wrap { margin-right: 90px; }
+.col1 { min-height: 330px; } /* fix IE7 problem when left column is longest ?? */
+.col2 { width: 150px; float: left; margin-right: -150px; margin-bottom: 10px; }
+* html .col2 { margin-bottom: -150px; }   /* search criteria to the top */
+.col3 { width: 150px; position: relative; left: 820px; top: 10px; margin-bottom: 15px; }
+* html .col3 { width: 160px; left: 800px; }
+#ctl00_ctl00_divContainer { background-image: none !important; }
+
+/* Profiles specific tweaks */
+.pageTitleUCSF, .pageTitleUCSF a, .pageTitleUCSF a:hover, .pageTitleUCSF a:active, .pageTitleUCSF a:visited {
+  color:#CA7C29;
+  font-size:22px; font-weight: bold;
+  padding: 12px 5px 0;
+}
+.pageTitle,
+.sectionHeader,
+.connectionSearchPhraseText { color:#CA7C29; }
+.leftColumnWidgetSearch, .leftColumnWidget {
+  margin-left: 10px;  
+  width: 146px;
+  border-left: 1px solid #CCCCCC; 
+  border-right: 1px solid #CCCCCC; 
+  padding-bottom: 4px;
+}
+.pageTitle { font-size: 22px; font-weight: bold; }
+.leftColumnWidget { border-bottom: 8px solid #EEEBE5; margin-bottom: -4px; } 
+.activeTop { background: url("../template_files/leftblocktop.gif") no-repeat scroll left bottom transparent; 
+  margin: 0 0 0 10px;
+  width: 160px;
+} 
+.activeBottom { background:url("../template_files/leftblockbottom.gif") no-repeat scroll left top transparent; 
+  margin: 0 0 0 10px;
+  width: 160px; height: 10px;
+}
+.menuWidgetTitle { line-height: 14px; padding-top: 1px; padding-bottom: 2px; margin-right: -5px; margin-bottom: 5px; } 
+#ctl00_ctl00_left_pnlMenu { margin-bottom: 6px; }
+.menuWidgetTitleRight { margin-left: 0; }
+/*
+#ctl00_ctl00_left_pnlMyNetwork { width: 160px; margin-left: 10px; margin-bottom: 8px;
+   padding-bottom: 4px; border: 1px solid #CCC; }
+#ctl00_ctl00_left_pnlMyNetwork .menuWidgetTitle { margin: 0 0 5px 0; width: 148px; padding-top: 4px; }
+#ctl00_ctl00_left_pnlMyNetwork a { padding-left: 8px; }
+*/
+.searchForm .searchSection { background-color: #EEEBE5; margin-left: 15px; }
+.mainSearchForm, .searchResultsHeader, .searchResultsPager { background-color: #EEEBE5; }
+.searchForm .inputButton { font-size: 0; height: 30px; width: 110px; border: none; margin-top: 0.2em; 
+  background:url("../template_files/ProfilesSearch.gif") no-repeat scroll 0 0 transparent;  
+}
+.searchForm th { width: 115px; padding-right: 3px; }
+.searchResults th { border-top: 1px solid #CCC; }
+.searchResults { border: 1px solid #CCC; }
+.searchResultsRow { border-left: 1px solid #CCC; }
+.searchResultsRow td, .searchResultsAltRow td, .searchResultsPager td, .searchResultsHeader th { border: 1px solid #CCC; } 
+.searchResultsPager td table td { border: none; }
+.searchResultsRow td, .searchResultsAltRow td, .gridHover td span { color: #333; }
+.searchResultsAltRow  { background-color:#F2F7F7; }
+.searchResultsRow > td:first-child,
+.searchResultsAltRow > td:first-child  { color: #3B6394; font-weight: bold; }
+.gridHover { background-color: #c8dddd; } 
+.gridHover > td:first-child span { color: #1E416C; text-decoration: underline; font-weight: bold; } 
+#ctl00_ctl00_middle_MiddleContentPlaceHolder_pnlProxySearchResults .searchResults th,
+#ctl00_ctl00_middle_MiddleContentPlaceHolder_pnlProxySearchResults .searchResults th:hover {
+  color: #333;
+}
+#ctl00_ctl00_middle_MiddleContentPlaceHolder_pnlProxySearchResults .searchResultsRow td,
+#ctl00_ctl00_middle_MiddleContentPlaceHolder_pnlProxySearchResults .searchResultsAltRow td {
+  color: #3B6394; font-weight: bold; 
+}
+#ctl00_ctl00_middle_MiddleContentPlaceHolder_pnlProxySearchResults .gridHover {
+  color: #1E416C; font-weight: bold; text-decoration: underline; 
+}
+#ctl00_ctl00_middle_MiddleContentPlaceHolder_pnlProxySearchResults .searchResultsRow > td:last-child,
+#ctl00_ctl00_middle_MiddleContentPlaceHolder_pnlProxySearchResults .searchResultsAltRow > td:last-child {
+  color: #333; font-weight: normal; text-decoration: none;
+}
+#ctl00_ctl00_middle_MiddleContentPlaceHolder_pnlProxySearchResults .gridHover td:last-child {
+  color: #333; font-weight: normal; text-decoration: none;
+}
+
+#awards td { vertical-align: top; line-height: 16px; }
+.keywordCategories .kwsgbox { width: 176px; }
+.keywordCategories .kwsgbox, .keywordCategories .kwsg { clear: left; float: left; }
+#slider-label { margin-top: 240px; }
+.disclosureText { margin-top: 10px; }
+.subSectionHeader { padding-top: 0px; }
+.basicInfoLabelCol { width: 85px; } 
+.col1 { margin-bottom: 10px; }
+.ui-dropdownchecklist-wrapper { vertical-align: middle; }
+.sectionText { text-indent: 0 }
+.rightColumnWidget { background-color: transparent; }
+.rightColumnWidget td { padding: 2px 0 2px 10px; text-indent: -10px; line-height: 13px; }
+.publicationRowText { padding-right: 3px; }
+h1.fn { padding-left: 100px; } /* name on main profile page */
+#ctl00_ctl00_middle_MiddleContentPlaceHolder_pnlSearchResults { margin-left: -8px; } /* to line up with national search */
+
+/* My Network & This Person is my... */
+#ctl00_ctl00_left_ucMyNetwork_pnlNetwork { margin-bottom: 7px; }
+#ctl00_ctl00_left_LeftContentPlaceHolder_ucModifyNetwork_pnlChkList { margin-bottom: 5px; } 
+
+.EditBody { background-color: #f3f3f1; margin-top: 10px; }
+
+/* network div */
+.network-connections { 
+  border: 1px solid #CCC;
+  background-color: #EEEBE5;
+  margin-top: 18px; 
+  width: 590px; text-align: right; 
+}
+.network-connections h2 { padding: 4px 4px 0; text-align: left; font-size: 14px; }
+.network-connections a { margin-left: 60px; margin-right: 5px; font-weight: bold; }
+.network-connections a img { border: 1px solid #CCC; margin-top: -15px; margin-bottom: 5px; vertical-align: middle; }
+.network-connections a:hover img { border: 1px solid #1E416C; }
+
+/* optin div */
+.shaded { 
+  border: 1px solid #CCC;
+  background-color: #EEEBE5;
+  margin-top: 8px; 
+  width: 588px;
+}
+.shaded p, .shaded li { 
+  padding-left: 10px; padding-right: 10px;
+  line-height: 20px;
+}
+.shaded p, .shaded li, .shaded p a { 
+  font-size: 14px; 
+}
+.shaded h3 { 
+  padding: 10px 10px 5px; 
+  font-size: 20px; 
+  line-height: 20px;
+}
+
+/* mentor gadget badge */
+ul#badge { list-style-type: none; padding-left: 0; }
+* html ul#badge { margin-left: 0; }
+*+html ul#badge { margin-left: 0; }
+.badge {
+  border: 1px solid #659191;
+  background-color: #EEEBE5;
+  margin: 20px 0 0 -10px; 
+  width: 150px; 
+}
+.badge h3 { color: #333; font-size: 12px; font-weight: normal; padding: 4px 8px; }
+.badge-top { background-color: #659191; height: 106px; }
+.badge-top img { padding: 4px 4px 0 4px; }
+.badge-top h2 { color: #FFF; padding: 10px 8px 4px 12px; width: 70px; margin: -68px 0 0 60px; font-size: 13px; }
+.badge-top p { color: #FFF; padding: 6px 8px; margin: 0; }
+.badge-top p a, .badge-top p a:visited, .badge-top p a:hover { color: #FFF; text-decoration: underline; }
+
+/* Help page blocks */
+.content-block {
+  width: 340px; float: left;
+  padding-right: 40px; 
+}
+.content-block h2 { font-size: 16px; margin-top: 16px; color: #333;
+  border-bottom: 1px solid #D18145;
+  width: 325px;
+  padding: 0 8px 8px 0;
+  margin-bottom: 14px;
+  background: transparent url(orange-tick.gif) no-repeat 0 bottom;
+}
+* html .content-block { width: 250px; }
+* html .content-block h2 { width: 250px; }
+
+/* DIRECT */
+.listTable table { border: 1px solid #CCC !important; width: 600px !important; }
+.listTable table tbody > tr:first-child { background-color: #EEEBE5 !important; }
+.listTable td { border: 1px inset #CCC !important; color: #3B6394; font-weight: bold; }
+.listTable td:hover { text-decoration: underline; color: #1E416C !important; }
+.listTable table tbody > tr:first-child td { color: #333333 !important; }
+.listTable table tbody > tr:first-child td:hover { text-decoration: none; color: #333333 !important; }
+
+#about td { width:230px; vertical-align:top;border-top:2px solid #B8D0D0; }
+* html #about img.sdn { width: 160px; margin: 0 -20px; }
+#what-is { font-size: 20px; color: #FFF; padding: 15px 10px; background-color: #8fb5b5;
+  font-weight:bold; line-height: 20px; letter-spacing: .5px; }
+#what-is span { font-size: 16px; }
+#about td#what-is { background: #659191 url(smbg.gif) repeat-x 0 bottom; }
+* html #about td#what-is { width: 600px; } 
+*+html #about td#what-is { width: 690px; } 
+#about h2 { text-align: center; font-size: 20px; padding: 14px 0 8px; }
+#about h3 { font-size: 14px; padding-bottom: 4px; padding-top: 4px; }
+ul.square { padding-left: 14px; margin-top: 6px; margin-left: 8px; }
+* html ul.square { margin-left: 0; }
+*+html ul.square { margin-left: 0; }
+ul.square li { list-style-type: square; } 
+* html #forDevelopers { width: 620px; }
+*+html #forDevelopers { width: 770px; }
+
+/* Footer  */
+#footer { clear: both; border-top: 3px solid #666; }
+#footer h2 {
+  border-bottom: 1px solid #D3CBBC;
+  color: #D18146;
+  padding: 12px 5px 8px 40px;
+  background:url("../template_files/favicon.gif") no-repeat scroll 18px 10px transparent; 
+
+}
+#footer h2 a, #footer h2 a:hover {  color: #CA7C29; }
+#footer p { padding: 0 18px; font-size: 85%; color: #333; margin: 8px 0; }
+#footer p a { font-weight: normal; font-size: 100%; }
+
+#footer-menu { clear: left; 
+  font-size: 80%;
+  border-top: 3px solid #666;
+  background-color: #5F8C8C;
+  padding-bottom: 6px;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 14px;
+}
+#footer ul.menu { margin: 6px; padding: 0;}
+#footer ul.menu li {
+  display:inline;
+  margin:0;
+}
+#footer ul.menu li a {
+  font-weight: bold; font-size: 12px;
+  padding: 3px 20px;
+  color: #FFFFFF;
+}
+#footer-message { border-top:1px solid #FFFFFF; padding-top: 6px; }
+#footer-message p { margin: 0 0 4px; line-height: 18px; color: #FFF; }
+
+/* Min page height for IE6 & IE7 */
+* html .col1 { height: 800px; }
+*+html .col1 { min-height: 800px; }
+
+/* IE6 profile edit & proxy pages fix */
+* html .EditBody { margin-left: 160px; }
+* html #contentPosition { margin-left: 160px; width: 80% !important; }
+* html #contentPosition table { width: 95% !important; } 
+* html .photoEditSubTitle  { width: 400px; }
+* html .photoEditButtonDiv   { width: 400px; }
+
+/* Select box hacks */
+.selectSort { border-style: solid none solid solid;
+  [border-style: solid none solid solid;
+  border-style: solid solid solid solid;]
+}
+.selectSort { border-style /*\**/: solid none solid solid \9 } 
+.selectSort { border-width: 1px 0px 1px 1px; 
+  [border-width: 1px 0px 1px 1px;
+  border-width: 1px 1px 1px 1px;]
+}
+.selectSort { border-width /*\**/: 1px 0px 1px 1px \9 } 
+.selectSort { border-color /*\**/: #DDDDDD \9 } 
+
+/* show & hide */
+.box { position: relative; height: auto; }
+.box-collapsed {
+     height: 105px;
+     overflow:hidden; 
+}
+.plusbutton, .minusbutton {
+     position: absolute; bottom: 1px; right: 0; 
+     margin: 0; padding: 0 15px 0 5px; line-height: 14px;
+}
+.plusbutton, .minusbutton, .atog {
+     color:#3B6394;  
+     background-color: #FFF;
+}
+.atog { white-space: nowrap; float: right; }
+.minusbutton {  display: none; } 
+.plusbutton span:hover, .minusbutton span:hover, .atog span:hover { 
+   color:#1E416C; text-decoration: underline; 
+}
+span.spacer { padding-left: 120px; }
+.transparent {
+  padding: 0 6px 3px; background-color: #FFF; 
+  /* for IE */
+  filter:alpha(opacity=80);
+  /* CSS3 standard */
+  opacity:0.8;
+}
+.semitransparent {
+  padding: 0 6px 3px; background-color: #FFF; 
+  /* for IE */
+  filter:alpha(opacity=50);
+  /* CSS3 standard */
+  opacity:0.5;
+}
+.narrativeText { line-height: 21px; }
+.watch { 
+  background:url("../template_files/watch.gif") no-repeat scroll 0 0 transparent; 
+  padding: 8px 0 8px 38px; font-weight: bold; font-size: 14px;
+}
+span.slides { color: #666; font-size: 11px; padding-left: 90px; }
+
+/*
+    ColorBox Core Style:
+    The following CSS is consistent between example themes and should not be altered.
+*/
+#colorbox, #cboxOverlay, #cboxWrapper{position:absolute; top:0; left:0; z-index:9999; overflow:hidden;}
+#cboxOverlay{position:fixed; width:100%; height:100%;}
+#cboxMiddleLeft, #cboxBottomLeft{clear:left;}
+#cboxContent{position:relative;}
+#cboxLoadedContent{overflow:auto;}
+#cboxTitle{margin:0;}
+#cboxLoadingOverlay, #cboxLoadingGraphic{position:absolute; top:0; left:0; width:100%;}
+#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow{cursor:pointer;}
+.cboxPhoto{float:left; margin:auto; border:0; display:block;}
+.cboxIframe{width:100%; height:100%; display:block; border:0;}
+
+/* 
+    User Style:
+    Change the following styles to modify the appearance of ColorBox.  They are
+    ordered & tabbed in a way that represents the nesting of the generated HTML.
+*/
+#cboxOverlay{background:url(colorbox-images/overlay.png) repeat 0 0;}
+#colorbox{}
+    #cboxTopLeft{width:21px; height:21px; background:url(colorbox-images/controls.png) no-repeat -100px 0;}
+    #cboxTopRight{width:21px; height:21px; background:url(colorbox-images/controls.png) no-repeat -129px 0;}
+    #cboxBottomLeft{width:21px; height:21px; background:url(colorbox-images/controls.png) no-repeat -100px -29px;}
+    #cboxBottomRight{width:21px; height:21px; background:url(colorbox-images/controls.png) no-repeat -129px -29px;}
+    #cboxMiddleLeft{width:21px; background:url(colorbox-images/controls.png) left top repeat-y;}
+    #cboxMiddleRight{width:21px; background:url(colorbox-images/controls.png) right top repeat-y;}
+    #cboxTopCenter{height:21px; background:url(colorbox-images/border.png) 0 0 repeat-x;}
+    #cboxBottomCenter{height:21px; background:url(colorbox-images/border.png) 0 -29px repeat-x;}
+    #cboxContent{background:#fff; overflow:hidden;}
+        #cboxError{padding:50px; border:1px solid #ccc;}
+        #cboxLoadedContent{margin-bottom:28px;}
+        #cboxTitle{position:absolute; bottom:4px; left:0; text-align:center; width:100%; color:#000;}
+        #cboxCurrent{position:absolute; bottom:4px; left:58px; color:#949494;}
+        #cboxSlideshow{position:absolute; bottom:4px; right:30px; color:#0092ef;}
+        #cboxPrevious{position:absolute; bottom:0; left:0; background:url(colorbox-images/controls.png) no-repeat -75px 0; width:25px; height:25px; text-indent:-9999px;}
+        #cboxPrevious.hover{background-position:-75px -25px;}
+        #cboxNext{position:absolute; bottom:0; left:27px; background:url(colorbox-images/controls.png) no-repeat -50px 0; width:25px; height:25px; text-indent:-9999px;}
+        #cboxNext.hover{background-position:-50px -25px;}
+        #cboxLoadingOverlay{background:url(colorbox-images/loading_background.png) no-repeat center center;}
+        #cboxLoadingGraphic{background:url(colorbox-images/loading.gif) no-repeat center center;}
+        #cboxClose{position:absolute; bottom:0; right:0; background:url(colorbox-images/controls.png) no-repeat -25px 0; width:25px; height:25px; text-indent:-9999px;}
+        #cboxClose.hover{background-position:-25px -25px;}
+
+/*
+  The following fixes a problem where IE7+ replaces a PNG's alpha transparency with a black fill
+  when an alpha filter (opacity change) is set on the element or ancestor element.
+*/
+.cboxIE #cboxTopLeft,
+.cboxIE #cboxTopCenter,
+.cboxIE #cboxTopRight,
+.cboxIE #cboxBottomLeft,
+.cboxIE #cboxBottomCenter,
+.cboxIE #cboxBottomRight,
+.cboxIE #cboxMiddleLeft,
+.cboxIE #cboxMiddleRight {
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00FFFFFF,endColorstr=#00FFFFFF);
+}
+
+/*
+  The following provides PNG transparency support for IE6
+*/
+.cboxIE6 #cboxTopLeft{background:url(colorbox-images/ie6/borderTopLeft.png);}
+.cboxIE6 #cboxTopCenter{background:url(colorbox-images/ie6/borderTopCenter.png);}
+.cboxIE6 #cboxTopRight{background:url(colorbox-images/ie6/borderTopRight.png);}
+.cboxIE6 #cboxBottomLeft{background:url(colorbox-images/ie6/borderBottomLeft.png);}
+.cboxIE6 #cboxBottomCenter{background:url(colorbox-images/ie6/borderBottomCenter.png);}
+.cboxIE6 #cboxBottomRight{background:url(colorbox-images/ie6/borderBottomRight.png);}
+.cboxIE6 #cboxMiddleLeft{background:url(colorbox-images/ie6/borderMiddleLeft.png);}
+.cboxIE6 #cboxMiddleRight{background:url(colorbox-images/ie6/borderMiddleRight.png);}
+
+.cboxIE6 #cboxTopLeft,
+.cboxIE6 #cboxTopCenter,
+.cboxIE6 #cboxTopRight,
+.cboxIE6 #cboxBottomLeft,
+.cboxIE6 #cboxBottomCenter,
+.cboxIE6 #cboxBottomRight,
+.cboxIE6 #cboxMiddleLeft,
+.cboxIE6 #cboxMiddleRight {
+    _behavior: expression(this.src = this.src ? this.src : this.currentStyle.backgroundImage.split('"')[1], this.style.background = "none", this.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src=" + this.src + ", sizingMethod='scale')");
+}

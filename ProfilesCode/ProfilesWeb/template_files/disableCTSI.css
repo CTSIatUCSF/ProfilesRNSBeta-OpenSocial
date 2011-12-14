@@ -1,0 +1,122 @@
+
+body { 
+  background:url("../template_files/bg.png") repeat-x scroll 0 0 #B8D0D0;
+}
+
+#page-container { background-color: #FFFFFF; }
+
+#leaderboard { text-align:center; background-color: #AAAA99; }
+#leaderboard img { border: none; }
+
+#header {
+  background:url("../template_files/masthead-bg.png") repeat-x scroll 0 0 transparent;
+  margin-bottom: 25px;
+}
+
+.site-logo {
+  padding-left:37px;
+  padding-right:37px;
+  display:inline;
+  float:left;
+  background:url("../template_files/bannercircle.png") no-repeat scroll 0 0 transparent;
+  
+}
+.site-logo img { border: none; margin-bottom: -8px; }
+
+#header-right {
+  float:right;
+  text-align: right;
+  margin: -10px 25px 0 0;
+}
+
+#header-right a { font-size: 13px; }
+
+/* override masterLayout.css */
+#header ul li a {
+  background:none repeat scroll 0 0 transparent;
+  color:#FFFFFF;
+  border-right:1px solid #FFFFFF;
+}
+
+#suckerfish-container { clear: both; margin-bottom: 5px; }
+#header-bottom { clear: both; border-top: 3px solid #AAAA99; }
+
+#footer { clear: both;
+  font-size: 80%;
+  border-top: 3px solid #AAAA99;
+  background-color: #5F8C8C;
+  padding-bottom: 6px;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 14px;
+}
+#footer ul { margin: 6px; }
+#footer ul li {
+  display:inline;
+  margin:0 0 0 20px;
+}
+#footer a {
+  font-weight: bold;
+  padding: 3px 3px 3px 18px;
+  color: #FFFFFF;
+}
+#footer p { margin: 0 0 4px; }
+#footer-message { border-top:1px solid #FFFFFF; padding-top: 6px; }
+
+.pageTitleUCSF, .pageTitleUCSF a, .pageTitleUCSF a:hover, .pageTitleUCSF a:active, .pageTitleUCSF a:visited {
+  color:#CA7C29;
+  font-size:18px;
+  padding: 2px 5px 0;
+}
+.pageTitle,
+.sectionHeader { color:#CA7C29; }
+.activeTop, .activeBottom { background-color:#88BBBB; }
+.passive_container { padding: 0 8px 0 0; margin-left: -3px; }
+.searchForm .searchSection { background-color: #F9F9F9; }
+.col13top { background-color:#FFFFFF; }
+.holygrail .col1 { width: 600px; }
+/* .holygrail .colmid { margin-left: -148px; }  TEMP */
+
+
+/* TEMP */
+.col1wrap { float: right; margin-right: 200px; } 
+.col3 { width: 150px; position: abolute; left: 990px; }
+
+
+
+.passive_section_line,
+.connectionBriefInfoText,
+.rightColumnWidget { width: 120px; }
+#searchResultsPersonSummary { margin-left: 1px; width: 120px; }
+#ctl00_ctl00_middle_MiddleContentPlaceHolder_pnlSearchResults { margin-left: -9px; }
+.tabInfoText { width: 600px; }
+.connectionSearchPhraseText { color: #CA7C29; }
+/* .searchResultsHeader, .searchResultsPager { background-color:#F9F9F9; } */
+.gridHover { background-color: #5F8C8C; }
+
+/* IE6 */
+* html #header { width: 940px; }
+* html #leaderboard { margin-bottom: -3px; }
+* html .site-logo { width: 660px; }
+* html .site-logo img { margin-bottom: -5px; }
+* html .leftColumnWidget { width: 160px; padding-right: 0; } 
+* html .menuWidgetTitle { width: 163px; }
+* html .holygrail .col1 { margin: 0 180px; }
+* html .holygrail .col2 { left: 80px; }
+* html .col13top { border-top: 91px solid #CCCCCC; }
+* html #ctl00_ctl00_divCol1 { width: 590px !important; }
+* html #ctl00_ctl00_middle_MiddleContentPlaceHolder_pnlReadOnlySection { width: 290px; }
+/*
+* html table#ctl00_ctl00_middle_MiddleContentPlaceHolder_grdSearchResults { position: relative; left: -30px; }
+* html .activeTop, .activeBottom, .activeMainWrapper, .holygrail .col2 { width: 152px; }
+* html .menuWidgetTitle { width: 100px; } 
+* html #ctl00_ctl00_middle_MiddleContentPlaceHolder_pnlSearchResults { margin-left: -40px; }
+* html div { border: 1px solid red; }
+* html .holygrail { background-position: 0 120px; }
+* html body #page-container { width: 905px; }
+* html div { border: 1px solid red; }
+* html body #page-container { width: 990px; }
+*/
+
+
+

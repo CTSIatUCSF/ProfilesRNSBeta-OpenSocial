@@ -41,8 +41,9 @@ public partial class CoAuthorNet : BasePage
                     
                     lblSubTitle.Text = String.Format("Co-Authors ({0})", pList.Person[0].PassiveNetworks.CoAuthorList.TotalCoAuthorCount.ToString());
 
-                    if (pList.Person[0].Address.Latitude == 0)
-                        divMapView.Attributes.Add("style", "display:none");
+                    // Eric Meeks
+                    //if (pList.Person[0].Address == null || pList.Person[0].Address.Latitude == 0)
+                      //  divMapView.Attributes.Add("style", "display:none");
                 }
             }
 

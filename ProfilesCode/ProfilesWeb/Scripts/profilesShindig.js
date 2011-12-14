@@ -2,10 +2,6 @@
     Profiles Shindig Helper functions for gadget-to-container commands
 
  */
- 
- // dummy function so google analytics does not break for institutions who do not use it
- _gaq.push = function(data) {    // 
- };
 
 // pubsub
 gadgets.pubsubrouter.init(function(id) {
@@ -61,11 +57,14 @@ gadgets.pubsubrouter.init(function(id) {
       else if (channel == 'added' && my.gadgets[moduleId].view == 'home') {
           if (message == 'Y') {
             _gaq.push(['_trackEvent', my.gadgets[moduleId].name, 'SHOW', 'profile_edit_view']);    
-            osapi.activities.create(
-		    { 	'userId': gadgets.util.getUrlParameters()['Person'],
-			    'appId': my.gadgets[moduleId].appId,
-			    'activity': {'postedTime': new Date().getTime(), 'title': 'added a gadget', 'body': 'added the ' + my.gadgets[moduleId].name + ' gadget to their profile' }
-		    }).execute(function(response){});
+            // only create for gadgets with a description
+            if (my.renderableGadgets[moduleId].metadata.description) {
+                osapi.activities.create(
+		        { 	'userId': gadgets.util.getUrlParameters()['Person'],
+			        'appId': my.gadgets[moduleId].appId,
+			        'activity': {'postedTime': new Date().getTime(), 'title': 'added a gadget', 'body': 'added ' + my.renderableGadgets[moduleId].metadata.description + ' to their profile' }
+		        }).execute(function(response){});
+		    }
 		  }
 		  else {
             _gaq.push(['_trackEvent', my.gadgets[moduleId].name, 'HIDE', 'profile_edit_view']);    
@@ -381,11 +380,14 @@ ProfilesGadget.prototype.handleToggle = function() {
         _gaq.push(['_trackEvent', my.gadgets[this.id].name, 'OPEN_IN_EDIT', 'profile_edit_view']);  
       }
       else {
-        osapi.activities.create(
-		  { 	'userId': gadgets.util.getUrlParameters()['Person'],
-			    'appId': my.gadgets[this.id].appId,
-			    'activity': {'postedTime': new Date().getTime(), 'title': 'gadget viewed', 'body': my.gadgets[this.id].name + ' gadget was viewed' }
-		  }).execute(function(response){});
+        // only do this for user centric activities
+        if (gadgets.util.getUrlParameters()['Person'] != undefined) {
+            osapi.activities.create(
+		      { 	'userId': gadgets.util.getUrlParameters()['Person'],
+			        'appId': my.gadgets[this.id].appId,
+			        'activity': {'postedTime': new Date().getTime(), 'title': 'gadget was viewed', 'body': my.gadgets[this.id].name + ' was viewed' }
+		      }).execute(function(response){});
+		}
       	// record in google analytics     
         _gaq.push(['_trackEvent', my.gadgets[this.id].name, 'OPEN']);  
 	  }

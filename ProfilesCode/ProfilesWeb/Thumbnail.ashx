@@ -7,9 +7,11 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Web;
 using Connects.Profiles.BusinessLogic;
+using Connects.Profiles.Common;
 
 public class Thumbnail : IHttpHandler 
 {
+    static byte[] silhouetteImage = null;
     
     public void ProcessRequest (HttpContext context) 
     {
@@ -17,14 +19,48 @@ public class Thumbnail : IHttpHandler
         context.Response.ContentType = "image/jpeg";
         context.Response.Cache.SetCacheability(HttpCacheability.Public);
         context.Response.BufferOutput = false;
-
+        
         if (!string.IsNullOrEmpty(context.Request.QueryString["ID"]))
         {
             // get the id for the image
             int id = Convert.ToInt32(context.Request.QueryString["ID"]);
             
-            // get the image as a byte array
-            byte[] imageAsBytes = new UserBL().GetUserPhoto(id);
+            // By Eric Meeks
+            byte[] imageAsBytes = null;
+            if ("True".Equals(context.Request.QueryString["ShowSilhouetteAsDefault"]))
+            {
+                // if user does not have image visibility set on, return silhouette
+                UserPreferences userPreference = new UserPreferences();
+                userPreference = new UserBL().GetUserPreferences(id);
+                //IF "Y" then Show 
+                //IF "N" then Hide
+
+                if (!userPreference.Photo.Equals("Y"))
+                {
+                    // It's OK that this isn't synchronized even though it would be cleaner if it were
+                    if (silhouetteImage == null)
+                    {
+                        // this method is limited to 2^32 byte files (4.2 GB)
+                        FileStream fs = File.OpenRead(AppDomain.CurrentDomain.BaseDirectory + "/template_files/default_img.png");
+                        try
+                        {
+                            silhouetteImage = new byte[fs.Length];
+                            fs.Read(silhouetteImage, 0, Convert.ToInt32(fs.Length));
+                        }
+                        finally
+                        {
+                            fs.Close();
+                        }
+                    }
+                    imageAsBytes = silhouetteImage;
+                }
+            }
+                
+            if (imageAsBytes == null)                 
+            {
+                // get the image as a byte array
+                imageAsBytes = new UserBL().GetUserPhoto(id);
+            }
 
             // resize the image to a thumb (100)
             //imageAsBytes = ResizeImageFile(imageAsBytes, 100);

@@ -8,30 +8,57 @@
 <head id="Head1" runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
     <title></title>
-     <!--[if IE 6]>
-    <link rel="stylesheet" type="text/css" href="CSS/IEmasterLayout.css" />
-    <![endif]-->
-    <!--[if !IE]><!-->
-    <link rel="stylesheet" type="text/css" href="CSS/masterLayout.css" />
-    <!--<![endif]-->
-    <!--[if gte IE 7]><!-->
-    <link rel="stylesheet" type="text/css" href="CSS/masterLayout.css" />
-    <!--<![endif]-->
+    <!--link rel="stylesheet" type="text/css" href="CSS/masterLayout.css" /-->
     <asp:ContentPlaceHolder ID="HeadContentPlaceHolder" runat="server">
     </asp:ContentPlaceHolder>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+    if (window.location.hostname.match(/^dev-profiles.ucsf.edu$/i)) {
+       _gaq.push(['_setAccount', 'UA-1142388-9']);
+    }else{
+       _gaq.push(['_setAccount', 'UA-1142388-6']);
+    }
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- Start Visual Website Optimizer Code -->
+<script type='text/javascript'>
+var _vis_opt_account_id = 4916;
+var _vis_opt_protocol = (('https:' == document.location.protocol) ? 'https://' : 'http://');
+document.write('<s' + 'cript src="' + _vis_opt_protocol + 'dev.visualwebsiteoptimizer.com/deploy/js_visitor_settings.php?v=1&a='+_vis_opt_account_id+'&url='+encodeURIComponent(document.URL)+'&random='+Math.random()+'" type="text/javascript">' + '<\/s' + 'cript>');
+</script>
+<script type='text/javascript'>
+if(typeof(_vis_opt_settings_loaded) == "boolean") { document.write('<s' + 'cript src="' + _vis_opt_protocol + 'd5phz18u4wuww.cloudfront.net/vis_opt_no_jquery.js" type="text/javascript">' + '<\/s' + 'cript>'); }
+// if your site does not have jQuery 1.4.2 loaded, replace vis_opt_no_jquery.js with vis_opt.js above
+</script>
+<script type='text/javascript'>
+if(typeof(_vis_opt_settings_loaded) == "boolean" && typeof(_vis_opt_top_initialize) == "function")
+{ _vis_opt_top_initialize();
+vwo_$(document).ready(function() { _vis_opt_bottom_initialize(); }); }
+</script>
+<!-- End Visual Website Optimizer Code -->
 </head>
 <body id="bodyMaster" runat="server">
-    <div id="page-container" >
+<script type="text/javascript">var _kiq = _kiq || [];</script>
+<script type="text/javascript" src="//s3.amazonaws.com/ki.js/21116/49p.js" async="true"></script>
+    <div id="page-container">
         <asp:ContentPlaceHolder ID="heading" runat="server">
         </asp:ContentPlaceHolder>
-        <div class="colmask holygrail" id="divContainer" runat="server" >
+        <div class="colmask holygrail" id="divContainer" runat="server">
             <div class="col13top">
                 <div class="col13topSpace" id="divCol13topSpace" runat="server">
                 </div>
             </div>
             <!-- Start Container -->
             <div class="colmid">
-            <div class="colleft">
+                <div class="colleft">
                     <form id="formMain" runat="server">
                     <asp:ContentPlaceHolder ID="container" runat="server">
                     </asp:ContentPlaceHolder>

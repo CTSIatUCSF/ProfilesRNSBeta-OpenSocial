@@ -2,6 +2,7 @@
     CodeFile="ProxyAdd.aspx.cs" Inherits="ProxyAdd" Title="Proxies" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MiddleContentPlaceHolder" runat="Server">
+  <div id="contentPosition">
     <div class="pageTitle"><asp:Literal ID="ltHeader" runat="server" /></div>
     <div style="margin-top: 10px;">
         <asp:Panel ID="pnlProxySearch" runat="server" DefaultButton="btnProxySearch">
@@ -22,6 +23,7 @@
                         <asp:TextBox ID="txtFirstName" runat="server" Width="250px" ToolTip="Enter FirstName" />
                     </td>
                 </tr>
+<!--
                 <tr>
                     <th style="text-align: right;">
                         Institution
@@ -40,6 +42,7 @@
                             ToolTip="Select Department Name" />
                     </td>
                 </tr>
+-->
                 <tr>
                     <th>
                     </th>
@@ -56,6 +59,7 @@
         </asp:Panel>
         <asp:Panel ID="pnlProxySearchResults" runat="server" Visible="false">
             <div style="margin-top: 8px;">
+                <p style="margin:4px 10px">To add any of the people below as your proxy, simply click on the name of the individual in the list.</p>
                 <asp:GridView ID="gridSearchResults" runat="server" DataKeyNames="UID" AllowPaging="true"
                     PageSize="15" EmptyDataText="No matching people could be found." AutoGenerateColumns="False"
                     OnRowDataBound="gridSearchResults_RowDataBound" OnSelectedIndexChanged="gridSearchResults_SelectedIndexChanged"
@@ -85,4 +89,5 @@
             </div>
         </asp:Panel>
     </div>
+  </div>
 </asp:Content>

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using System.Data;
 using Connects.Profiles.BusinessLogic;
 
 public partial class ProfilesPage : System.Web.UI.MasterPage
@@ -31,12 +31,15 @@ public partial class ProfilesPage : System.Web.UI.MasterPage
 
         // Set the login URL
         hypLogMeIn.NavigateUrl = strRedirectURL;
+        hypHeaderLogin.NavigateUrl = strRedirectURL;
 
         if (Profile.UserId != 0)
         {
             // We are logged in
             pnlNotLoggedIn.Visible = false;
             pnlLoggedIn.Visible = true;
+            hypHeaderLogin.Visible = false;
+            hypHeaderLogout.Visible = true;
             //pnlDisplayName.Visible = true;
 
             if (Profile.HasProfile==true)
@@ -48,6 +51,15 @@ public partial class ProfilesPage : System.Web.UI.MasterPage
                 hypEditMyProfile.NavigateUrl = "~/ProfileEdit.aspx?From=Self&Person=" + Profile.ProfileId;
                 hypManageProxies.NavigateUrl = "~/Proxy.aspx";
                 //lblDisplayName.Text = Profile.DisplayName;
+                //  6-2-11 additions
+                hypViewMyProfileNavbar.Visible = true;
+                hypViewMyProfileNavbar2.Visible = true;
+                hypEditMyProfileNavbar.Visible = true;
+                hypManageProxiesNavbar.Visible = true;
+                hypLogoutNavbar.Visible = true;
+                hypViewMyProfileNavbar2.NavigateUrl = "~/ProfileDetails.aspx?Person=" + Profile.ProfileId;
+                hypEditMyProfileNavbar.NavigateUrl = "~/ProfileEdit.aspx?From=Self&Person=" + Profile.ProfileId;
+                hypManageProxiesNavbar.NavigateUrl = "~/Proxy.aspx";
             }
             else if (_UserBL.GetMyProxies(Profile.UserId).Length > 0)
             {
@@ -60,6 +72,8 @@ public partial class ProfilesPage : System.Web.UI.MasterPage
             // We are not logged in
             pnlNotLoggedIn.Visible = true;
             pnlLoggedIn.Visible = false;
+            hypHeaderLogin.Visible = true;
+            hypHeaderLogout.Visible = false;
             //pnlDisplayName.Visible = false;
 
             // Hide the mini search
@@ -70,6 +84,10 @@ public partial class ProfilesPage : System.Web.UI.MasterPage
 
             // Set the Edit Profile link when not logged in
             hypNotLoggedIn.NavigateUrl = strRedirectURL + "?EditMyProfile=true";
+
+            //  6-2-11 additions
+            pnlNotLoggedInNavbar.Visible = true;
+            hypNotLoggedInNavbar.NavigateUrl = strRedirectURL + "?EditMyProfile=true";
         }
 
         // Update the left panels

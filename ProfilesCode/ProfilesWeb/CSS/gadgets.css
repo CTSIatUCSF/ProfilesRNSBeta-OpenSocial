@@ -26,6 +26,9 @@
 .col2 .gadgets-gadget-chrome { 
   margin-left: 9px;
 }
+* html .col2 .gadgets-gadget-chrome { 
+  margin-right: 0px;
+}
 
 .gadgets-gadget 
 {

@@ -1,21 +1,11 @@
-﻿/*  
- 
-    Copyright (c) 2008-2010 by the President and Fellows of Harvard College. All rights reserved.  
-    Profiles Research Networking Software was developed under the supervision of Griffin M Weber, MD, PhD.,
-    and Harvard Catalyst: The Harvard Clinical and Translational Science Center, with support from the 
-    National Center for Research Resources and Harvard University.
-
-
-    Code licensed under a BSD License. 
-    For details, see: LICENSE.txt 
-  
-*/
-using System;
+﻿using System;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.UI.HtmlControls;
 using Connects.Profiles.Common;
 using Connects.Profiles.Service.DataContracts;
 using Connects.Profiles.Utility;
+using System.Collections.Generic;
 
 public partial class ProfileDetails : BasePage
 {
@@ -58,7 +48,6 @@ public partial class ProfileDetails : BasePage
     protected void Page_Load(object sender, EventArgs e)
     {
         Session["EmailImgText"] = "none";
-        Session["ProfileEdit"] = "false";
 
         // Get the profile ID from the query string
         _personId = GetPersonFromQueryString();
@@ -67,9 +56,13 @@ public partial class ProfileDetails : BasePage
         {
             if (_personId > 0)
             {
+                // set canonical link
+                HtmlLink canonical = new HtmlLink();
+                canonical.Href = ConfigUtil.GetConfigItem("ProdHost") + "/ProfileDetails.aspx?Person=" + _personId;
+                canonical.Attributes["rel"] = "canonical";
+                Page.Header.Controls.Add(canonical);
 
                 personProfileList = new Connects.Profiles.Service.ServiceImplementation.ProfileService().GetPersonFromPersonId(_personId);
-
                 personProfile = personProfileList.Person[0];
 
                 if (personProfile != null)
@@ -97,6 +90,12 @@ public partial class ProfileDetails : BasePage
                     Page.Title = personProfile.Name.FirstName + " " + personProfile.Name.LastName + " | " + Page.Title;
                     ltProfileName.Text = personProfile.Name.FullName;
 
+                    // add a meta tag based on Anirvan's suggestion
+                    HtmlMeta keywords = new HtmlMeta();
+                    keywords.Name = "Description";
+                    keywords.Content = personProfile.Name.FirstName + " " + personProfile.Name.LastName + "'s profile, publications, research topics, and co-authors";
+                    Page.Header.Controls.Add(keywords);
+
                     // Profiles OpenSocial Extension by UCSF
                     OpenSocialHelper os = SetOpenSocialHelper(Profile.UserId, _personId, Page);
                     os.SetPubsubData(OpenSocialHelper.JSON_PERSONID_CHANNEL, OpenSocialHelper.BuildJSONPersonIds(_personId, personProfile.Name.FullName));
@@ -110,13 +109,10 @@ public partial class ProfileDetails : BasePage
                     os.RemovePubsubGadgetsWithoutData();
                     GenerateOpensocialJavascipt();
                     pnlOpenSocialGadgets.Visible = OpenSocial().IsVisible();
-
-                    // record that their profile was viewed
-                    OpenSocialHelper.PostActivity(_personId, "profile was viewed");
                 }
-
             }
         }
+
 
         InitializeUserControlEvents();
     }
@@ -127,7 +123,7 @@ public partial class ProfileDetails : BasePage
     private void ProcessSelfProxyAndHidden()
     {
         if (_personId == Profile.ProfileId)
-        { 
+        {
             imgReach.ImageUrl = "images/reachyou.gif";
             imgReach.Visible = true;
             ShowControl("pnlChkList", false);
@@ -165,6 +161,7 @@ public partial class ProfileDetails : BasePage
 
     #endregion
 
+
     #region User ReadOnly Section
     private void ReadOnlySection(int personId)
     {
@@ -197,10 +194,10 @@ public partial class ProfileDetails : BasePage
             {
                 pnlReadOnlyNarrative.Visible = false;
             }
-
             #endregion
 
             #region Publications
+
 
             if (personProfile.PublicationList != null)
             {
@@ -226,6 +223,7 @@ public partial class ProfileDetails : BasePage
             if (userPreference.Photo.Equals("Y"))
             {
                 imgReadPhoto.ImageUrl = _userBL.GetUserPhotoURL(personId);
+                imgReadPhoto.AlternateText = personProfile.Name.FullName;
             }
             else
             {
@@ -269,7 +267,7 @@ public partial class ProfileDetails : BasePage
 
             #endregion
 
-            this.txtProfileProblem.Text = _userBL.GetProfileSupportHtml(_personId, true);
+            this.txtProfileProblem.Text = ""; // Eric Meeks _userBL.GetProfileSupportHtml(_personId, true);
 
         }
         catch (Exception Ex)
@@ -328,4 +326,23 @@ public partial class ProfileDetails : BasePage
     }
 
     #endregion
+
+    #region UCSF A/B Testing
+
+    public int GetPersonID()
+    {
+        return _personId;
+    }
+
+    public string GetLastName()
+    {
+        return personProfile != null ? personProfile.Name.LastName : "";
+    }
+
+    public string GetFirstName()
+    {
+        return personProfile != null ? personProfile.Name.FirstName : "";
+    }
+    #endregion
 }
+

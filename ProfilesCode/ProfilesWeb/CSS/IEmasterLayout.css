@@ -87,8 +87,8 @@
 .holygrail .colmid
 {
 	float: left;
-	width: 201%;
-	margin-left: -154px; /* Width of right column */
+	width: 200%;
+	margin-left: -152px; /* Width of right column */
 	position: relative;
 	right: 100%;
 	xbackground: #fff; /* Centre column background colour border: solid 1px #cccccc;*/
@@ -106,7 +106,7 @@
 
 .colleft
 {
-	top: -12px;
+	top: 0px;
 }
 .holygrail .col1wrap
 {
@@ -241,17 +241,7 @@
 	height:27px;
 	overflow:hidden;
 }
-/* Login Screen */
-.loginPanel
-{
-	margin-left: -50px;
-	margin-top: 90px;
-	position:absolute;
-}
-.EditBody
-{
-	position:relative;left:-305px;
-}
+
 
 #ctsc_footer {
 	margin-top:0px;
@@ -273,4 +263,3 @@ body #page-container {
 	margin:0 auto;
 	width:967px;
 }
-

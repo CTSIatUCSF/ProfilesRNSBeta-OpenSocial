@@ -7,16 +7,6 @@
 <%@ Register Src="UserControls/ucProfileBaseInfo.ascx" TagName="ProfileBaseInfo"
     TagPrefix="ucProfileBaseInfo" %>
 <%@ Register Assembly="FUA" Namespace="Subgurim.Controles" TagPrefix="cc1" %>
- <%--
-    Copyright (c) 2008-2010 by the President and Fellows of Harvard College. All rights reserved.  
-    Profiles Research Networking Software was developed under the supervision of Griffin M Weber, MD, PhD.,
-    and Harvard Catalyst: The Harvard Clinical and Translational Science Center, with support from the 
-    National Center for Research Resources and Harvard University.
-
-
-    Code licensed under a BSD License. 
-    For details, see: LICENSE.txt 
- --%> 
 <asp:Content ID="Content1" ContentPlaceHolderID="MiddleContentPlaceHolder" runat="Server">
 
     <script src="Scripts/JScript.js" type="text/jscript"></script>
@@ -47,19 +37,7 @@
         }
 
         function exclusiveCheckbox(rbNum) {
-
             var rbNamePre = "ctl00_ctl00_middle_MiddleContentPlaceHolder_dlPhotos_ctl0";
-
-            var test = document.getElementById(rbNamePre);
-
-            if (test == null) {                
-                rbNamePre = "middle_MiddleContentPlaceHolder_dlPhotos_ctl0";
-                test = document.getElementById(rbNamePre);
-            }
-            if (test == null) { return; }
-
-
-
             var rbNamePost = "_rbPhoto";
 
             var i = 0;
@@ -78,16 +56,9 @@
             if (rbNum == 9)
                 customMode = true;
 
-            if (document.getElementById("ctl00_ctl00_middle_MiddleContentPlaceHolder_rbPhotoCustom") != null) {
-                document.getElementById("ctl00_ctl00_middle_MiddleContentPlaceHolder_rbPhotoCustom").checked = customMode;
-            }
-            else { document.getElementById("middle_MiddleContentPlaceHolder_rbPhotoCustom").checked = customMode; }
+            document.getElementById("ctl00_ctl00_middle_MiddleContentPlaceHolder_rbPhotoCustom").checked = customMode;
 
-
-            if (document.getElementById("ctl00_ctl00_middle_MiddleContentPlaceHolder_hidRbTrack") != null) {
-                document.getElementById("ctl00_ctl00_middle_MiddleContentPlaceHolder_hidRbTrack").value = rbNum;
-            } else { document.getElementById("middle_MiddleContentPlaceHolder_hidRbTrack").value = rbNum; }
-
+            document.getElementById("ctl00_ctl00_middle_MiddleContentPlaceHolder_hidRbTrack").value = rbNum;
 
             return true;
         }
@@ -95,17 +66,16 @@
 
     <table class="EditBody">
         <tr>
-            <td style="padding-right: 10px;">
-                <div style="width: 70%; float: left;">
-                    <h2>
+            <td style="padding-top: 6px;">
+                <div>
+                    <h2 style="font-size:18px;padding-left:105px;float:left;padding-top:2px">
                         <asp:Literal ID="ltProfileName" runat="server" /></h2>
-                </div>
-                <div style="text-align: right;">
                     <asp:PlaceHolder ID="phEditModeLabel" runat="server" Visible="false">
-                        <asp:Label ID="lblEditMode" runat="server" Text="EDIT MODE" Style="font-weight: bold;
-                            color: #cc0000;"></asp:Label>
-                        &nbsp;|&nbsp;<asp:HyperLink ID="hypLnkReturn" runat="server" Text="View profile"
-                            CssClass="hypLinks" />
+                        <asp:Label ID="lblEditMode" runat="server" Text="PROFILE EDIT MODE" Style="font-weight: bold;
+                          color: #CC0000;padding-left:70px;font-size:15px"></asp:Label>
+                        <asp:HyperLink ID="hypLnkReturn" runat="server" Text="VIEW PROFILE"
+                          CssClass="hypLinks" style="border: 1px solid #AAAA99;padding:2px 6px;margin-left:8px;
+                          background-color:#fff;font-size:15px" />
                     </asp:PlaceHolder>
                     <asp:HyperLink ID="hypLnkViewProfile" runat="server" Text="Back to profile" CssClass="hypLinks"
                         Visible="false" />
@@ -151,14 +121,14 @@
                         <table width="100%" border="0">
                             <tr>
                                 <td>
-                                    <ucProfileBaseInfo:ProfileBaseInfo ID="ucProfileBaseInfo" runat="server" Visible="true" EditMode="true"/>
+                                    <ucProfileBaseInfo:ProfileBaseInfo ID="ucProfileBaseInfo" runat="server" Visible="true" />
                                 </td>
-                                <td style="vertical-align: top; text-align: right;">
+                                <td style="vertical-align: top;text-align:right;width:130px;">
                                     <asp:Panel ID="pnlEditPhoto" runat="server">
                                         <table border="0">
                                             <tr>
                                                 <td style="vertical-align: top;">
-                                                    <asp:Image ID="imgEditPhoto" runat="server" Height="120px" Width="120px" Style="border: solid 1px #999;" />
+                                                    <asp:Image ID="imgEditPhoto" runat="server" Width="120px" Style="border: solid 1px #999;" />
                                                 </td>
                                             </tr>
                                             <tr>
@@ -187,7 +157,8 @@
                                 <div class="photoEditTitle">
                                     Change Photo</div>
                                 <div class="photoEditSubTitle">
-                                    Select from a custom photograph or image.</div>
+                                    Check 'Custom Photo' and then click 'Add Custom Photo' to upload a<br />
+                                    photograph or image. </div>
                             </div>
                             <div>
                                 <table>
@@ -202,7 +173,7 @@
                                                     <asp:RadioButton runat="server" ID="rbPhoto" OnDataBinding="rbPhoto_DataBinding"
                                                         OnCheckedChanged="rbPhoto_CheckedChanged" />
                                                     <br />
-                                                    <asp:Image ID="imgPhoto" runat="server" Height="120px" Width="120px" Style="border: solid 1px #999;"
+                                                    <asp:Image ID="imgPhoto" runat="server" Width="120px" 
                                                         ImageUrl='<%#Eval("PhotoLink") %>' OnDataBinding="imgPhoto_DataBinding" CausesValidation="false" />
                                                 </ItemTemplate>
                                             </asp:DataList>
@@ -210,7 +181,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <asp:Image ID="imgEditPhoto3" runat="server" Height="120px" Width="120px" Style="border: solid 1px #999;" />
+                                            <asp:Image ID="imgEditPhoto3" runat="server" Width="120px" />
                                         </td>
                                     </tr>
                                     <tr>
@@ -244,9 +215,18 @@
                         <div id="ProfileDetails">
                             <table width="100%">
                                 <tr style="height: 4px">
-                                    <td>
-                                        <asp:Literal ID="txtProfileProblem" runat="server"></asp:Literal>
+                                    <%-- Eric Meeks --%>
+            			    <td><p style="width:600px; margin:0;color:#333"><strong>UCSF Profiles uses Campus Locator System data for your directory entry. Changes to your directory entry above 
+                                        should be directed to the Payroll/ Personnel Analyst for your UCSF campus department.
+                                        If unsure who this person is, contact your department's Business Officer.</strong>
+                                      </p>
+                                      <p>For questions or assistance with editing other profile fields, see 
+                                      <a href="HowProfilesWorks.aspx#edit">How Profiles Works </a> or 
+                                      <a href="mailto:ctsi@ucsf.edu">contact us</a>.</p>
                                     </td>
+                                    <asp:Panel ID="pnlProfileProblems" runat="server" Visible="false">
+                                    <td>
+                                    <asp:Literal ID="txtProfileProblem" runat="server"></asp:Literal></td></asp:Panel>
                                 </tr>
                                 <tr style="height: 6px">
                                     <td>
@@ -410,7 +390,7 @@
                                                                     <ItemStyle HorizontalAlign="Center" Width="10px" />
                                                                 </asp:TemplateField>
                                                             </Columns>
-                                                            <HeaderStyle BackColor="#F5F1E8" />
+                                                            <HeaderStyle BackColor="#EEEBE5" />
                                                         </asp:GridView>
                                                         <asp:SqlDataSource ID="AwardsDS" runat="server" ConnectionString="<%$ ConnectionStrings:ProfilesDB %>"
                                                             DeleteCommand="usp_DeleteAward" DeleteCommandType="StoredProcedure" InsertCommand="usp_AddAward"
@@ -505,12 +485,54 @@
                                         </asp:Panel>
                                     </td>
                                 </tr>
+                            </table>
+                        </div>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+	          <%-- Profiles OpenSocial Extension by UCSF --%>    
+                <asp:Panel ID="pnlOpenSocialGadgets" runat="server">
+                    <script type="text/javascript" language="javascript">
+                        my.current_view = "home";
+                    </script>                
+                    <div id="OpenSocial">
+                        <table width="100%">
+                            <tr style="height: 6px">
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:Panel ID="pnlOpenSocialGadgetsInner" runat="server" CssClass="Borders" >
+                                        <table width="100%">
+                                            <tr>
+                                                <td style="text-align: left;">
+                                                    <h3>Add more to your profile <span style="font-weight:normal"> with websites related to your research, information about Faculty Mentorship <em>(Student Mentorship information coming soon)</em> and even post your presentations here.</span></h3>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div id="gadgets-edit" class="gadgets-gadget-parent"></div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </asp:Panel>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </asp:Panel>
+                <asp:UpdatePanel ID="upnlEditPublicationsSection" runat="server" UpdateMode="Conditional">
+                    <Triggers>
+                    </Triggers>
+                    <ContentTemplate>
+                        <div id="ProfileDetailsPubs">
+                            <table width="100%">
                                 <tr style="height: 6px">
                                     <td>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>
+                                    <td>                                    
                                         <asp:Panel ID="pnlEditPublications" runat="server" CssClass="Borders">
                                             <table id="tblEditPublications" width="100%">
                                                 <tr>
@@ -985,7 +1007,7 @@
                                                                     <ItemStyle HorizontalAlign="Center" Width="10px" />
                                                                 </asp:TemplateField>
                                                             </Columns>
-                                                            <HeaderStyle BackColor="#F5F1E8" />
+                                                            <HeaderStyle BackColor="#EEEBE5" />
                                                             <SelectedRowStyle BackColor="#F0F4F6" />
                                                         </asp:GridView>
                                                         <asp:SqlDataSource ID="PublicationDS" runat="server" ConnectionString="<%$ ConnectionStrings:ProfilesDB %>"
@@ -1010,40 +1032,6 @@
                         </div>
                     </ContentTemplate>
                 </asp:UpdatePanel>
-
-	          <%-- Profiles OpenSocial Extension by UCSF --%>    
-                <asp:Panel ID="pnlOpenSocialGadgets" runat="server">
-                    <script type="text/javascript" language="javascript">
-                        my.current_view = "home";
-                    </script>                
-                    <div id="OpenSocial">
-                        <table width="100%">
-                            <tr style="height: 6px">
-                                <td>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <asp:Panel ID="pnlOpenSocialGadgetsInner" runat="server" CssClass="Borders" >
-                                        <table width="100%">
-                                            <tr>
-                                                <td style="text-align: left;">
-                                                    <h3>Add more to your profile <span style="font-weight:normal"> with websites related to your research, information about Faculty Mentorship <em>(Student Mentorship information coming soon)</em> and even post your presentations here.</span></h3>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div id="gadgets-edit" class="gadgets-gadget-parent"></div>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </asp:Panel>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </asp:Panel>
-                
                 <asp:Panel ID="pnlControl" runat="server" Visible="false">
                     <asp:PlaceHolder ID="plToControl" runat="server" />
                 </asp:Panel>

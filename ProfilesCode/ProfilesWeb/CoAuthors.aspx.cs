@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Collections.Generic;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Connects.Profiles.BusinessLogic;
@@ -39,7 +40,18 @@ public partial class CoAuthors : BasePage
 
                     lblSubTitle.Text = String.Format("Co-Authors ({0})", rptCoAuthor.Items.Count.ToString());
 
-                    
+                    // Profiles OpenSocial Extension by UCSF
+                    OpenSocialHelper os = SetOpenSocialHelper(Profile.UserId, _userID, Page);
+                    if (os.IsVisible() && os.HasGadgetListeningTo(OpenSocialHelper.JSON_PERSONID_CHANNEL))
+                    {
+                        List<Int32> OS_personIds = new List<Int32>();
+                        foreach (CoAuthor coauthor in pList.Person[0].PassiveNetworks.CoAuthorList.CoAuthor)
+                        {
+                            OS_personIds.Add(Int32.Parse(coauthor.PersonID));
+                        }
+                        os.SetPubsubData(OpenSocialHelper.JSON_PERSONID_CHANNEL, OpenSocialHelper.BuildJSONPersonIds(OS_personIds, Page.Title));
+                        GenerateOpensocialJavascipt();
+                    }
 
                     //if (pList.Person[0].Address.Latitude == 0)
                      //   divMapView.Attributes.Add("style", "display:none");

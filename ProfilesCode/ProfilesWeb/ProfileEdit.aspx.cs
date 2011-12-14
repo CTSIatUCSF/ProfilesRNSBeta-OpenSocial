@@ -1,15 +1,3 @@
-﻿/*  
- 
-    Copyright (c) 2008-2010 by the President and Fellows of Harvard College. All rights reserved.  
-    Profiles Research Networking Software was developed under the supervision of Griffin M Weber, MD, PhD.,
-    and Harvard Catalyst: The Harvard Clinical and Translational Science Center, with support from the 
-    National Center for Research Resources and Harvard University.
-
-
-    Code licensed under a BSD License. 
-    For details, see: LICENSE.txt 
-  
-*/
 using System;
 using System.Collections;
 using System.Data;
@@ -21,8 +9,6 @@ using Connects.Profiles.BusinessLogic;
 using Connects.Profiles.Common;
 using Connects.Profiles.Utility;
 using Subgurim.Controles;
-
-
 
 public partial class ProfileEdit : BasePageSecure
 {
@@ -64,9 +50,7 @@ public partial class ProfileEdit : BasePageSecure
     #region Page Load Event
     protected void Page_Load(object sender, EventArgs e)
     {
-        // a flag to inform the ucProfileBaseInfo that it is edit page
-        Session["ProfileEdit"] = "true";
-
+        Session["EmailImgText"] = "none";
         _personId = GetPersonFromQueryString();
 
         if (_personId == 0)
@@ -84,17 +68,12 @@ public partial class ProfileEdit : BasePageSecure
 
         if (!IsPostBack)
         {
-            Session["EmailImgText"] = "none";
-
             try
             {
                 if (Request["Person"] != null)
                 {
                     string backLink;
 
-                    //Get User Preferences
-                    GetUserPreferences(_personId);
-     
                     backLink = "ProfileDetails.aspx?Person=" + GetPersonFromQueryString();
 
                     // Check to make sure this logged in users is an appropriate proxy
@@ -111,6 +90,9 @@ public partial class ProfileEdit : BasePageSecure
 
                     //Populate User information
                     EditSection(_personId);
+                    //Get User Preferences
+                    GetUserPreferences(_personId);
+
 
                     //imgReadPhoto.ImageUrl = _userBL.GetUserPhotoURL(personId);
                     ShowControl("pnlChkList", false);
@@ -152,7 +134,7 @@ public partial class ProfileEdit : BasePageSecure
                         try
                         {
                             // PRG - Verify This
-                            reader = _userBL.GetProxies(_personId, Profile.UserId, "Y", "Y", "Y", "Y");
+                            reader = _userBL.GetProxies(_personId, Profile.UserId, "Y", "Y", "N", "Y");
                             if (reader.Read())
                             {
                                 if (!Convert.ToBoolean(reader["editawards"]))
@@ -192,14 +174,6 @@ public partial class ProfileEdit : BasePageSecure
         {
             UserPreferences userPreference = new UserPreferences();
             userPreference = _userBL.GetUserPreferences(personId);
-
-            //If the user does not have a profile, then they need to be redirected back to the search screen.
-            if (!userPreference.ProfileExists)
-            {
-                Response.Redirect("~/Search.aspx");                
-            }
-
-
             //IF "Y" then Show 
             //IF "N" then Hide
             #region Hide/Show Photo
@@ -337,32 +311,6 @@ public partial class ProfileEdit : BasePageSecure
     }
     #endregion
 
-    #region Hide/Show User Address
-    protected void btnShowAddress_OnClick(object sender, EventArgs e)
-    {
-        _userBL.SetUserPreferences(Convert.ToInt32(Session["ProfileUsername"]), "Address", "Y");
-    }
-
-    protected void btnHideAddress_OnClick(object sender, EventArgs e)
-    {
-        _userBL.SetUserPreferences(Convert.ToInt32(Session["ProfileUsername"]), "Address", "N");
-    }
-
-    #endregion
-
-    #region Hide/Show User Email
-    protected void btnShowEmail_OnClick(object sender, EventArgs e)
-    {
-        _userBL.SetUserPreferences(Convert.ToInt32(Session["ProfileUsername"]), "Email", "Y");
-    }
-   
-    protected void btnHideEmail_OnClick(object sender, EventArgs e)
-    {
-        _userBL.SetUserPreferences(Convert.ToInt32(Session["ProfileUsername"]), "Email", "N");
-    }
-
-    #endregion
-     
     #region Show User Photo
     protected void btnShowPhoto_OnClick(object sender, EventArgs e)
     {
@@ -505,16 +453,16 @@ public partial class ProfileEdit : BasePageSecure
             AwardsDS.InsertParameters["PersonId"].DefaultValue = Session["ProfileUsername"].ToString();
             AwardsDS.Insert();
             GridViewAwards.DataBind();
-            txtFoot1.Text = "";
-            txtFoot2.Text = "";
-            txtFoot3.Text = "";
-            txtFoot4.Text = "";
-            upnlEditSection.Update();
             // Profiles OpenSocial Extension by UCSF
             if (lblVisibleAward.Visible)
             {
                 OpenSocialHelper.PostActivity(_personId, "added an award", "added an award: " + txtFoot3.Text);
             }
+            txtFoot1.Text = "";
+            txtFoot2.Text = "";
+            txtFoot3.Text = "";
+            txtFoot4.Text = "";
+            upnlEditSection.Update();
         }
     }
 
@@ -529,12 +477,12 @@ public partial class ProfileEdit : BasePageSecure
             AwardsDS.InsertParameters["PersonId"].DefaultValue = Session["ProfileUsername"].ToString();
             AwardsDS.Insert();
             GridViewAwards.DataBind();
-            btnInsertCancel_OnClick(sender, e);
             // Profiles OpenSocial Extension by UCSF
             if (lblVisibleAward.Visible)
             {
                 OpenSocialHelper.PostActivity(_personId, "added an award", "added an award: " + txtFoot3.Text);
             }
+            btnInsertCancel_OnClick(sender, e);
         }
     }
     #endregion
@@ -656,15 +604,12 @@ public partial class ProfileEdit : BasePageSecure
 
             if (reader.Read())
             {
-                //drpPublicationType.SelectedIndex = _customPhotoId;
+                drpPublicationType.SelectedIndex = _customPhotoId;
                 //if (drpPublicationType.Items.FindByValue(reader["hmspubcategory"].ToString()) != null)
                 //{
                 //    drpPublicationType.Items.FindByValue(reader["hmspubcategory"].ToString()).Selected = true;
                 //    drpPublicationType.Enabled = false;
                 //}
-				
-				drpPublicationType.SelectedValue = reader["hmspubcategory"].ToString();
-				
                 txtPubMedAdditionalInfo.Text = reader["additionalinfo"].ToString();
                 txtPubMedAuthors.Text = reader["authors"].ToString();
                 if (reader["hmspubcategory"].ToString() == "Thesis")
@@ -698,7 +643,7 @@ public partial class ProfileEdit : BasePageSecure
 
                 ShowCustomEdit(reader["hmspubcategory"].ToString());
 
-                upnlEditSection.Update();
+                upnlEditPublicationsSection.Update();
 
             }
         }
@@ -718,7 +663,7 @@ public partial class ProfileEdit : BasePageSecure
 
     protected void grdEditPublications_RowDeleted(object sender, GridViewDeletedEventArgs e)
     {
-        upnlEditSection.Update();
+        upnlEditPublicationsSection.Update();
     }
 
     protected void btnShowPublication_OnClick(object sender, EventArgs e)
@@ -730,7 +675,7 @@ public partial class ProfileEdit : BasePageSecure
         lblHiddenPublication.Visible = false;
         lblVisiblePublication.Visible = true;
         _userBL.SetUserPreferences(Convert.ToInt32(Session["ProfileUsername"]), "Publications", "Y");
-        upnlEditSection.Update();
+        upnlEditPublicationsSection.Update();
     }
 
     protected void btnHidePublication_OnClick(object sender, EventArgs e)
@@ -742,7 +687,7 @@ public partial class ProfileEdit : BasePageSecure
         lblHiddenPublication.Visible = true;
         lblVisiblePublication.Visible = false;
         _userBL.SetUserPreferences(Convert.ToInt32(Session["ProfileUsername"]), "Publications", "N");
-        upnlEditSection.Update();
+        upnlEditPublicationsSection.Update();
     }
     #endregion
 
@@ -766,7 +711,7 @@ public partial class ProfileEdit : BasePageSecure
             pnlAddPubMedResults.Visible = false;
             pnlAddCustomPubMed.Visible = false;
         }
-        upnlEditSection.Update();
+        upnlEditPublicationsSection.Update();
     }
 
     protected void btnDonePub_OnClick(object sender, EventArgs e)
@@ -777,7 +722,7 @@ public partial class ProfileEdit : BasePageSecure
         txtPubId.Text = "";
         pnlAddPubById.Visible = false;
         btnImgAddPub.ImageUrl = "~/Images/icon_squareArrow.gif";
-        upnlEditSection.Update();
+        upnlEditPublicationsSection.Update();
     }
 
     protected void btnSavePub_OnClick(object sender, EventArgs e)
@@ -821,7 +766,7 @@ public partial class ProfileEdit : BasePageSecure
                 pnlAddPubById.Visible = false;
                 grdEditPublications.DataBind();
                 btnImgAddPub.ImageUrl = "~/Images/icon_squareArrow.gif";
-                upnlEditSection.Update();
+                upnlEditPublicationsSection.Update();
             }
             catch (Exception ex)
             {
@@ -852,7 +797,7 @@ public partial class ProfileEdit : BasePageSecure
             // Profiles OpenSocial Extension by UCSF
             if (lblVisiblePublication.Visible)
             {
-                OpenSocialHelper.PostActivity(_personId, "added a publication", "added PubMed publication PMID=" + pmid + " to their profile", "PMID", pmid);
+                OpenSocialHelper.PostActivity(_personId, "added a publication", "added a publication PMID=" + pmid, "PMID", pmid);
             }
         }
     }
@@ -880,7 +825,7 @@ public partial class ProfileEdit : BasePageSecure
             pnlAddCustomPubMed.Visible = false;
         }
 
-        upnlEditSection.Update();
+        upnlEditPublicationsSection.Update();
     }
 
     private void ResetPubMedSearch()
@@ -905,13 +850,13 @@ public partial class ProfileEdit : BasePageSecure
         phAddPub.Visible = true;
         phDeletePub.Visible = true;
         btnImgAddPubMed.ImageUrl = "~/Images/icon_squareArrow.gif";
-        upnlEditSection.Update();
+        upnlEditPublicationsSection.Update();
     }
 
     protected void btnPubMedReset_OnClick(object sender, EventArgs e)
     {
         ResetPubMedSearch();
-        upnlEditSection.Update();
+        upnlEditPublicationsSection.Update();
     }
 
     protected void btnPubMedSearch_OnClick(object sender, EventArgs e)
@@ -927,8 +872,6 @@ public partial class ProfileEdit : BasePageSecure
                 string inputString = txtSearchAuthor.Text.Trim();
 
                 inputString = inputString.Replace("\r\n", "|");
-                // Added line to handle multiple authors for Firefox
-                inputString = inputString.Replace("\n", "|");
 
                 string[] split = inputString.Split('|');
 
@@ -1052,7 +995,7 @@ public partial class ProfileEdit : BasePageSecure
         lblPubMedResultsHeader.Text = "PubMed Results (" + PubMedResults.Tables["Results"].Rows.Count.ToString() + ")";
 
         pnlAddPubMedResults.Visible = true;
-        upnlEditSection.Update();
+        upnlEditPublicationsSection.Update();
     }
 
     protected void grdPubMedSearchResults_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -1102,7 +1045,7 @@ public partial class ProfileEdit : BasePageSecure
         phAddPub.Visible = true;
         phDeletePub.Visible = true;
         btnImgAddPubMed.ImageUrl = "~/Images/icon_squareArrow.gif";
-        upnlEditSection.Update();
+        upnlEditPublicationsSection.Update();
     }
 
     protected void grdPubMedSearchResults_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -1125,7 +1068,7 @@ public partial class ProfileEdit : BasePageSecure
         grdPubMedSearchResults.PageIndex = e.NewPageIndex;
         grdPubMedSearchResults.DataSource = PubMedResults;
         grdPubMedSearchResults.DataBind();
-        upnlEditSection.Update();
+        upnlEditPublicationsSection.Update();
     }
 
     protected void btnSelectAll_OnClick(object sender, EventArgs e)
@@ -1135,7 +1078,7 @@ public partial class ProfileEdit : BasePageSecure
             CheckBox cb = (CheckBox)row.FindControl("chkPubMed");
             cb.Checked = true;
         }
-        upnlEditSection.Update();
+        upnlEditPublicationsSection.Update();
     }
 
     protected void btnSelectNone_OnClick(object sender, EventArgs e)
@@ -1145,7 +1088,7 @@ public partial class ProfileEdit : BasePageSecure
             CheckBox cb = (CheckBox)row.FindControl("chkPubMed");
             cb.Checked = false;
         }
-        upnlEditSection.Update();
+        upnlEditPublicationsSection.Update();
     }
 
     #endregion
@@ -1171,7 +1114,7 @@ public partial class ProfileEdit : BasePageSecure
             phMain.Visible = false;
             ClearPubMedCustom();
         }
-        upnlEditSection.Update();
+        upnlEditPublicationsSection.Update();
     }
 
     private void ClearPubMedCustom()
@@ -1338,7 +1281,7 @@ public partial class ProfileEdit : BasePageSecure
         {
             ShowCustomEdit(drpPublicationType.SelectedValue);
         }
-        upnlEditSection.Update();
+        upnlEditPublicationsSection.Update();
     }
 
 
@@ -1385,7 +1328,7 @@ public partial class ProfileEdit : BasePageSecure
             // Profiles OpenSocial Extension by UCSF
             if (lblVisiblePublication.Visible)
             {
-                OpenSocialHelper.PostActivity(_personId, "updated a custom publication", "updated a custom publication: " + drpPublicationType.SelectedValue);
+                OpenSocialHelper.PostActivity(_personId, "updated a publication", "updated a publication: " + drpPublicationType.SelectedValue);
             }
         }
         else
@@ -1396,7 +1339,7 @@ public partial class ProfileEdit : BasePageSecure
             // Profiles OpenSocial Extension by UCSF
             if (lblVisiblePublication.Visible)
             {
-                OpenSocialHelper.PostActivity(_personId, "added a custom publication", "added a custom publication: " + drpPublicationType.SelectedValue);
+                OpenSocialHelper.PostActivity(_personId, "added a publication", "added a publication: " + drpPublicationType.SelectedValue);
             }
         }
 
@@ -1414,7 +1357,7 @@ public partial class ProfileEdit : BasePageSecure
             btnImgAddCustom.ImageUrl = "~/Images/icon_squareArrow.gif";
         }
 
-        upnlEditSection.Update();
+        upnlEditPublicationsSection.Update();
     }
 
     protected void btnPubMedFinished_OnClick(object sender, EventArgs e)
@@ -1429,7 +1372,7 @@ public partial class ProfileEdit : BasePageSecure
         pnlAddCustomPubMed.Visible = false;
         btnImgAddCustom.ImageUrl = "~/Images/icon_squareArrow.gif";
 
-        upnlEditSection.Update();
+        upnlEditPublicationsSection.Update();
     }
 
     protected void btnPubMedById_Click(object sender, EventArgs e)
@@ -1437,7 +1380,7 @@ public partial class ProfileEdit : BasePageSecure
         btnPubMedFinished_OnClick(sender, e);
         btnAddPubMed_OnClick(sender, e);
 
-        upnlEditSection.Update();
+        upnlEditPublicationsSection.Update();
     }
 
     #endregion
@@ -1462,7 +1405,7 @@ public partial class ProfileEdit : BasePageSecure
             pnlAddPubMedResults.Visible = false;
             pnlAddCustomPubMed.Visible = false;
         }
-        upnlEditSection.Update();
+        upnlEditPublicationsSection.Update();
     }
 
     protected void btnDeletePubMedOnly_OnClick(object sender, EventArgs e)
@@ -1478,7 +1421,7 @@ public partial class ProfileEdit : BasePageSecure
         btnImgDeletePub.ImageUrl = "~/Images/icon_squareArrow.gif";
 
         grdEditPublications.DataBind();
-        upnlEditSection.Update();
+        upnlEditPublicationsSection.Update();
     }
 
     protected void btnDeleteCustomOnly_OnClick(object sender, EventArgs e)
@@ -1494,7 +1437,7 @@ public partial class ProfileEdit : BasePageSecure
         btnImgDeletePub.ImageUrl = "~/Images/icon_squareArrow.gif";
 
         grdEditPublications.DataBind();
-        upnlEditSection.Update();
+        upnlEditPublicationsSection.Update();
     }
 
     protected void btnDeleteAll_OnClick(object sender, EventArgs e)
@@ -1510,7 +1453,7 @@ public partial class ProfileEdit : BasePageSecure
         btnImgDeletePub.ImageUrl = "~/Images/icon_squareArrow.gif";
 
         grdEditPublications.DataBind();
-        upnlEditSection.Update();
+        upnlEditPublicationsSection.Update();
     }
 
     protected void btnDeletePubMedClose_OnClick(object sender, EventArgs e)
@@ -1521,7 +1464,7 @@ public partial class ProfileEdit : BasePageSecure
         phDeletePub.Visible = true;
         pnlDeletePubMed.Visible = false;
         btnImgDeletePub.ImageUrl = "~/Images/icon_squareArrow.gif";
-        upnlEditSection.Update();
+        upnlEditPublicationsSection.Update();
     }
 
     #endregion
@@ -1578,65 +1521,20 @@ public partial class ProfileEdit : BasePageSecure
 
         // Buil URL to fetch image from database.  Note:  you must append the random number to the URL or the browser will cache the 
         // image and never let it refresh.
-        string js = "var img;";
-        js += "var lnk;";    
-        js += "var pu;";
-        
-        js += "CheckVars();";
-
-        js += "function CheckVars(){";
-        js += "  img  = window.parent.document.getElementById('ctl00_ctl00_middle_MiddleContentPlaceHolder_imgEditPhoto3');";
-
-
+        string js = "var img = window.parent.document.getElementById('ctl00_ctl00_middle_MiddleContentPlaceHolder_imgEditPhoto3'); img.src = '";
         js += " if (img == null) {";
         js += "img = document.getElementById('middle_MiddleContentPlaceHolder_imgEditPhoto3');";
+        js += "if (img == null) { return; }";
         js += "}";
-        js += "if (img == null) { return; }";        
-        js += " img.src = '";        
         js += string.Format("Thumbnail.ashx?id={0}&random={1}", _personId, new Random().Next().ToString());
         js += "';";
-
-        js += "  lnk  = window.parent.document.getElementById('divPhotoUpload');";
-        js += "  pu  = window.parent.document.getElementById('ctl00_ctl00_middle_MiddleContentPlaceHolder_lnkAddCustomPhoto');";
-        js += " if (pu == null) {";
-        js += "pu = document.getElementById('middle_MiddleContentPlaceHolder_lnkAddCustomPhoto');";
-        js += "}";
-        js += "if (pu == null) { return; }";        
-        js += " pu.style.display='none';";
+        js += "var pu = window.parent.document.getElementById('divPhotoUpload'); pu.style.display='none';";
+        js += "var lnk = window.parent.document.getElementById('ctl00_ctl00_middle_MiddleContentPlaceHolder_lnkAddCustomPhoto');";
         js += " if (img == null) {";
         js += "lnk = document.getElementById('middle_MiddleContentPlaceHolder_lnkAddCustomPhoto');";
+        js += "if (lnk == null) { return; }";
         js += "}";
-        js += "if (lnk == null) { return; }";        
         js += "lnk.style.display='none';";
-        js += "}";
-
-
-
-
-
-
-        //// Buil URL to fetch image from database.  Note:  you must append the random number to the URL or the browser will cache the 
-        //// image and never let it refresh.
-        //string js = "var img = window.parent.document.getElementById('ctl00_ctl00_middle_MiddleContentPlaceHolder_imgEditPhoto3');";
-
-
-        //js += " if (img == null) {";
-        //js += "img = document.getElementById('middle_MiddleContentPlaceHolder_imgEditPhoto3');";
-        //js += "}";
-        //js += "if (img == null) { return; }";
-        //js += " img.src = '";
-        //js += string.Format("Thumbnail.ashx?id={0}&random={1}", _personId, new Random().Next().ToString());
-        //js += "';";
-
-        //js += "var pu = window.parent.document.getElementById('divPhotoUpload'); pu.style.display='none';";
-        //js += "var lnk = window.parent.document.getElementById('ctl00_ctl00_middle_MiddleContentPlaceHolder_lnkAddCustomPhoto');";
-
-        //js += " if (img == null) {";
-        //js += "lnk = document.getElementById('middle_MiddleContentPlaceHolder_lnkAddCustomPhoto');";
-        //js += "}";
-        //js += "if (lnk == null) { return; }";
-        //js += "lnk.style.display='none';";
-
 
         FileUpload1.addCustomJS(FileUploaderAJAX.customJSevent.postUpload, js);
 
@@ -1657,7 +1555,6 @@ public partial class ProfileEdit : BasePageSecure
         UserPreferences userPreference = new UserPreferences();
         userPreference = _userBL.GetUserPreferences(_personId);
 
-       
         // For the custom photos, iterate through them and set checked to false
         for (int i = 0; i < dlPhotos.Items.Count; i++)
         {
@@ -1699,9 +1596,6 @@ public partial class ProfileEdit : BasePageSecure
 
     protected void btnSaveClose_Click(object sender, EventArgs e)
     {
-
-        if (hidRbTrack.Value == "") { return; }
-
         int imgSelected = System.Convert.ToInt32(hidRbTrack.Value);
 
         // Set the user's preference

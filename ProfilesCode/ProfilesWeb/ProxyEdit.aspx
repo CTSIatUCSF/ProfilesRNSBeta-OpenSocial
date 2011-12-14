@@ -2,10 +2,11 @@
     CodeFile="ProxyEdit.aspx.cs" Inherits="ProxyEdit" Title="Proxies" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MiddleContentPlaceHolder" runat="Server">
+  <div id="contentPosition">
     <table width="100%" cellpadding="0" cellspacing="0">
         <tr>
             <td><div class="pageTitle"><asp:Literal ID="ltHeader" runat="server"/></div></td>
-            <td><div style="text-align: right; padding-right: 8px;"><a onclick="history.back();">Back</a></div></td>
+            <td><div style="text-align: right; padding-right: 8px;"><a onclick="history.back();" class="hypLinks">Back</a></div></td>
         </tr>
     </table>
     <div style="margin-top: 10px;">
@@ -70,5 +71,6 @@
             </Columns>
         </asp:GridView>
     </div>
+  </div>
 </asp:Content>
 

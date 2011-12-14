@@ -1,0 +1,96 @@
+﻿<%@ Page Language="C#" MasterPageFile="~/ProfilesPage.master" AutoEventWireup="true" 
+CodeFile="AboutUCSFProfiles.aspx.cs" Title="About UCSF Profiles" Inherits="AboutUCSFProfiles" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="MiddleContentPlaceHolder" Runat="Server">
+<div id="contentPosition">
+<div class="pageTitle" style="line-height: 26px;">
+    What is UCSF Profiles?</div>
+
+   <p id="what-is">A research networking tool that reveals connections between investigators by combining their research expertise and other publicly available data. </p>
+
+<table cellspacing="0" id="about">
+ <tr>
+  <td style="background-color:#EEEBE5;padding:0 8px">
+    <h2>Search</h2>
+    <img src="template_files/search-icon.gif" alt="Magnifying Glass" class="sdn" style="padding:0 0 8px 25px" />
+    <h3>Find Experts, Collaborators, Mentors Based on their Expertise</h3>
+    <ul>
+       <li>More than 85,000 research publications and narratives</li>
+       <li>Over 2600 UCSF faculty</li>
+       <li>More than 25 biomedical institutions nationwide</li>
+       <li>Directory information</li>
+       <li>Soon to include UCSF postdoctoral scholars, residents, fellows, etc.</li>
+    </ul>
+  </td>
+
+  <td style="padding:0 8px">
+    <h2>Discover Networks</h2>
+    <img src="template_files/profiles.jpg" alt="Discover Networks" class="sdn" style="padding:0 0 8px 20px" />
+    <h3>Explore Peoples' Research Connections <br />&nbsp;</h3>
+    <ul>
+       <li>Who co-authored together</li>
+       <li>Who works on similar research topics</li>
+       <li>Who are your physical neighbors…</li>
+    </ul>
+  </td>
+
+  <td style="background-color:#EEEBE5;padding:0 8px">
+    <h2>Develop Your Profile</h2>
+    <img src="template_files/develop-profile.gif" alt="Develop Your Profile" class="sdn" style="padding:0 0 8px 20px" />
+    <h3>Share More Information about Your Research and Mentoring Interests</h3>
+    <ul>
+       <li>Add a narrative to describe your work and interests, photo and awards</li>
+       <li>Add your mentoring information</li>
+       <li>Link to your presentations on SlideShare</li>
+       <li>Edit your publications if necessary</li>
+    </ul>
+  </td>
+ </tr>
+ <tr>
+  <td style="background-color:#EEEBE5;">
+    <p style="margin:0 0 6px 20px"><a href="">Watch a 30-second video to learn more</a></p>
+  </td>
+  <td>
+    <p style="text-align:center;margin:0 0 6px"><a href="">Watch a 30-second video to learn more</a></p>
+  </td>
+  <td style="background-color:#EEEBE5;">
+    <p style="text-align:center;margin:0 0 6px"><asp:HyperLink ID="hypLogMeIn" runat="server">Edit your profile now</asp:HyperLink></a></p>
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: 3px solid #EEEBE5;text-align:center">&nbsp;
+  </td>
+  <td style="border-top: 3px solid #EEEBE5;text-align:center">
+     <p><a href="./"><img src="template_files/tryit.gif" alt="Try it!" style="border:none" /></a></p>
+  </td>
+  <td style="border-top: 3px solid #EEEBE5;text-align:center">&nbsp;
+  </td>
+ </tr>
+ <tr>
+  <td style="border-top: 1px solid #EEEBE5;padding:0 8px;
+    background: transparent url(template_files/gear.gif) no-repeat 95% 4px;">
+    <h3>For Developers</h3> Use UCSF Profiles data tools to enhance your website &mdash; <a href="">Learn more</a>
+  </td>
+  <td style="border-top: 1px solid #EEEBE5;border-left: 1px solid #EEEBE5;border-right: 1px solid #EEEBE5;padding:0 8px;
+    background: transparent url(template_files/help.gif) no-repeat 95% 4px;">
+    <h3>Help</h3>
+    <ul>
+      <li><a href="HowProfilesWorks.aspx#faq">Frequently Asked Questions</a></li>
+      <li><a href="Help.aspx">Found an error?</a></li>
+      <li><a href="mailto:ctsi@ucsf.edu">Contact us</a></li>
+    </ul>
+  </td>
+  <td style="border-top: 1px solid #EEEBE5;padding:0 8px;
+    background: transparent url(template_files/comment.gif) no-repeat 95% 4px;">
+     <h3>Feedback</h3> Share your ideas and success <br />stories at the <a href="http://ctsi.ucsf.edu/forums/ucsfprofiles">UCSF Profiles Open Forum</a>
+  </td>
+ </tr>
+</table>
+
+<h2 style="padding-top:12px">Acknowledgement</h2>
+<p>UCSF Profiles is UCSF’s version of the ground-breaking, open source "Profiles Research Networking Software" that was developed under the supervision of Griffin M Weber, MD, PhD, with support from Grant Number 1 UL1 RR025758-01 to <a href="http://catalyst.harvard.edu/" target="_new">Harvard Catalyst: The Harvard Clinical and Translational Science Center</a> from the National Center for Research Resources and support from Harvard University and its affiliated academic healthcare centers.</p>
+
+<p>Harvard Catalyst Profiles is available as an <a href="http://connects.catalyst.harvard.edu/profiles/about/opensource" target="_new">open source platform</a> for institutions seeking a web-based means of facilitating collaboration among their academic researchers. </p>
+
+</div>
+</asp:Content>

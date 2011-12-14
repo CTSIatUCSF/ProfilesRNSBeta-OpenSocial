@@ -20,7 +20,7 @@ public class BasePage : System.Web.UI.Page
 
     // Profiles OpenSocial Extension by UCSF
     private OpenSocialHelper osHelper = null;
-
+        
     public BasePage()
     {
         _redirectUrl = string.Empty;
@@ -223,7 +223,7 @@ public class BasePage : System.Web.UI.Page
     protected OpenSocialHelper SetOpenSocialHelper(int viewerId, int ownerId, Page page)
     {
         // lazy create as this is expensive
-        if (this.osHelper == null)
+        if (this.osHelper == null) 
         {
             this.osHelper = new OpenSocialHelper(viewerId, ownerId, page);
         }
@@ -260,15 +260,19 @@ public class BasePage : System.Web.UI.Page
                 "my.debug = " + (osHelper.IsDebug() ? "1" : "0") + ";" + Environment.NewLine +
                 "my.noCache = " + (osHelper.NoCache() ? "1" : "0") + ";" + Environment.NewLine +
                 "my.gadgets = [";
-            foreach (PreparedGadget gadget in osHelper.GetVisibleGadgets())
-            {
-                gadgetScriptText += "new my.gadgetSpec(" + gadget.GetAppId() + ",'" + gadget.GetName() + "','" + gadget.GetGadgetURL() + "','" +
-                    gadget.GetSecurityToken() + "','" + gadget.GetView() + "'," + gadget.GetClosedWidth() + "," +
-                    gadget.GetOpenWidth() + "," + (gadget.GetStartClosed() ? "1" : "0") + ",'" + gadget.GetChromeId() + "','" +
-                    gadget.GetGadgetSpec().GetVisibleScope() + "'), ";
-            }
-            gadgetScriptText = gadgetScriptText.Substring(0, gadgetScriptText.Length - 2) + "];" + Environment.NewLine + "</script>" + Environment.NewLine +
-            "<script type=\"text/javascript\" src=\"Scripts/profilesShindig.js\"></script>";
+                if ( osHelper.GetVisibleGadgets().Count > 0) 
+                {
+                    foreach (PreparedGadget gadget in osHelper.GetVisibleGadgets())
+                    {
+                        gadgetScriptText += "new my.gadgetSpec(" + gadget.GetAppId() + ",'" + gadget.GetName() + "','" + gadget.GetGadgetURL() + "','" +
+                            gadget.GetSecurityToken() + "','" + gadget.GetView() + "'," + gadget.GetClosedWidth() + "," + 
+                            gadget.GetOpenWidth() + "," + (gadget.GetStartClosed() ? "1" : "0") + ",'" + gadget.GetChromeId() + "','" +
+                            gadget.GetGadgetSpec().GetVisibleScope() + "'), ";
+                    }
+                    gadgetScriptText = gadgetScriptText.Substring(0, gadgetScriptText.Length - 2);
+                }
+                gadgetScriptText += "];" + Environment.NewLine + "</script>" + Environment.NewLine + 
+                "<script type=\"text/javascript\" src=\"Scripts/profilesShindig.js\"></script>";
 
             ((System.Web.UI.WebControls.Literal)pnlOpenSocialScripts.FindControl("GadgetJavascriptLiteral")).Text = gadgetScriptText;
 

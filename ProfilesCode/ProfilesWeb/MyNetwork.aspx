@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/ProfilesPage.master" AutoEventWireup="true" CodeFile="MyNetwork.aspx.cs" Inherits="MyNetwork" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MiddleContentPlaceHolder" runat="Server">
+    <div id="contentPosition">
     <div class="pageTitle">My Network</div>
     <p></p>
     <div class="sectionText">To add people to your network, search for their profiles and indicate your relationship to them on the left sidebar.</div>
@@ -155,4 +156,5 @@
             </table>
   <%--      </ContentTemplate>
     </asp:UpdatePanel>--%>
+    </div>
 </asp:Content>

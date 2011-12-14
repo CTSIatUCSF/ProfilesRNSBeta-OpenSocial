@@ -1,8 +1,8 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/ProfilesPage.master" AutoEventWireup="true"
-    CodeFile="Proxy.aspx.cs" Inherits="Proxy" Title="Proxies | Profiles | Harvard Catalyst" %>
+    CodeFile="Proxy.aspx.cs" Inherits="Proxy" Title="Proxies | UCSF Profiles" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MiddleContentPlaceHolder" runat="Server">
-    <table width="100%">
+    <table width="100%" id="contentPosition">
         <tr>
             <td>
                 <div style="padding: 8px 6px;">

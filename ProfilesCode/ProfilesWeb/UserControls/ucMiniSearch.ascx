@@ -8,7 +8,7 @@
     <div>
         <asp:TextBox ID="txtKword" runat="server" Width="140px" />
     </div>
-    <div style="font-weight: bold;">
+    <div style="font-weight: bold; padding-top: 4px;">
         Last Name
     </div>
     <div>
@@ -16,7 +16,7 @@
     </div>
     <div id="divInstitution" runat="server">
         <div style="font-weight: bold; padding-top: 4px;">
-            Institution
+            School
         </div>
         <div>
             <asp:DropDownList ID="ddlInst" runat="server" Width="98%" />
@@ -36,7 +36,7 @@
     </div>
     <div style="text-align: center; margin-top: 10px;">
         <%--<asp:LinkButton ID="hyplnkOptions" runat="server" CssClass="SearchListLink" OnClientClick="window.location.reload( true );">More Search Options</asp:LinkButton>--%>
-        <asp:HyperLink ID="hyplnkOptions" runat="server" Text="More Search Options" NavigateUrl="~/Search.aspx"
+        <asp:HyperLink ID="hyplnkOptions" runat="server" Text="More Search Options" NavigateUrl="~"
             CssClass="SearchListLink" />
     </div>
 </asp:Panel>
