@@ -59,20 +59,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External Code", "External Code", "{278A765B-EA9A-4128-8A57-9403EC79E635}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "bin", "bin", "{D8E5B2FF-5434-4CC3-A60A-428C1EF16215}"
-	ProjectSection(SolutionItems) = preProject
-		External Code\bin\Elmah.dll = External Code\bin\Elmah.dll
-		External Code\bin\Elmah.pdb = External Code\bin\Elmah.pdb
-		External Code\bin\Elmah.xml = External Code\bin\Elmah.xml
-		External Code\bin\Microsoft.Http.dll = External Code\bin\Microsoft.Http.dll
-		External Code\bin\Microsoft.Http.Extensions.dll = External Code\bin\Microsoft.Http.Extensions.dll
-		External Code\bin\Microsoft.Http.Extensions.pdb = External Code\bin\Microsoft.Http.Extensions.pdb
-		External Code\bin\Microsoft.Http.pdb = External Code\bin\Microsoft.Http.pdb
-		External Code\bin\Microsoft.ServiceModel.Web.dll = External Code\bin\Microsoft.ServiceModel.Web.dll
-		External Code\bin\Microsoft.ServiceModel.Web.pdb = External Code\bin\Microsoft.ServiceModel.Web.pdb
-		External Code\bin\ResNavLoginUtilities.dll = External Code\bin\ResNavLoginUtilities.dll
-		External Code\bin\System.Data.SQLite.DLL = External Code\bin\System.Data.SQLite.DLL
-		External Code\bin\VistaDB.NET20.dll = External Code\bin\VistaDB.NET20.dll
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FUA", "External Code\FUA\FUA.csproj", "{BE2E39E8-DBC2-4933-9376-96D393C86588}"
 EndProject

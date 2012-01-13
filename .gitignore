@@ -19,6 +19,8 @@ Thumbs.db
 *.cache
 *.ilk
 *.log
+*.suo
+web.config
 [Bb]in
 [Dd]ebug*/
 *.lib
