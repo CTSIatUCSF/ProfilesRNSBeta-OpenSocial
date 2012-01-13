@@ -1,37 +1,0 @@
-10
-
-dir
-1627
-https://svn.recomdata.com/osr/Profiles/Harvard_ProfilesRNS/tags/PRNS_07_01_2011_BETA/ProfilesCode/Service
-https://svn.recomdata.com/osr
-
-
-
-2011-05-12T16:50:43.249396Z
-1378
-npickard
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-90c7e06e-371b-8c48-bb0b-577645b98325
-
-Connects.Profiles.Service.ServiceImplementation
-dir
-
-Connects.Profiles.Service.DataContracts
-dir
-
-Connects.Profiles.Service.ServiceContracts
-dir
-
