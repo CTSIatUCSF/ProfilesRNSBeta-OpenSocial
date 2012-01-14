@@ -245,15 +245,7 @@
             </div>
         </asp:PlaceHolder>
     </asp:Panel>
-    <script type="text/javascript" language="javascript">        
-        // hack for OpenSocial google search
-        var profilesHasSearchResults = false;        
-    </script>
     <asp:Panel ID="pnlSearchResults" runat="server" Visible="false">
-        <script type="text/javascript" language="javascript">        
-            // hack for OpenSocial google search
-            profilesHasSearchResults = true;        
-        </script>
         <table cellpadding="1" cellspacing="1" border="0" width="600px" style="margin-left: 8px">
             <tr>
                 <td valign="middle" align="right">
@@ -393,32 +385,7 @@
         EnableCaching="true" CacheDuration="120" CacheKeyDependency="profilesObjDataSourceKey"
         EnablePaging="true" MaximumRowsParameterName="maximumRows" EnableViewState="true">
     </asp:ObjectDataSource>
-
-<%-- Profiles OpenSocial Extension by UCSF --%>    
-    <asp:Panel ID="pnlOpenSocialGadgets" runat="server" Visible="false">
-        <script type="text/javascript" language="javascript">
-            // find the 'Search' gadget(s).  
-            var searchGadgets = my.findGadgetsAttachingTo("gadgets-search");
-            var keyword = '<%=GetKeyword()%>';
-            // add params to these gadgets
-            if (keyword && <%=HasAdditionalSearchCriteria() ? 0 : 1 %>) {
-                for (var i = 0; i < searchGadgets.length; i++) {
-                    var searchGadget = searchGadgets[i];
-                    searchGadget.additionalParams = searchGadget.additionalParams || {};
-                    searchGadget.additionalParams["keyword"] = keyword;
-                    // hack to open if no results are returned
-                    searchGadget.start_closed = profilesHasSearchResults;
-                }
-            }
-            else {  // remove these gadgets
-                my.removeGadgets(searchGadgets);
-            }            
-        </script>
-        <div id="gadgets-search" class="gadgets-gadget-parent"></div>
-    </asp:Panel>
-
 </asp:Content>
-
 <asp:Content ID="Content2" ContentPlaceHolderID="RightContentPlaceHolder" runat="Server">
     <div id="divSpotlight" runat="server" class="passive_container">
         <!-- Passive Networks Start -->

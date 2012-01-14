@@ -96,23 +96,6 @@ public partial class ProfileDetails : BasePage
                     // Set the page titles 
                     Page.Title = personProfile.Name.FirstName + " " + personProfile.Name.LastName + " | " + Page.Title;
                     ltProfileName.Text = personProfile.Name.FullName;
-
-                    // Profiles OpenSocial Extension by UCSF
-                    OpenSocialHelper os = SetOpenSocialHelper(Profile.UserId, _personId, Page);
-                    os.SetPubsubData(OpenSocialHelper.JSON_PERSONID_CHANNEL, OpenSocialHelper.BuildJSONPersonIds(_personId, personProfile.Name.FullName));
-                    // PMID
-                    UserPreferences userPreference = new UserPreferences();
-                    userPreference = _userBL.GetUserPreferences(_personId);
-                    if (userPreference.Publications.Equals("Y"))
-                    {
-                        os.SetPubsubData(OpenSocialHelper.JSON_PMID_CHANNEL, OpenSocialHelper.BuildJSONPubMedIds(personProfile));
-                    }
-                    os.RemovePubsubGadgetsWithoutData();
-                    GenerateOpensocialJavascipt();
-                    pnlOpenSocialGadgets.Visible = OpenSocial().IsVisible();
-
-                    // record that their profile was viewed
-                    OpenSocialHelper.PostActivity(_personId, "profile was viewed");
                 }
 
             }

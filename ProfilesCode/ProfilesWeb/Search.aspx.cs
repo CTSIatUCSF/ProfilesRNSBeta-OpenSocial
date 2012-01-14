@@ -20,8 +20,6 @@ using System.Web.UI.WebControls;
 using Connects.Profiles.BusinessLogic;
 using Connects.Profiles.Service.DataContracts;
 using Connects.Profiles.Utility;
-using Microsoft.Practices.EnterpriseLibrary.Data;
-using System.Data.Common;
 
 public partial class Search : BasePage
 {
@@ -35,10 +33,6 @@ public partial class Search : BasePage
     protected bool _pagejumpchange = false;
     protected bool _rebound = false;
     private Random _myRandom = new Random();
-
-    // Profiles OpenSocial Extension by UCSF 
-    public List<Int32> OS_personIds = null;
-    public string OS_message = null;
 
     #region Page Events
 
@@ -54,11 +48,6 @@ public partial class Search : BasePage
             this.ProcessQueryStrings();
 
             Session["ProfileSearchRequestCriteriaList"] = new List<string>();
-
-            // Profiles OpenSocial Extension by UCSF
-            OpenSocialHelper os = SetOpenSocialHelper(Profile.UserId, -1, Page);
-            os.RemovePubsubGadgetsWithoutData();
-            GenerateOpensocialJavascipt();
 
             LoadPersonFilter();
         }
@@ -344,43 +333,6 @@ public partial class Search : BasePage
 
             // Read the QueryId returned and modify the current search request to include this
             ((Profiles)Session["ProfileSearchRequest"]).QueryDefinition.QueryID = Convert.ToString(e.OutputParameters["queryID"]);
-
-            // Profiles OpenSocial Extension by UCSF
-            OS_message = null;
-            OS_personIds = new List<Int32>();
-            OpenSocialHelper os = SetOpenSocialHelper(Profile.UserId, -1, Page);
-            if (OpenSocial().IsVisible() && OpenSocial().HasGadgetListeningTo(OpenSocialHelper.JSON_PERSONID_CHANNEL))
-            {
-                IDataReader reader = null;
-                try
-                {
-                    Database db = DatabaseFactory.CreateDatabase();
-
-                    string sqlCommand = "select personid from api_query_results where QueryID = '" + Convert.ToString(e.OutputParameters["queryID"]) + "';";
-                    DbCommand dbCommand = db.GetSqlStringCommand(sqlCommand);
-                    reader = db.ExecuteReader(dbCommand);
-                    while (reader.Read())
-                    {
-                        OS_personIds.Add((Int32)reader["Personid"]);
-                    }
-                    OS_message = "" + OS_personIds.Count + " Profiles found";
-                }
-                catch (Exception ex)
-                {
-                    OS_message = "Error : " + ex.Message;
-                }
-                finally
-                {
-                    if (reader != null)
-                    {
-                        reader.Close();
-                    }
-                }
-            }
-            Session["OpenSocialJSONPersonIds"] = this.GetJSONPersonIds();
-            OpenSocial().SetPubsubData(OpenSocialHelper.JSON_PERSONID_CHANNEL, this.GetJSONPersonIds());
-            GenerateOpensocialJavascipt();
-            // END Profiles OpenSocial Extension by UCSF
 
             Session["LastSearchTotalRowCount"] = _totalRowCount;
         }
@@ -816,20 +768,10 @@ public partial class Search : BasePage
         // Set the initial page
         this.grdSearchResults.PageIndex = System.Convert.ToInt32(Session["ProfileSearchResultsPage"]);
 
-        // Profiles OpenSocial Extension by UCSF
-        OpenSocialHelper os = SetOpenSocialHelper(Profile.UserId, -1, Page);
-        os.SetPubsubData(OpenSocialHelper.JSON_PERSONID_CHANNEL, this.GetJSONPersonIds());
-        os.RemoveGadget("Activities");  // do not show Activities gadget on search results page
-        GenerateOpensocialJavascipt();
-        pnlOpenSocialGadgets.Visible = OpenSocial().IsVisible();
-
         if (grdSearchResults.Rows.Count == 0 && initialPage > -1)
         {
             LtMsg.Visible = true;
-            LtMsg.Text = "<span style='color:#990000; font-weight:bold'>" +
-                (OpenSocial() != null && GetKeyword() != null && OpenSocial().IsVisible() && GetKeyword().Length > 0 && !HasAdditionalSearchCriteria() ?
-                "No keyword matches found.  Please check Full Text Search results below." :
-                "No matching people could be found. Please check your entry and try again.") + "</span>";
+            LtMsg.Text = "<span style='color:#990000'>No matching people could be found</span>";
 
             // Kill the session variable used to bind the results grid
             Session["ProfileSearchRequest"] = null;
@@ -960,9 +902,6 @@ public partial class Search : BasePage
 
         divSpotlight.Visible = true;
         divSearchCriteria.Visible = false;
-
-        // Profiles OpenSocial Extension by UCSF
-        pnlOpenSocialGadgets.Visible = false;
 
         // 
         searchResultsPersonSummaryContainer.Visible = false;
@@ -1470,39 +1409,6 @@ public partial class Search : BasePage
         return show;
     }
 
-    #endregion
-
-    // Profiles OpenSocial Extension by UCSF
-    #region OpenSocial Helpers
-    [System.Web.Services.WebMethod]
-    public static string GetPublishedPeople(string queryID)
-    {
-        return queryID;
-    }
-
-    public string GetJSONPersonIds()
-    {
-        if (this.OS_message != null)
-        {
-            return OpenSocialHelper.BuildJSONPersonIds(OS_personIds, OS_message);
-        }
-        else if (Session["OpenSocialJSONPersonIds"] != null)
-        {
-            return (string)Session["OpenSocialJSONPersonIds"];
-        }
-        return "{}";
-    }
-
-    public bool HasAdditionalSearchCriteria()
-    {
-        return (Session["ProfileSearchRequestCriteriaList"] != null && ((List<string>)Session["ProfileSearchRequestCriteriaList"]).Count > 0) ||
-            (Request.QueryString["Lname"] != null && Request.QueryString["Lname"].ToString().Trim().Length > 0) ||
-            (Request.QueryString["Institute"] != null && Request.QueryString["Institute"].ToString().Trim().Length > 0) ||
-            (Request.QueryString["DeptName"] != null && Request.QueryString["DeptName"].ToString().Trim().Length > 0) ||
-            txtLastName.Text.Trim().Length > 0 || txtFirstName.Text.Trim().Length > 0 ||
-            ddlInstitution.SelectedIndex != 0 || ddlDepartment.SelectedIndex != 0 || ddlFacultyRank.SelectedIndex != 0 ||
-            (((HiddenField)ctcFirst.FindControl("hdnSelectedText")).Value.Length > 0 && ((HiddenField)ctcFirst.FindControl("hdnSelectedText")).Value != "--Select--");
-    }
     #endregion
 
 

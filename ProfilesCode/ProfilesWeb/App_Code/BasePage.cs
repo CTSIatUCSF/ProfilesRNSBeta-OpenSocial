@@ -17,10 +17,7 @@ public class BasePage : System.Web.UI.Page
     protected PublicationBL _pubBL = new PublicationBL();
     protected string _NetworkBrowserService = ConfigUtil.GetConfigItem("NetworkBrowserService");
     private static string _redirectUrl;
-
-    // Profiles OpenSocial Extension by UCSF
-    private OpenSocialHelper osHelper = null;
-
+    
     public BasePage()
     {
         _redirectUrl = string.Empty;
@@ -216,77 +213,5 @@ public class BasePage : System.Web.UI.Page
         return st;
     }
 
-    #endregion
-
-    // Profiles OpenSocial Extension by UCSF
-    #region OpenSocial
-    protected OpenSocialHelper SetOpenSocialHelper(int viewerId, int ownerId, Page page)
-    {
-        // lazy create as this is expensive
-        if (this.osHelper == null)
-        {
-            this.osHelper = new OpenSocialHelper(viewerId, ownerId, page);
-        }
-        return this.osHelper;
-    }
-
-    protected void GenerateOpensocialJavascipt()
-    {
-        System.Web.UI.Control pnlOpenSocialScripts = Master.Master.FindControl("HeadContentPlaceHolder").FindControl("pnlOpenSocialScripts");
-        pnlOpenSocialScripts.Visible = osHelper.IsVisible();
-        if (osHelper.IsVisible())
-        {
-            string gadgetScriptText = "<script type=\"text/javascript\" src=\"" + osHelper.GetContainerJavascriptSrc() + "\"></script>" + Environment.NewLine +
-                "<script type=\"text/javascript\" language=\"javascript\">" + Environment.NewLine +
-                "var my = {};" + Environment.NewLine +
-                "my.gadgetSpec = function(appId, name, url, secureToken, view, closed_width, open_width, start_closed, chrome_id, visible_scope) {" + Environment.NewLine +
-                    "this.appId = appId;" + Environment.NewLine +
-                    "this.name = name;" + Environment.NewLine +
-                    "this.url = url;" + Environment.NewLine +
-                    "this.secureToken = secureToken;" + Environment.NewLine +
-                    "this.view = view || 'default';" + Environment.NewLine +
-                    "this.closed_width = closed_width;" + Environment.NewLine +
-                    "this.open_width = open_width;" + Environment.NewLine +
-                    "this.start_closed = start_closed;" + Environment.NewLine +
-                    "this.chrome_id = chrome_id;" + Environment.NewLine +
-                    "this.visible_scope = visible_scope;" + Environment.NewLine +
-                    "};" + Environment.NewLine +
-                "my.pubsubData = {};" + Environment.NewLine;
-            foreach (KeyValuePair<string, string> pair in osHelper.GetPubsubData())
-            {
-                gadgetScriptText += "my.pubsubData['" + pair.Key + "'] = '" + pair.Value + "';" + Environment.NewLine;
-            }
-            gadgetScriptText += "my.openSocialURL = '" + ConfigUtil.GetConfigItem("OpenSocialURL") + "';" + Environment.NewLine +
-                "my.debug = " + (osHelper.IsDebug() ? "1" : "0") + ";" + Environment.NewLine +
-                "my.noCache = " + (osHelper.NoCache() ? "1" : "0") + ";" + Environment.NewLine +
-                "my.gadgets = [";
-            foreach (PreparedGadget gadget in osHelper.GetVisibleGadgets())
-            {
-                gadgetScriptText += "new my.gadgetSpec(" + gadget.GetAppId() + ",'" + gadget.GetName() + "','" + gadget.GetGadgetURL() + "','" +
-                    gadget.GetSecurityToken() + "','" + gadget.GetView() + "'," + gadget.GetClosedWidth() + "," +
-                    gadget.GetOpenWidth() + "," + (gadget.GetStartClosed() ? "1" : "0") + ",'" + gadget.GetChromeId() + "','" +
-                    gadget.GetGadgetSpec().GetVisibleScope() + "'), ";
-            }
-            gadgetScriptText = gadgetScriptText.Substring(0, gadgetScriptText.Length - 2) + "];" + Environment.NewLine + "</script>" + Environment.NewLine +
-            "<script type=\"text/javascript\" src=\"Scripts/profilesShindig.js\"></script>";
-
-            ((System.Web.UI.WebControls.Literal)pnlOpenSocialScripts.FindControl("GadgetJavascriptLiteral")).Text = gadgetScriptText;
-
-            // tools
-            System.Web.UI.Control pnlOpenSocialTools = Master.Master.FindControl("left").FindControl("pnlOpenSocialTools");
-            pnlOpenSocialTools.Visible = osHelper.IsVisible();
-        }
-    }
-
-    protected OpenSocialHelper OpenSocial()
-    {
-        return osHelper;
-    }
-
-    [System.Web.Services.WebMethod]
-    public static string onSubscribe(string sender, string channel, string pubsubHint)
-    {
-        return sender + " onSubscribe on channel " + channel + " with hint " + pubsubHint;
-    }
     #endregion
 }

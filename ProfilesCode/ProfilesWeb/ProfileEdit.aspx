@@ -1010,40 +1010,6 @@
                         </div>
                     </ContentTemplate>
                 </asp:UpdatePanel>
-
-	          <%-- Profiles OpenSocial Extension by UCSF --%>    
-                <asp:Panel ID="pnlOpenSocialGadgets" runat="server">
-                    <script type="text/javascript" language="javascript">
-                        my.current_view = "home";
-                    </script>                
-                    <div id="OpenSocial">
-                        <table width="100%">
-                            <tr style="height: 6px">
-                                <td>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <asp:Panel ID="pnlOpenSocialGadgetsInner" runat="server" CssClass="Borders" >
-                                        <table width="100%">
-                                            <tr>
-                                                <td style="text-align: left;">
-                                                    <h3>Add more to your profile <span style="font-weight:normal"> with websites related to your research, information about Faculty Mentorship <em>(Student Mentorship information coming soon)</em> and even post your presentations here.</span></h3>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div id="gadgets-edit" class="gadgets-gadget-parent"></div>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </asp:Panel>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </asp:Panel>
-                
                 <asp:Panel ID="pnlControl" runat="server" Visible="false">
                     <asp:PlaceHolder ID="plToControl" runat="server" />
                 </asp:Panel>

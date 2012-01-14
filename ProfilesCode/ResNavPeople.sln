@@ -67,6 +67,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "bin", "bin", "{D8E5B2FF-543
 		External Code\bin\Microsoft.Http.Extensions.dll = External Code\bin\Microsoft.Http.Extensions.dll
 		External Code\bin\Microsoft.Http.Extensions.pdb = External Code\bin\Microsoft.Http.Extensions.pdb
 		External Code\bin\Microsoft.Http.pdb = External Code\bin\Microsoft.Http.pdb
+		External Code\bin\Microsoft.ServiceModel.Web.dll = External Code\bin\Microsoft.ServiceModel.Web.dll
 		External Code\bin\Microsoft.ServiceModel.Web.pdb = External Code\bin\Microsoft.ServiceModel.Web.pdb
 		External Code\bin\ResNavLoginUtilities.dll = External Code\bin\ResNavLoginUtilities.dll
 		External Code\bin\System.Data.SQLite.DLL = External Code\bin\System.Data.SQLite.DLL

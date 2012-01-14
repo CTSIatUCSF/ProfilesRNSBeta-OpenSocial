@@ -24,11 +24,6 @@
     <link rel="stylesheet" type="text/css" href="CSS/profiles.css" />
     <link rel="stylesheet" type="text/css" href="JQuery/ui.dropdownchecklist.css" />
 
-    <%-- Profiles OpenSocial Extension by UCSF --%>    
-    <link rel="stylesheet" type="text/css" href="CSS/gadgets.css" />
-    <asp:Panel ID="pnlOpenSocialScripts" runat="server" Visible="False">
-        <asp:Literal ID="GadgetJavascriptLiteral" runat="server"></asp:Literal>
-    </asp:Panel>
 
     <link rel="stylesheet" type="text/css" href="CSS/comboTreeCheck.css" />
     <asp:Literal ID="JavascriptLiteral" runat="server"></asp:Literal>
@@ -134,12 +129,6 @@
     </div>
     <div class="activeBottom">
         &nbsp;</div>
-        
-    <%-- Profiles OpenSocial Extension by UCSF --%>    
-    <asp:Panel ID="pnlOpenSocialTools" runat="server" Visible="false">
-        <div id="gadgets-tools" class="gadgets-gadget-parent"></div>
-    </asp:Panel>
-
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="right" runat="Server">
     <asp:ContentPlaceHolder ID="RightContentPlaceHolder" runat="server">
