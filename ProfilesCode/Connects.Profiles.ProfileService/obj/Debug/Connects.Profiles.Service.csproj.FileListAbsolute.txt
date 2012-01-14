@@ -1,0 +1,93 @@
+\\files.med.harvard.edu\home\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\obj\Debug\ResolveAssemblyReference.cache
+\\files.med.harvard.edu\home\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Connects.Profiles.ProfileService.dll
+\\files.med.harvard.edu\home\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Connects.Profiles.ProfileService.pdb
+\\files.med.harvard.edu\home\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Connects.Profiles.Common.dll
+\\files.med.harvard.edu\home\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Connects.Profiles.Service.DataContracts.dll
+\\files.med.harvard.edu\home\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Connects.Profiles.Service.ServiceContracts.dll
+\\files.med.harvard.edu\home\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Connects.Profiles.Service.ServiceImplementation.dll
+\\files.med.harvard.edu\home\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Connects.Profiles.Utility.dll
+\\files.med.harvard.edu\home\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Microsoft.ServiceModel.Web.dll
+\\files.med.harvard.edu\home\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Microsoft.Practices.EnterpriseLibrary.Data.dll
+\\files.med.harvard.edu\home\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Microsoft.Practices.ObjectBuilder2.dll
+\\files.med.harvard.edu\home\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Connects.Profiles.DataAccess.dll
+\\files.med.harvard.edu\home\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Connects.Profiles.BusinessLogic.dll
+\\files.med.harvard.edu\home\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Microsoft.Practices.EnterpriseLibrary.Caching.dll
+\\files.med.harvard.edu\home\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Microsoft.Practices.Unity.dll
+\\files.med.harvard.edu\home\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll
+\\files.med.harvard.edu\home\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Microsoft.Practices.EnterpriseLibrary.Common.dll
+\\files.med.harvard.edu\home\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Microsoft.Practices.EnterpriseLibrary.Data.xml
+\\files.med.harvard.edu\home\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Connects.Profiles.Service.ServiceContracts.pdb
+\\files.med.harvard.edu\home\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Connects.Profiles.Service.ServiceImplementation.pdb
+\\files.med.harvard.edu\home\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Connects.Profiles.Utility.pdb
+\\files.med.harvard.edu\home\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Connects.Profiles.DataAccess.pdb
+\\files.med.harvard.edu\home\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Connects.Profiles.Common.pdb
+\\files.med.harvard.edu\home\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Connects.Profiles.Service.DataContracts.pdb
+\\files.med.harvard.edu\home\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Microsoft.ServiceModel.Web.pdb
+\\files.med.harvard.edu\home\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Connects.Profiles.BusinessLogic.pdb
+\\files.med.harvard.edu\home\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Microsoft.Practices.EnterpriseLibrary.Caching.xml
+\\files.med.harvard.edu\home\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml
+\\files.med.harvard.edu\home\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Microsoft.Practices.EnterpriseLibrary.Common.xml
+\\files.med.harvard.edu\home\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\obj\Debug\Connects.Profiles.ProfileService.dll
+\\files.med.harvard.edu\home\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\obj\Debug\Connects.Profiles.ProfileService.pdb
+C:\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Connects.Profiles.ProfileService.dll
+C:\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Connects.Profiles.ProfileService.pdb
+C:\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Connects.Profiles.Common.dll
+C:\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Connects.Profiles.Service.DataContracts.dll
+C:\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Connects.Profiles.Service.ServiceContracts.dll
+C:\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Connects.Profiles.Service.ServiceImplementation.dll
+C:\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Connects.Profiles.Utility.dll
+C:\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Microsoft.ServiceModel.Web.dll
+C:\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Microsoft.Practices.ObjectBuilder2.dll
+C:\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Connects.Profiles.DataAccess.dll
+C:\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Connects.Profiles.BusinessLogic.dll
+C:\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Microsoft.Practices.EnterpriseLibrary.Caching.dll
+C:\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Microsoft.Practices.Unity.dll
+C:\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll
+C:\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Microsoft.Practices.EnterpriseLibrary.Data.xml
+C:\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Connects.Profiles.Service.ServiceContracts.pdb
+C:\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Connects.Profiles.Service.ServiceImplementation.pdb
+C:\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Connects.Profiles.Utility.pdb
+C:\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Connects.Profiles.DataAccess.pdb
+C:\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Connects.Profiles.Common.pdb
+C:\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Connects.Profiles.Service.DataContracts.pdb
+C:\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Microsoft.ServiceModel.Web.pdb
+C:\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Connects.Profiles.BusinessLogic.pdb
+C:\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Microsoft.Practices.EnterpriseLibrary.Caching.xml
+C:\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml
+C:\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\bin\Microsoft.Practices.EnterpriseLibrary.Common.xml
+C:\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\obj\Debug\ResolveAssemblyReference.cache
+C:\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\obj\Debug\Connects.Profiles.ProfileService.dll
+C:\Visual Studio 2008\Projects\ResNav_Profiles\Connects.Profiles.ProfileService\obj\Debug\Connects.Profiles.ProfileService.pdb
+C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Connects.Profiles.ProfileService\bin\Connects.Profiles.ProfileService.dll
+C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Connects.Profiles.ProfileService\bin\Connects.Profiles.ProfileService.pdb
+C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Connects.Profiles.ProfileService\bin\Connects.Profiles.Common.dll
+C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Connects.Profiles.ProfileService\bin\Connects.Profiles.Service.DataContracts.dll
+C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Connects.Profiles.ProfileService\bin\Connects.Profiles.Service.ServiceContracts.dll
+C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Connects.Profiles.ProfileService\bin\Connects.Profiles.Service.ServiceImplementation.dll
+C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Connects.Profiles.ProfileService\bin\Connects.Profiles.Utility.dll
+C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Connects.Profiles.ProfileService\bin\Microsoft.ServiceModel.Web.dll
+C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Connects.Profiles.ProfileService\bin\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Connects.Profiles.ProfileService\bin\Microsoft.Practices.ObjectBuilder2.dll
+C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Connects.Profiles.ProfileService\bin\Connects.Profiles.DataAccess.dll
+C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Connects.Profiles.ProfileService\bin\Connects.Profiles.BusinessLogic.dll
+C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Connects.Profiles.ProfileService\bin\Microsoft.Practices.EnterpriseLibrary.Caching.dll
+C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Connects.Profiles.ProfileService\bin\Microsoft.Practices.Unity.dll
+C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Connects.Profiles.ProfileService\bin\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll
+C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Connects.Profiles.ProfileService\bin\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Connects.Profiles.ProfileService\bin\Microsoft.Practices.EnterpriseLibrary.Data.xml
+C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Connects.Profiles.ProfileService\bin\Connects.Profiles.Service.ServiceContracts.pdb
+C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Connects.Profiles.ProfileService\bin\Connects.Profiles.Service.ServiceImplementation.pdb
+C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Connects.Profiles.ProfileService\bin\Connects.Profiles.Utility.pdb
+C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Connects.Profiles.ProfileService\bin\Connects.Profiles.DataAccess.pdb
+C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Connects.Profiles.ProfileService\bin\Connects.Profiles.Common.pdb
+C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Connects.Profiles.ProfileService\bin\Connects.Profiles.Service.DataContracts.pdb
+C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Connects.Profiles.ProfileService\bin\Microsoft.ServiceModel.Web.pdb
+C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Connects.Profiles.ProfileService\bin\Connects.Profiles.BusinessLogic.pdb
+C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Connects.Profiles.ProfileService\bin\Microsoft.Practices.EnterpriseLibrary.Caching.xml
+C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Connects.Profiles.ProfileService\bin\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml
+C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Connects.Profiles.ProfileService\bin\Microsoft.Practices.EnterpriseLibrary.Common.xml
+C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Connects.Profiles.ProfileService\obj\Debug\ResolveAssemblyReference.cache
+C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Connects.Profiles.ProfileService\obj\Debug\Connects.Profiles.ProfileService.dll
+C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Connects.Profiles.ProfileService\obj\Debug\Connects.Profiles.ProfileService.pdb

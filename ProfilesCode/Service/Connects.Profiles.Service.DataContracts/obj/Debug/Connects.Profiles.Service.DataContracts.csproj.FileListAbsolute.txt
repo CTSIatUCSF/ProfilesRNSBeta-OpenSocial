@@ -1,0 +1,21 @@
+\\files.med.harvard.edu\home\Visual Studio 2008\Projects\ResNav_Profiles\Service\Connects.Profiles.Service.DataContracts\bin\Debug\Connects.Profiles.Service.DataContracts.dll
+\\files.med.harvard.edu\home\Visual Studio 2008\Projects\ResNav_Profiles\Service\Connects.Profiles.Service.DataContracts\bin\Debug\Connects.Profiles.Service.DataContracts.pdb
+\\files.med.harvard.edu\home\Visual Studio 2008\Projects\ResNav_Profiles\Service\Connects.Profiles.Service.DataContracts\bin\Debug\Connects.Profiles.Common.dll
+\\files.med.harvard.edu\home\Visual Studio 2008\Projects\ResNav_Profiles\Service\Connects.Profiles.Service.DataContracts\bin\Debug\Connects.Profiles.Common.pdb
+\\files.med.harvard.edu\home\Visual Studio 2008\Projects\ResNav_Profiles\Service\Connects.Profiles.Service.DataContracts\obj\Debug\ResolveAssemblyReference.cache
+\\files.med.harvard.edu\home\Visual Studio 2008\Projects\ResNav_Profiles\Service\Connects.Profiles.Service.DataContracts\obj\Debug\Connects.Profiles.Service.DataContracts.dll
+\\files.med.harvard.edu\home\Visual Studio 2008\Projects\ResNav_Profiles\Service\Connects.Profiles.Service.DataContracts\obj\Debug\Connects.Profiles.Service.DataContracts.pdb
+C:\Visual Studio 2008\Projects\ResNav_Profiles\Service\Connects.Profiles.Service.DataContracts\bin\Debug\Connects.Profiles.Service.DataContracts.dll
+C:\Visual Studio 2008\Projects\ResNav_Profiles\Service\Connects.Profiles.Service.DataContracts\bin\Debug\Connects.Profiles.Service.DataContracts.pdb
+C:\Visual Studio 2008\Projects\ResNav_Profiles\Service\Connects.Profiles.Service.DataContracts\bin\Debug\Connects.Profiles.Common.dll
+C:\Visual Studio 2008\Projects\ResNav_Profiles\Service\Connects.Profiles.Service.DataContracts\bin\Debug\Connects.Profiles.Common.pdb
+C:\Visual Studio 2008\Projects\ResNav_Profiles\Service\Connects.Profiles.Service.DataContracts\obj\Debug\ResolveAssemblyReference.cache
+C:\Visual Studio 2008\Projects\ResNav_Profiles\Service\Connects.Profiles.Service.DataContracts\obj\Debug\Connects.Profiles.Service.DataContracts.dll
+C:\Visual Studio 2008\Projects\ResNav_Profiles\Service\Connects.Profiles.Service.DataContracts\obj\Debug\Connects.Profiles.Service.DataContracts.pdb
+C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Service\Connects.Profiles.Service.DataContracts\bin\Debug\Connects.Profiles.Service.DataContracts.dll
+C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Service\Connects.Profiles.Service.DataContracts\bin\Debug\Connects.Profiles.Service.DataContracts.pdb
+C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Service\Connects.Profiles.Service.DataContracts\bin\Debug\Connects.Profiles.Common.dll
+C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Service\Connects.Profiles.Service.DataContracts\bin\Debug\Connects.Profiles.Common.pdb
+C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Service\Connects.Profiles.Service.DataContracts\obj\Debug\ResolveAssemblyReference.cache
+C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Service\Connects.Profiles.Service.DataContracts\obj\Debug\Connects.Profiles.Service.DataContracts.dll
+C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Service\Connects.Profiles.Service.DataContracts\obj\Debug\Connects.Profiles.Service.DataContracts.pdb
