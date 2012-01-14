@@ -13,3 +13,8 @@ C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Connects.Profiles
 C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Connects.Profiles.Utility\obj\Debug\ResolveAssemblyReference.cache
 C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Connects.Profiles.Utility\obj\Debug\Connects.Profiles.Utility.dll
 C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Connects.Profiles.Utility\obj\Debug\Connects.Profiles.Utility.pdb
+C:\workspace\github\gitfixed\ProfilesRNSBeta-OpenSocial\ProfilesCode\Connects.Profiles.Utility\bin\Debug\Connects.Profiles.Utility.dll
+C:\workspace\github\gitfixed\ProfilesRNSBeta-OpenSocial\ProfilesCode\Connects.Profiles.Utility\bin\Debug\Connects.Profiles.Utility.pdb
+C:\workspace\github\gitfixed\ProfilesRNSBeta-OpenSocial\ProfilesCode\Connects.Profiles.Utility\obj\Debug\ResolveAssemblyReference.cache
+C:\workspace\github\gitfixed\ProfilesRNSBeta-OpenSocial\ProfilesCode\Connects.Profiles.Utility\obj\Debug\Connects.Profiles.Utility.dll
+C:\workspace\github\gitfixed\ProfilesRNSBeta-OpenSocial\ProfilesCode\Connects.Profiles.Utility\obj\Debug\Connects.Profiles.Utility.pdb

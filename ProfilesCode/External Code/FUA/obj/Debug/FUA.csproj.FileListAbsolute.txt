@@ -13,3 +13,8 @@ C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\External Code\FUA
 C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\External Code\FUA\obj\Debug\ResolveAssemblyReference.cache
 C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\External Code\FUA\obj\Debug\FUA.dll
 C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\External Code\FUA\obj\Debug\FUA.pdb
+C:\workspace\github\gitfixed\ProfilesRNSBeta-OpenSocial\ProfilesCode\External Code\FUA\bin\Debug\FUA.dll
+C:\workspace\github\gitfixed\ProfilesRNSBeta-OpenSocial\ProfilesCode\External Code\FUA\bin\Debug\FUA.pdb
+C:\workspace\github\gitfixed\ProfilesRNSBeta-OpenSocial\ProfilesCode\External Code\FUA\obj\Debug\ResolveAssemblyReference.cache
+C:\workspace\github\gitfixed\ProfilesRNSBeta-OpenSocial\ProfilesCode\External Code\FUA\obj\Debug\FUA.dll
+C:\workspace\github\gitfixed\ProfilesRNSBeta-OpenSocial\ProfilesCode\External Code\FUA\obj\Debug\FUA.pdb

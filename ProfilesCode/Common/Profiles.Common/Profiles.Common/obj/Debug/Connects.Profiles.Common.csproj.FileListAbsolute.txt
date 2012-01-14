@@ -13,3 +13,8 @@ C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Common\Profiles.C
 C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Common\Profiles.Common\Profiles.Common\obj\Debug\ResolveAssemblyReference.cache
 C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Common\Profiles.Common\Profiles.Common\obj\Debug\Connects.Profiles.Common.dll
 C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Common\Profiles.Common\Profiles.Common\obj\Debug\Connects.Profiles.Common.pdb
+C:\workspace\github\gitfixed\ProfilesRNSBeta-OpenSocial\ProfilesCode\Common\Profiles.Common\Profiles.Common\bin\Debug\Connects.Profiles.Common.dll
+C:\workspace\github\gitfixed\ProfilesRNSBeta-OpenSocial\ProfilesCode\Common\Profiles.Common\Profiles.Common\bin\Debug\Connects.Profiles.Common.pdb
+C:\workspace\github\gitfixed\ProfilesRNSBeta-OpenSocial\ProfilesCode\Common\Profiles.Common\Profiles.Common\obj\Debug\ResolveAssemblyReference.cache
+C:\workspace\github\gitfixed\ProfilesRNSBeta-OpenSocial\ProfilesCode\Common\Profiles.Common\Profiles.Common\obj\Debug\Connects.Profiles.Common.dll
+C:\workspace\github\gitfixed\ProfilesRNSBeta-OpenSocial\ProfilesCode\Common\Profiles.Common\Profiles.Common\obj\Debug\Connects.Profiles.Common.pdb

@@ -37,3 +37,16 @@ C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Connects.Profiles
 C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Connects.Profiles.BusinessLogic\obj\Debug\ResolveAssemblyReference.cache
 C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Connects.Profiles.BusinessLogic\obj\Debug\Connects.Profiles.BusinessLogic.dll
 C:\workspace\Profiles.v2\ProfilesOpenSource100810\ProfilesCode\Connects.Profiles.BusinessLogic\obj\Debug\Connects.Profiles.BusinessLogic.pdb
+C:\workspace\github\gitfixed\ProfilesRNSBeta-OpenSocial\ProfilesCode\Connects.Profiles.BusinessLogic\bin\Debug\Connects.Profiles.BusinessLogic.dll
+C:\workspace\github\gitfixed\ProfilesRNSBeta-OpenSocial\ProfilesCode\Connects.Profiles.BusinessLogic\bin\Debug\Connects.Profiles.BusinessLogic.pdb
+C:\workspace\github\gitfixed\ProfilesRNSBeta-OpenSocial\ProfilesCode\Connects.Profiles.BusinessLogic\bin\Debug\Connects.Profiles.Common.dll
+C:\workspace\github\gitfixed\ProfilesRNSBeta-OpenSocial\ProfilesCode\Connects.Profiles.BusinessLogic\bin\Debug\Connects.Profiles.DataAccess.dll
+C:\workspace\github\gitfixed\ProfilesRNSBeta-OpenSocial\ProfilesCode\Connects.Profiles.BusinessLogic\bin\Debug\Connects.Profiles.Utility.dll
+C:\workspace\github\gitfixed\ProfilesRNSBeta-OpenSocial\ProfilesCode\Connects.Profiles.BusinessLogic\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\workspace\github\gitfixed\ProfilesRNSBeta-OpenSocial\ProfilesCode\Connects.Profiles.BusinessLogic\bin\Debug\Connects.Profiles.Common.pdb
+C:\workspace\github\gitfixed\ProfilesRNSBeta-OpenSocial\ProfilesCode\Connects.Profiles.BusinessLogic\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+C:\workspace\github\gitfixed\ProfilesRNSBeta-OpenSocial\ProfilesCode\Connects.Profiles.BusinessLogic\bin\Debug\Connects.Profiles.DataAccess.pdb
+C:\workspace\github\gitfixed\ProfilesRNSBeta-OpenSocial\ProfilesCode\Connects.Profiles.BusinessLogic\bin\Debug\Connects.Profiles.Utility.pdb
+C:\workspace\github\gitfixed\ProfilesRNSBeta-OpenSocial\ProfilesCode\Connects.Profiles.BusinessLogic\obj\Debug\ResolveAssemblyReference.cache
+C:\workspace\github\gitfixed\ProfilesRNSBeta-OpenSocial\ProfilesCode\Connects.Profiles.BusinessLogic\obj\Debug\Connects.Profiles.BusinessLogic.dll
+C:\workspace\github\gitfixed\ProfilesRNSBeta-OpenSocial\ProfilesCode\Connects.Profiles.BusinessLogic\obj\Debug\Connects.Profiles.BusinessLogic.pdb
