@@ -125,6 +125,15 @@ public partial class ProfileEdit : BasePageSecure
                     // Set help text
                     txtProfileProblem.Text = _userBL.GetProfileSupportHtml(_personId, false);
 
+                    // Profiles OpenSocial Extension by UCSF
+                    // for wiring up open social items
+                    if (_userBL.IsProxyFor(Profile.UserId, _personId) || (Profile.ProfileId == _personId))
+                    {
+                        SetOpenSocialHelper(_personId, _personId, Page);
+                        GenerateOpensocialJavascipt();
+                        pnlOpenSocialGadgets.Visible = OpenSocial().IsVisible();
+                    }
+
                     //Proxy settings 
                     if (_userBL.IsProxyFor(Profile.UserId, _personId) && ((string)Request["From"] == "Proxy"))
                     {
@@ -501,6 +510,11 @@ public partial class ProfileEdit : BasePageSecure
             txtFoot3.Text = "";
             txtFoot4.Text = "";
             upnlEditSection.Update();
+            // Profiles OpenSocial Extension by UCSF
+            if (lblVisibleAward.Visible)
+            {
+                OpenSocialHelper.PostActivity(_personId, "added an award", "added an award: " + txtFoot3.Text);
+            }
         }
     }
 
@@ -516,6 +530,11 @@ public partial class ProfileEdit : BasePageSecure
             AwardsDS.Insert();
             GridViewAwards.DataBind();
             btnInsertCancel_OnClick(sender, e);
+            // Profiles OpenSocial Extension by UCSF
+            if (lblVisibleAward.Visible)
+            {
+                OpenSocialHelper.PostActivity(_personId, "added an award", "added an award: " + txtFoot3.Text);
+            }
         }
     }
     #endregion
@@ -572,6 +591,14 @@ public partial class ProfileEdit : BasePageSecure
         if (txtEditNarrative.Text.Length == 0)
         {
             lblEditNarrative.Text = "<div style=\"font-style:italic; color:#999; \">None</div>";
+        }
+        // Profiles OpenSocial Extension by UCSF
+        else
+        {
+            if (lblVisibleNarrative.Visible)
+            {
+                OpenSocialHelper.PostActivity(_personId, "edited their narrative");
+            }
         }
         btnImgEditNarrative.ImageUrl = "~/Images/icon_squareArrow.gif";
         upnlEditSection.Update();
@@ -822,6 +849,11 @@ public partial class ProfileEdit : BasePageSecure
 
             // Assign the user to the publication
             _pubBL.AddUserPublication(_personId, Convert.ToInt32(pmid));
+            // Profiles OpenSocial Extension by UCSF
+            if (lblVisiblePublication.Visible)
+            {
+                OpenSocialHelper.PostActivity(_personId, "added a publication", "added PubMed publication PMID=" + pmid + " to their profile", "PMID", pmid);
+            }
         }
     }
 
@@ -1350,12 +1382,22 @@ public partial class ProfileEdit : BasePageSecure
 
             _pubBL.EditCustomPublication(myParameters);
             grdEditPublications.SelectedIndex = -1;
+            // Profiles OpenSocial Extension by UCSF
+            if (lblVisiblePublication.Visible)
+            {
+                OpenSocialHelper.PostActivity(_personId, "updated a custom publication", "updated a custom publication: " + drpPublicationType.SelectedValue);
+            }
         }
         else
         {
             myParameters.Add("@PersonID", _personId);
             myParameters.Add("@created_by", EditUserId);
             _pubBL.AddCustomPublication(myParameters);
+            // Profiles OpenSocial Extension by UCSF
+            if (lblVisiblePublication.Visible)
+            {
+                OpenSocialHelper.PostActivity(_personId, "added a custom publication", "added a custom publication: " + drpPublicationType.SelectedValue);
+            }
         }
 
         grdEditPublications.DataBind();
@@ -1599,6 +1641,12 @@ public partial class ProfileEdit : BasePageSecure
         FileUpload1.addCustomJS(FileUploaderAJAX.customJSevent.postUpload, js);
 
         FileUpload1.Reset();
+
+        // Profiles OpenSocial Extension by UCSF
+        if (lblVisiblePhoto.Visible)
+        {
+            OpenSocialHelper.PostActivity(_personId, "uploaded a photo");
+        }
     }
 
     /// <summary>

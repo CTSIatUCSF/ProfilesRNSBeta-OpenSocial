@@ -86,6 +86,17 @@
                 <asp:Label ID="lblReadOnlyNarrative" runat="server" CssClass="narrativeText" />
             </div>
         </div>
+        
+        <%-- Profiles OpenSocial Extension by UCSF --%>    
+        <div id="pnlOpenSocialGadgets" runat="server" style="margin-top:18px">
+            <script type="text/javascript" language="javascript">
+                my.current_view = "profile";
+            </script>                
+            <div id="gadgets-view" class="gadgets-gadget-parent"></div>
+        </div>
+        <div style="clear: both">
+        </div>
+        
         <div id="pnlReadOnlyPublications" runat="server">
             <div class="sectionHeader">
                 <asp:Literal ID="ltrReadPublications" runat="server" Text="Publications" Visible="true" />
