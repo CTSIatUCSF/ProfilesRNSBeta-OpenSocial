@@ -18,6 +18,9 @@ public partial class JSONProfile : System.Web.UI.Page
 {
     private UserBL _userBL = new UserBL();
 
+    static readonly string PERSON = "Person";
+    static readonly string DISAMBIGUATION = "Disambiguation";
+
     protected void Page_Load(object sender, EventArgs e)
     {
         try
@@ -154,6 +157,7 @@ public partial class JSONProfile : System.Web.UI.Page
                                 Dictionary<string, Object> pubSourceData = new Dictionary<string, Object>();
                                 pubSourceData.Add("PublicationSourceName", pubSource.Name);
                                 pubSourceData.Add("PublicationSourceURL", (mobile ? pubSource.URL.Replace("/pubmed", "/m/pubmed") : pubSource.URL) );
+                                pubSourceData.Add("PublicationAddedBy", GetPublicationInclusionSource(personId, pubSource.ID));
                                 pubSourceList.Add(pubSourceData);
                             }
                             pubData.Add("PublicationSource", pubSourceList);
@@ -214,6 +218,17 @@ public partial class JSONProfile : System.Web.UI.Page
         }
         JavaScriptSerializer serializer = new JavaScriptSerializer();
         return serializer.Serialize(profileData);
+    }
+
+    private string GetPublicationInclusionSource(int personId, string PMID)
+    {
+        if (PMID == null)
+        {
+            return PERSON;
+        }
+        Database db = DatabaseFactory.CreateDatabase();
+        DbCommand dbCommand = db.GetSqlStringCommand("select count(*) from publications_add where personId = " + personId + " and PMID = " + PMID);
+        return (Int32)db.ExecuteScalar(dbCommand) > 0 ? PERSON : DISAMBIGUATION;
     }
 
 }
