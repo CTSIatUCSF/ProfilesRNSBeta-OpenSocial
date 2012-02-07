@@ -148,6 +148,7 @@ public partial class JSONProfile : System.Web.UI.Page
                         foreach (Publication pub in person.PublicationList)
                         {
                             Dictionary<string, Object> pubData = new Dictionary<string, Object>();
+                            pubData.Add("PublicationID", pub.PublicationID);
                             pubData.Add("PublicationTitle", pub.PublicationReference);
                             //pubData.Add("PublicationAbstract", pub.PublicationDetails);
 
