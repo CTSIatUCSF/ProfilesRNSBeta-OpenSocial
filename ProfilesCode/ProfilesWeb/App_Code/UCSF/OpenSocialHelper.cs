@@ -633,6 +633,10 @@ public class GadgetSpec
             {
                 show &= IsRegisteredTo(ownerId);
             }
+            else if ('S' == req.GetOwnerReq())
+            {
+                show &= (viewerId == ownerId);
+            }
         }
         return show;
     }
