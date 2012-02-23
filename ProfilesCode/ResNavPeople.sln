@@ -1,6 +1,6 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{99445F16-3BF9-47F1-B924-C7A0328DC55E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{9AA9A203-A5D5-451C-A8D1-EA6EAA80BE97}"
@@ -340,54 +340,6 @@ Global
 		{D8E5B2FF-5434-4CC3-A60A-428C1EF16215} = {278A765B-EA9A-4128-8A57-9403EC79E635}
 		{BE2E39E8-DBC2-4933-9376-96D393C86588} = {278A765B-EA9A-4128-8A57-9403EC79E635}
 		{C721D40C-8975-4E71-A14C-9F2C7EDF253D} = {278A765B-EA9A-4128-8A57-9403EC79E635}
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 11
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://tfs.med.harvard.edu:8081/
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = Common\\Profiles.Common\\Profiles.Common\\Connects.Profiles.Common.csproj
-		SccProjectTopLevelParentUniqueName1 = ResNavPeople.sln
-		SccProjectName1 = Common/Profiles.Common/Profiles.Common
-		SccLocalPath1 = Common\\Profiles.Common\\Profiles.Common
-		SccProjectUniqueName2 = Connects.Profiles.BusinessLogic\\Connects.Profiles.BusinessLogic.csproj
-		SccProjectTopLevelParentUniqueName2 = ResNavPeople.sln
-		SccProjectName2 = Connects.Profiles.BusinessLogic
-		SccLocalPath2 = Connects.Profiles.BusinessLogic
-		SccProjectUniqueName3 = Connects.Profiles.Utility\\Connects.Profiles.Utility.csproj
-		SccProjectTopLevelParentUniqueName3 = ResNavPeople.sln
-		SccProjectName3 = Connects.Profiles.Utility
-		SccLocalPath3 = Connects.Profiles.Utility
-		SccProjectUniqueName4 = Data\\Profiles.DataAccess\\Profiles.DataAccess\\Connects.Profiles.Data.csproj
-		SccProjectTopLevelParentUniqueName4 = ResNavPeople.sln
-		SccProjectName4 = Data/Profiles.DataAccess/Profiles.DataAccess
-		SccLocalPath4 = Data\\Profiles.DataAccess\\Profiles.DataAccess
-		SccWebProject5 = true
-		SccProjectUniqueName5 = ProfilesWeb
-		SccProjectTopLevelParentUniqueName5 = ResNavPeople.sln
-		SccLocalPath5 = .
-		SccProjectFilePathRelativizedFromConnection5 = ProfilesWeb\\
-		SccProjectEnlistmentChoice5 = 2
-		SccProjectUniqueName6 = Service\\Connects.Profiles.Service.ServiceContracts\\Connects.Profiles.Service.ServiceContracts.csproj
-		SccProjectTopLevelParentUniqueName6 = ResNavPeople.sln
-		SccProjectName6 = Service/Connects.Profiles.Service.ServiceContracts
-		SccLocalPath6 = Service\\Connects.Profiles.Service.ServiceContracts
-		SccProjectUniqueName7 = Service\\Connects.Profiles.Service.DataContracts\\Connects.Profiles.Service.DataContracts.csproj
-		SccProjectTopLevelParentUniqueName7 = ResNavPeople.sln
-		SccProjectName7 = Service/Connects.Profiles.Service.DataContracts
-		SccLocalPath7 = Service\\Connects.Profiles.Service.DataContracts
-		SccProjectUniqueName8 = Connects.Profiles.ProfileService\\Connects.Profiles.Service.csproj
-		SccProjectTopLevelParentUniqueName8 = ResNavPeople.sln
-		SccProjectName8 = Connects.Profiles.ProfileService
-		SccLocalPath8 = Connects.Profiles.ProfileService
-		SccProjectUniqueName9 = Service\\Connects.Profiles.Service.ServiceImplementation\\Connects.Profiles.Service.ServiceImplementation.csproj
-		SccProjectTopLevelParentUniqueName9 = ResNavPeople.sln
-		SccProjectName9 = Service/Connects.Profiles.Service.ServiceImplementation
-		SccLocalPath9 = Service\\Connects.Profiles.Service.ServiceImplementation
-		SccProjectUniqueName10 = External\u0020Code\\FUA\\FUA.csproj
-		SccProjectTopLevelParentUniqueName10 = ResNavPeople.sln
-		SccProjectName10 = External\u0020Code/FUA
-		SccLocalPath10 = External\u0020Code\\FUA
 	EndGlobalSection
 	GlobalSection(TextTemplating) = postSolution
 		TextTemplating = 1
