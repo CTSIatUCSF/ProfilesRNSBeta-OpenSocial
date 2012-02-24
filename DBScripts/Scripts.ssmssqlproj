@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="Scripts">
+  <Items>
+    <LogicalFolder Name="Connections" Type="2">
+      <Items>
+        <ConnectionNode Name="sql-ctsi.ucsf.edu:sa">
+          <Created>2010-05-19T10:52:09.9684453-07:00</Created>
+          <Type>SQL</Type>
+          <Server>sql-ctsi.ucsf.edu</Server>
+          <UserName>sa</UserName>
+          <Authentication>SQL</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="ctsi-sql-01:sa">
+          <Created>2010-05-20T16:48:36.4649563-07:00</Created>
+          <Type>SQL</Type>
+          <Server>ctsi-sql-01</Server>
+          <UserName>sa</UserName>
+          <Authentication>SQL</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="dev-sql-ctsi:sa">
+          <Created>2010-11-09T11:59:34.1447491-08:00</Created>
+          <Type>SQL</Type>
+          <Server>dev-sql-ctsi</Server>
+          <UserName>sa</UserName>
+          <Authentication>SQL</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Queries" Type="0">
+      <Items>
+        <FileNode Name="CopyPublications.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:sql-ctsi.ucsf.edu:False:sa</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>sql-ctsi.ucsf.edu</AssociatedConnSrvName>
+          <AssociatedConnUserName>sa</AssociatedConnUserName>
+          <FullPath>CopyPublications.sql</FullPath>
+        </FileNode>
+        <FileNode Name="ComparePubCounts.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:sql-ctsi.ucsf.edu:False:sa</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>sql-ctsi.ucsf.edu</AssociatedConnSrvName>
+          <AssociatedConnUserName>sa</AssociatedConnUserName>
+          <FullPath>ComparePubCounts.sql</FullPath>
+        </FileNode>
+        <FileNode Name="ProfilesSetUserPermissions.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:sql-ctsi.ucsf.edu:False:sa</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>sql-ctsi.ucsf.edu</AssociatedConnSrvName>
+          <AssociatedConnUserName>sa</AssociatedConnUserName>
+          <FullPath>ProfilesSetUserPermissions.sql</FullPath>
+        </FileNode>
+        <FileNode Name="SNA.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:sql-ctsi.ucsf.edu:False:sa</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>sql-ctsi.ucsf.edu</AssociatedConnSrvName>
+          <AssociatedConnUserName>sa</AssociatedConnUserName>
+          <FullPath>SNA.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Shindig.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>Shindig.sql</FullPath>
+        </FileNode>
+        <FileNode Name="PrepareDB.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>PrepareDB.sql</FullPath>
+        </FileNode>
+        <FileNode Name="KatjaActivityReport.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:sql-ctsi.ucsf.edu:False:sa</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>sql-ctsi.ucsf.edu</AssociatedConnSrvName>
+          <AssociatedConnUserName>sa</AssociatedConnUserName>
+          <FullPath>KatjaActivityReport.sql</FullPath>
+        </FileNode>
+        <FileNode Name="SiteMap.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:sql-ctsi.ucsf.edu:False:sa</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>sql-ctsi.ucsf.edu</AssociatedConnSrvName>
+          <AssociatedConnUserName>sa</AssociatedConnUserName>
+          <FullPath>SiteMap.sql</FullPath>
+        </FileNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Miscellaneous" Type="3">
+      <Items />
+    </LogicalFolder>
+  </Items>
+</SqlWorkbenchSqlProject>
