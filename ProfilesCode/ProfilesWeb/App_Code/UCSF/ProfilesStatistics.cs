@@ -41,7 +41,7 @@ public static class ProfilesStatistics
             string sqlCommand = "select count(*) from (" +
                 "select distinct personid from photo union " +
                 "select distinct personid from narratives union " +
-                "select distinct personid from narratives union " +
+                "select distinct personid from awards union " +
                 "select distinct personid from my_pubs_general union " +
                 "select distinct personid from publications_add union " +
                 "select distinct personid from publications_exclude) as u;";
