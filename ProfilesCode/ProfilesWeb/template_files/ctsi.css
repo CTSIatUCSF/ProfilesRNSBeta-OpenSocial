@@ -88,12 +88,12 @@ a:hover, .SearchListLink:hover, .hypLinks:hover, .tabContainer a:hover { color:#
   font-size: 44px; font-weight: bold;
   height: 70px; width: 500px;
   line-height: 30px;
-  color: #659191;
+  color: #457272;
   letter-spacing: 1px;
   background: transparent url("../template_files/ProfilesLogo.gif") no-repeat 320px 14px; 
 }
 .site-logo a span { font-style: italic; font-size: 20px; letter-spacing: 0; }
-.site-logo a:hover { color: #457272; text-decoration: none; }
+.site-logo a:hover { color: #659191; text-decoration: none; }
 .site-logo a span, .site-logo a span:hover { color: #A7C1BE; }
 
 h2 { color:#CA7C29; font-size:13px }

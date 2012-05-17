@@ -1,0 +1,17 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{D183A3D8-5FD8-494B-B014-37F57B35E655}") = "UCSF ETL", "UCSF ETL\UCSF ETL.dtproj", "{C7F5AAC3-8D65-421A-B372-EB52347785E2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C7F5AAC3-8D65-421A-B372-EB52347785E2}.Development|Default.ActiveCfg = Development
+		{C7F5AAC3-8D65-421A-B372-EB52347785E2}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

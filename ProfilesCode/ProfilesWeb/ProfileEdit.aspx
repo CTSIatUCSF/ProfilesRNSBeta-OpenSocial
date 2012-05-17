@@ -2,6 +2,7 @@
     CodeFile="ProfileEdit.aspx.cs" Inherits="ProfileEdit" EnableEventValidation="false"
     ValidateRequest="false" %>
 
+
 <%@ Register Src="UserControls/ucProfileRightSide.ascx" TagName="ProfileRightSide"
     TagPrefix="ucProfile" %>
 <%@ Register Src="UserControls/ucProfileBaseInfo.ascx" TagName="ProfileBaseInfo"
@@ -158,7 +159,7 @@
                                     Change Photo</div>
                                 <div class="photoEditSubTitle">
                                     Check 'Custom Photo' and then click 'Add Custom Photo' to upload a<br />
-                                    photograph or image. </div>
+                                    photograph or image. You can upload a JPG, GIF, BMP, or PNG file. <br />Maximum file size is 256K.</div>
                             </div>
                             <div>
                                 <table>
@@ -196,7 +197,7 @@
                             </div>
                             <div id="divPhotoUpload" style="display: none;">
                                 <div class="photoEditSubTitle">
-                                    You can upload a JPG, GIF, BMP, or PNG file. Maximum file size is 256K.</div>
+                                    </div>
                                 <cc1:FileUploaderAJAX ID="FileUpload1" runat="server" Width="300" MaxFiles="1" text_X=""
                                     text_Add="Upload Photo" text_Delete="" showDeletedFilesOnPostBack="false" text_Uploading="Uploading" />
                                 <br />
