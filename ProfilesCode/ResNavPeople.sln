@@ -1,4 +1,3 @@
-
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{99445F16-3BF9-47F1-B924-C7A0328DC55E}"
@@ -27,7 +26,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ProfilesWeb", "ProfilesWeb\
 		SccAuxPath = ""
 		SccLocalPath = ""
 		SccProvider = ""
-		TargetFramework = "3.5"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv3.5"
 		ProjectReferences = "{1D0FDD92-12F9-487D-A9B1-D7130DE37C15}|Connects.Profiles.BusinessLogic.dll;{72ABCD78-6907-4F63-8C59-392C9F3CE506}|Connects.Profiles.Common.dll;{DDCBA976-8AEA-42B5-8B63-E2E099F1D9CA}|Connects.Profiles.DataAccess.dll;{24E3696C-B69C-49C8-8276-C4003297C45D}|Connects.Profiles.Service.ServiceImplementation.dll;{4E11DE8F-C111-44E4-8AF8-B66EDEC9152D}|Connects.Profiles.Service.DataContracts.dll;{D532570D-2CB9-4592-A8B5-C16712B1FACB}|Connects.Profiles.Service.ServiceContracts.dll;{27F9D353-FCCC-430E-A6A6-6864773CBCDC}|Connects.Profiles.Utility.dll;{BE2E39E8-DBC2-4933-9376-96D393C86588}|FUA.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/ProfilesWeb"
 		Debug.AspNetCompiler.PhysicalPath = "ProfilesWeb\"
