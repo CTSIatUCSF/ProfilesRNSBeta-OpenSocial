@@ -255,6 +255,16 @@ ul#badge { list-style-type: none; padding-left: 0; }
 .badge-top h2 { color: #FFF; padding: 10px 8px 4px 12px; width: 70px; margin: -68px 0 0 60px; font-size: 13px; }
 .badge-top p { color: #FFF; padding: 6px 8px; margin: 0; }
 .badge-top p a, .badge-top p a:visited, .badge-top p a:hover { color: #FFF; text-decoration: underline; }
+.contest { background: #B8D0D0 url(../template_files/profgadget.png) no-repeat scroll 18px 0px; }
+.contest p { padding: 124px 8px 8px; margin-bottom: 0; }
+.chatter-follow { background: #FFF url(../template_files/chatter-follow.png) no-repeat scroll 11px 0; }
+.chatter-follow p { padding: 0 8px 8px; margin: 0; font-size: 12px; }
+.chatter-group { background: #FFF url(../template_files/chatter-group.png) no-repeat scroll 11px 0; }
+.chatter-group p { padding: 0 8px 8px; margin: 0; font-size: 12px; }
+.doublearrow { font-weight: bold;
+  background: url(../template_files/arrows.gif) no-repeat scroll right 4px transparent; padding-right: 13px;
+}
+  
 
 /* Help page blocks */
 .content-block {

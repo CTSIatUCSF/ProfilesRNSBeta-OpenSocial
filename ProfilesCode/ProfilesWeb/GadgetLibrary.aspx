@@ -11,7 +11,7 @@
 <p style="padding:6px 8px;margin:0;font-size:15px;color:#fff;">OpenSocial is supported by industry and research leaders such as Google, LinkedIn, Nature Network, and Elsevier SciVerse.
 </p>
 </div>
-<p>UCSF has built a shareable library of OpenSocial applications to extend Profiles functionality. This extension supports the OpenSocial standard and will soon be available to any institution that wants to utilize these gadgets. <a href="mailto:ctsi@ucsf.edu">Contact us</a> to find out how.</p>
+<p>UCSF has built a shareable library of OpenSocial applications to extend Profiles functionality. This extension supports the OpenSocial standard and will soon be available to any institution that wants to utilize these gadgets. <a href="mailto:profiles@ucsf.edu">Contact us</a> to find out how.</p>
 <p><a href="http://www.slideshare.net/CTSIatUCSF/informatics-profiles-opensocial" title="View the presentation on SlideShare" target="_blank">
   <img src="template_files/opensocial-slideset.jpeg" alt="Presentation thumbnail" align="top" /> View a presentation about UCSF's OpenSocial Profiles extensions </a></p>
 <p>Learn more about OpenSocial:</p>
@@ -51,7 +51,7 @@
         <strong>Profile List Tool</strong>: This tool allows logged-in users to build a list of profiles, based on search results, 
         co-author networks or profile-by-profile.  She or he can then export selected data from the profiles for administrative 
         purposes.  
-        <p>Access to this gadget is limited to certain users. Please <a href="mailto:ctsi@ucsf.edu">contact us</a> for more         information.</p></li>
+        <p>Access to this gadget is limited to certain users. Please <a href="mailto:profiles@ucsf.edu">contact us</a> for more         information.</p></li>
     <li style="margin-top:10px"><img src="template_files/pubsGadget.png" alt="Publication Export Gadget" style="float:right;padding-left:30px;padding-right:228px" />
         <strong>Publications Export</strong>: This tool allows logged-in users to export publications from any profile, in different
         formats. Easily convert PMIDs to PMCIDs and more.

@@ -2,7 +2,6 @@
     CodeFile="ProfileEdit.aspx.cs" Inherits="ProfileEdit" EnableEventValidation="false"
     ValidateRequest="false" %>
 
-
 <%@ Register Src="UserControls/ucProfileRightSide.ascx" TagName="ProfileRightSide"
     TagPrefix="ucProfile" %>
 <%@ Register Src="UserControls/ucProfileBaseInfo.ascx" TagName="ProfileBaseInfo"
@@ -223,7 +222,7 @@
                                       </p>
                                       <p>For questions or assistance with editing other profile fields, see 
                                       <a href="HowProfilesWorks.aspx#edit">How Profiles Works </a> or 
-                                      <a href="mailto:ctsi@ucsf.edu">contact us</a>.</p>
+                                      <a href="mailto:profiles@ucsf.edu">contact us</a>.</p>
                                     </td>
                                     <asp:Panel ID="pnlProfileProblems" runat="server" Visible="false">
                                     <td>

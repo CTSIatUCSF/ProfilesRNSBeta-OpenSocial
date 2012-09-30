@@ -62,6 +62,9 @@ public class Thumbnail : IHttpHandler
                 imageAsBytes = new UserBL().GetUserPhoto(id);
             }
 
+            // added by Eric Meeks
+            context.Response.AddHeader("Content-Length", imageAsBytes.Length.ToString());
+            
             // resize the image to a thumb (100)
             //imageAsBytes = ResizeImageFile(imageAsBytes, 100);
             if (imageAsBytes != null)

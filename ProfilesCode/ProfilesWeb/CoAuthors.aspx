@@ -22,7 +22,10 @@
             var personId = qs.get("Person", "0")
 
             window.location = 'gCoAuth.aspx?Person=' + personId;
-        }        
+        }
+        $(document).ready(function () {
+            $('#menuContainer').insertAfter('#belowgadgets').css('margin-top', '-8px');
+        });
     </script>
 
     <table width="100%" cellpadding="0" cellspacing="0">

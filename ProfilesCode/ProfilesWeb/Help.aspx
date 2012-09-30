@@ -36,7 +36,7 @@ CodeFile="Help.aspx.cs" Title="Help" Inherits="Help" %>
        Officer. You can also contact ITS at 415-514-4100 (option 2) for more information. 
     </p>
     <h2>Need Help?</h2>
-      <p>Email us at <a href="mailto:ctsi@ucsf.edu">ctsi@ucsf.edu</a>. We're happy to help!</p>
+      <p>Email us at <a href="mailto:profiles@ucsf.edu">profiles@ucsf.edu</a>. We're happy to help!</p>
   </div>
 
 </div>

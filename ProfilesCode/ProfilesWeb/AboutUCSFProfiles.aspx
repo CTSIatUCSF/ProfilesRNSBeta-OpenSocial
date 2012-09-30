@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/ProfilesPage.master" AutoEventWireup="true" 
 CodeFile="AboutUCSFProfiles.aspx.cs" Title="About UCSF Profiles" Inherits="AboutUCSFProfiles" %>
 
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MiddleContentPlaceHolder" Runat="Server">
 <style type="text/css">
 a { font-size: 100% }
@@ -105,7 +106,7 @@ a { font-size: 100% }
     <ul class="square" style="margin-left: 0;">
       <li><a href="HowProfilesWorks.aspx#faq">Frequently Asked Questions</a></li>
       <li><a href="Help.aspx">Found an error?</a></li>
-      <li><a href="mailto:ctsi@ucsf.edu">Contact us</a></li>
+      <li><a href="mailto:profiles@ucsf.edu">Contact us</a></li>
     </ul>
   </td>
   <td style="padding:8px 0 0 20px; font-size: 110%; border-bottom: 2px solid #B8D0D0;
@@ -123,15 +124,12 @@ a { font-size: 100% }
 <p>Harvard Catalyst Profiles is available as an <a href="http://connects.catalyst.harvard.edu/profiles/about/opensource" target="_new">open source platform</a> for institutions seeking a web-based means of facilitating collaboration among their academic researchers. </p>
 	
 <script language="javascript" type="text/javascript">
-  $(document).ready(function(){
-    $("a[rel='example1']").colorbox({transition:"none", width:"75%", height:"75%"});			
-    $("a[rel='example3']").colorbox({transition:"none", width:"75%", height:"75%"});			
-  });
+    $(document).ready(function () {
+        $("a[rel='example1']").colorbox({ transition: "none", width: "75%", height: "75%" });
+        $("a[rel='example3']").colorbox({ transition: "none", width: "75%", height: "75%" });
+    });
 </script>
 
 
 </div>
 </asp:Content>
-
-
-

@@ -239,16 +239,14 @@ public class BasePage : System.Web.UI.Page
             string gadgetScriptText = "<script type=\"text/javascript\" src=\"" + osHelper.GetContainerJavascriptSrc() + "\"></script>" + Environment.NewLine +
                 "<script type=\"text/javascript\" language=\"javascript\">" + Environment.NewLine +
                 "var my = {};" + Environment.NewLine +
-                "my.gadgetSpec = function(appId, name, url, secureToken, view, closed_width, open_width, start_closed, chrome_id, visible_scope) {" + Environment.NewLine +
+                "my.gadgetSpec = function(appId, name, url, secureToken, view, chrome_id, opt_params, visible_scope) {" + Environment.NewLine +
                     "this.appId = appId;" + Environment.NewLine +
                     "this.name = name;" + Environment.NewLine +
                     "this.url = url;" + Environment.NewLine +
                     "this.secureToken = secureToken;" + Environment.NewLine +
                     "this.view = view || 'default';" + Environment.NewLine +
-                    "this.closed_width = closed_width;" + Environment.NewLine +
-                    "this.open_width = open_width;" + Environment.NewLine +
-                    "this.start_closed = start_closed;" + Environment.NewLine +
                     "this.chrome_id = chrome_id;" + Environment.NewLine +
+                    "this.opt_params = opt_params;" + Environment.NewLine +
                     "this.visible_scope = visible_scope;" + Environment.NewLine +
                     "};" + Environment.NewLine +
                 "my.pubsubData = {};" + Environment.NewLine;
@@ -265,8 +263,7 @@ public class BasePage : System.Web.UI.Page
                     foreach (PreparedGadget gadget in osHelper.GetVisibleGadgets())
                     {
                         gadgetScriptText += "new my.gadgetSpec(" + gadget.GetAppId() + ",'" + gadget.GetName() + "','" + gadget.GetGadgetURL() + "','" +
-                            gadget.GetSecurityToken() + "','" + gadget.GetView() + "'," + gadget.GetClosedWidth() + "," + 
-                            gadget.GetOpenWidth() + "," + (gadget.GetStartClosed() ? "1" : "0") + ",'" + gadget.GetChromeId() + "','" +
+                            gadget.GetSecurityToken() + "','" + gadget.GetView() + "','" + gadget.GetChromeId() + "'," + gadget.GetOptParams() + ",'" +
                             gadget.GetGadgetSpec().GetVisibleScope() + "'), ";
                     }
                     gadgetScriptText = gadgetScriptText.Substring(0, gadgetScriptText.Length - 2);

@@ -17,7 +17,7 @@
 </ul>
 
 <p>UCSF Profiles enables the discovery of research expertise at UCSF, allowing for new ways to network and collaborate between researchers, between mentors and mentees, between researchers and community or industry partners, and much more. </p> 
-<p>Whether you are UCSF faculty, a trainee, staff, affiliate organization member, community partner, industry partner, or other member of the UCSF ecosystem, we encourage you to <a href="mailto:ctsi@ucsf.edu">get in touch</a> with us about your ideas on how to improve this tool.  We especially look forward to hearing from you if UCSF Profiles has enabled your research in any way.  Your success stories allow us to continue to build on such tools and to continue to get support.</p>
+<p>Whether you are UCSF faculty, a trainee, staff, affiliate organization member, community partner, industry partner, or other member of the UCSF ecosystem, we encourage you to <a href="mailto:profiles@ucsf.edu">get in touch</a> with us about your ideas on how to improve this tool.  We especially look forward to hearing from you if UCSF Profiles has enabled your research in any way.  Your success stories allow us to continue to build on such tools and to continue to get support.</p>
 
 <div class="sectionHeader"><a name="info" style="color:#CA7C29;font-size:13px">Information about UCSF Profiles</a></div>
 <h3>When you view a person's profile, different types of information are displayed:</h3>
@@ -70,7 +70,7 @@
   <li>You can display or hide each section, except directory information, by clicking the hide/show links. </li>
   <li>You can upload a photo and also add/edit the content in the awards, narrative, and publications sections. </li>
   <li>Keywords are derived automatically from the PubMed articles listed with your profile. You cannot edit keywords directly, but you can improve these lists by keeping your publications up to date. </li>
-  <li><a href="mailto:ctsi@ucsf.edu">Contact us</a> if you have questions about editing your profile.</li>
+  <li><a href="mailto:profiles@ucsf.edu">Contact us</a> if you have questions about editing your profile.</li>
 </ul>
 
 <h3><a name="login" style="color:#333">How do I login to UCSF Profiles?</a></h3>
@@ -102,7 +102,7 @@
   <li>Unfortunately, there is no easy way to exactly match all articles in PubMed to the appropriate author in UCSF Profiles with complete precision and accuracy. The algorithm used to find articles from PubMed attempts to minimize the number of publications incorrectly added to a profile; however, this method results in some missing publications. </li>
   <li>People with common names or whose articles were written at other institutions are most likely to have incomplete publication lists. </li>
   <li>Publications can be edited manually (see <a href="HowProfilesWorks.aspx#edit">How do I edit my Profile?</a> above). Adding publications manually helps UCSF Profiles know which topics of interest are associated with that profile and will increase the likelihood of finding the right publications on subsequent attempts. </li>
-  <li>We encourage you to login to the site and add any missing publications or remove incorrect ones. To tell us how we’re doing or for questions regarding publications please send a note to <a href="mailto:ctsi@ucsf.edu">ctsi@ucsf.edu</a></li>
+  <li>We encourage you to login to the site and add any missing publications or remove incorrect ones. To tell us how we’re doing or for questions regarding publications please send a note to <a href="mailto:profiles@ucsf.edu">profiles@ucsf.edu</a></li>
 </ul>
 
 <h3><a name="update" style="color:#333">How frequently are the data in the profiles updated?</a></h3>
@@ -133,8 +133,8 @@
 
 <h3><a name="ideas" style="color:#333">Where should I send my ideas on how to improve the tool?</a></h3> 
 <ul>
-  <li>We encourage you to <a href="mailto:ctsi@ucsf.edu">get in touch</a> with us about your ideas on how to improve UCSF Profiles.  We especially look forward to hearing from you if Profiles has enabled your research in any way.  Your success stories allow us to continue to build on such tools and to continue to get support.</li>
-  <li>To tell us how we’re doing or for questions please send a note to <a href="mailto:ctsi@ucsf.edu">ctsi@ucsf.edu</a></li>
+  <li>We encourage you to <a href="mailto:profiles@ucsf.edu">get in touch</a> with us about your ideas on how to improve UCSF Profiles.  We especially look forward to hearing from you if Profiles has enabled your research in any way.  Your success stories allow us to continue to build on such tools and to continue to get support.</li>
+  <li>To tell us how we’re doing or for questions please send a note to <a href="mailto:profiles@ucsf.edu">profiles@ucsf.edu</a></li>
 </ul>
 
 <h3><a name="sysreq" style="color:#333">What are the system requirements for using UCSF Profiles?</a></h3>

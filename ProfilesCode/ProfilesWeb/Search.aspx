@@ -64,7 +64,7 @@
     </script>
 
     <script type="text/javascript">
-        $(document).ready(function() {
+        $(document).ready(function () {
             $("#<%=lstColumns.ClientID %>").dropdownchecklist({ maxDropHeight: 120, width: 100 });
             $("div[id='divPersonSummary']").html("");
 
@@ -263,12 +263,12 @@
             </div>
         </asp:PlaceHolder>
     </asp:Panel>
-    <script type="text/javascript" language="javascript">        
+    <script type="text/javascript" language="javascript">
         // hack for OpenSocial google search
         var profilesHasSearchResults = false;        
     </script>
     <asp:Panel ID="pnlSearchResults" runat="server" Visible="false">
-        <script type="text/javascript" language="javascript">        
+        <script type="text/javascript" language="javascript">
             // hack for OpenSocial google search
             profilesHasSearchResults = true;        
         </script>
@@ -485,8 +485,16 @@
             </ul>
         </div>
 -->
-
       <ul id="badge">
+       <li><div class="badge contest"><p>Got a great idea for a new Profiles feature? You could win an iPad for suggesting it
+         in the <br /><strong><a href="http://open-proposals.ucsf.edu/opensocial-gadgets" target="_blank">
+         Gadget Contest</a></strong>.</p></div></li>
+       <li><div class="badge chatter-group"><p style="padding-top:90px">
+          <asp:HyperLink ID="hypLogMeIn4" runat="server">Login</asp:HyperLink> 
+          to create a UCSF Chatter group right from UCSF Profiles!</p></div></li>
+       <li><div class="badge chatter-follow"><p style="padding-top:90px">
+          <asp:HyperLink ID="hypLogMeIn5" runat="server">Login</asp:HyperLink> 
+          and follow people on UCSF Chatter! Receive updates when people you follow publish new articles.</p></div></li>
        <li><div class="badge">
         <div class="badge-top">
           <img src="Thumbnail.ashx?id=4669955&random=1234136358" alt="Jeanette Brown" width="62" />
@@ -502,10 +510,10 @@
           <p style="margin: 8px 8px 2px"><span style="background-color:#659191;color:#FFF;padding:1px 2px 1px 5px;margin-right:4px;
              letter-spacing:3px;font-family: 'Courier New', Courier, monospace;font-weight:bold">
              <%=ProfilesStatistics.GetLinksCount() %></span> profiles now</p>
-          <p style="margin: 0 4px 4px 8px;line-height:20px"> <strong>link</strong> to department, lab and other websites.</p>
+          <p style="margin: 0 4px 4px 8px;line-height:20px"> include <strong>links</strong> to departments, labs and other websites.</p>
           <div class="badge-top" style="height:auto">
-             <p style="letter-spacing:.5px"><img src="template_files/link.gif" alt="link" style="padding:0;margin-bottom:-4px" />
-                <asp:HyperLink ID="hypLogMeIn3" runat="server">Add yours today!</asp:HyperLink></p> 
+             <p style="text-indent: -24px; padding-left:30px;"><img src="template_files/link.gif" alt="link" style="padding:0;margin-bottom:-4px" />
+                <asp:HyperLink ID="hypLogMeIn3" runat="server">Add web links to your profile</asp:HyperLink></p> 
           </div>         
        </div></li>
       </ul>
@@ -564,17 +572,22 @@
     </div>
 
 <script type="text/javascript" src="http://dnn506yrbagrg.cloudfront.net/pages/scripts/0010/2559.js"> </script>
-<script language="javascript" type="text/javascript">
-$("#badge li").hide();
-this.randomtip = function(){
-	var length = $("#badge li").length;
-	var ran = Math.floor(Math.random()*length) + 1;
-	$("#badge li:nth-child(" + ran + ")").show();
-};
 
-$(document).ready(function(){	
-	randomtip();
-});
+<script language="javascript" type="text/javascript">
+    $('#menuContainer').insertAfter('#belowgadgets').css('margin-top', '-8px');
+    $("#badge li").hide();
+    this.randomtip = function () {
+        var length = $("#badge li").length;
+        var ran = Math.floor(Math.random() * length) + 1;
+        $("#badge li:nth-child(" + ran + ")").show();
+    };
+
+    $(document).ready(function () {
+        if (!$('#ctl00_ctl00_left_hypLogout').length) {
+            randomtip();
+        }
+    });
 </script>
+
 
 </asp:Content>

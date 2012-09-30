@@ -104,8 +104,8 @@
                 <asp:Literal ID="ltrReadPublications" runat="server" Text="Publications" Visible="true" />
                 <div class="subSectionHeader">
                     <div class="disclosureText"><asp:Literal ID="Literal1" runat="server" Text="Publications listed below are derived from "/>
-                    <asp:HyperLink ID="HyperLink3" runat="server" CssClass="DisclosureLink" NavigateUrl="http://www.ncbi.nlm.nih.gov/pubmed/">MEDLINE/PubMed</asp:HyperLink><asp:Literal ID="Literal5" runat="server" Text=". The automated process used emphasizes accuracy but not completeness. You can make corrections and additions "/>
-                    <asp:HyperLink ID="HyperLink4" runat="server" CssClass="DisclosureLink" NavigateUrl="~/HowProfilesWorks.aspx#edit">yourself</asp:HyperLink><asp:Literal ID="Literal6" runat="server" Text=", or "/>
+                    <asp:HyperLink ID="HyperLink3" runat="server" CssClass="DisclosureLink" NavigateUrl="http://www.ncbi.nlm.nih.gov/pubmed/">MEDLINE/PubMed</asp:HyperLink><asp:Literal ID="Literal5" runat="server" Text=". The automated process used emphasizes accuracy but not completeness. Faculty can make  "/>
+                    <asp:HyperLink ID="HyperLink4" runat="server" CssClass="DisclosureLink" NavigateUrl="~/HowProfilesWorks.aspx#edit">corrections and additions</asp:HyperLink><asp:Literal ID="Literal6" runat="server" Text=", or "/>
                     <asp:HyperLink ID="HyperLink5" runat="server" CssClass="DisclosureLink" NavigateUrl="mailto:ctsi@ucsf.edu">contact us</asp:HyperLink>
                     <asp:Literal ID="Literal7" runat="server" Text=" for help."/></div>
                 </div>
@@ -192,54 +192,80 @@
         </ContentTemplate>
     </asp:UpdatePanel>
 <script language="javascript" type="text/javascript">
-  if (!document.getElementById("ctl00_ctl00_right_RightContentPlaceHolder_ProfileRightSide1_AuthorList1_grdAuthors")) { 
-     document.getElementById("network-links-with-image").style.display = "none";
-  }
-  if ($('span#ctl00_ctl00_middle_MiddleContentPlaceHolder_lblReadOnlyNarrative').text().length < 500 ) {
-     $('div#ctl00_ctl00_middle_MiddleContentPlaceHolder_pnlReadOnlyNarrative').removeClass('box');
-  }       
-  $('.box').addClass('box-collapsed');
-  $('span#ctl00_ctl00_middle_MiddleContentPlaceHolder_lblReadOnlyNarrative').append(" <span class='spacer'>&nbsp;</span>");
-  $('.box').prepend("<div class='plusbutton'><span> <strong>...</strong> Show more</span> <img src='Images/icon_squareArrow.gif' alt='+' style='vertical-align:top' /></div><div class='minusbutton'><span>Show less</span> <img src='Images/icon_squareDownArrow.gif' alt='-' style='vertical-align:top' /></div>");
-  $('.plusbutton').click(function(){
-     $(this).parent().removeClass('box-collapsed');
-     $(this).siblings().show();
-     $(this).hide();
-  });   
-  $('.minusbutton').click(function(){
-     $(this).parent().addClass('box-collapsed');
-     $(this).siblings().show();
-     $(this).hide();
-  });
+    if (!document.getElementById("ctl00_ctl00_right_RightContentPlaceHolder_ProfileRightSide1_AuthorList1_grdAuthors")) {
+        document.getElementById("network-links-with-image").style.display = "none";
+    }
+    if ($('span#ctl00_ctl00_middle_MiddleContentPlaceHolder_lblReadOnlyNarrative').text().length < 500) {
+        $('div#ctl00_ctl00_middle_MiddleContentPlaceHolder_pnlReadOnlyNarrative').removeClass('box');
+    }
+    $('.box').addClass('box-collapsed');
+    $('span#ctl00_ctl00_middle_MiddleContentPlaceHolder_lblReadOnlyNarrative').append(" <span class='spacer'>&nbsp;</span>");
+    $('.box').prepend("<div class='plusbutton'><span> <strong>...</strong> Show more</span> <img src='Images/icon_squareArrow.gif' alt='+' style='vertical-align:top' /></div><div class='minusbutton'><span>Show less</span> <img src='Images/icon_squareDownArrow.gif' alt='-' style='vertical-align:top' /></div>");
+    $('.plusbutton').click(function () {
+        $(this).parent().removeClass('box-collapsed');
+        $(this).siblings().show();
+        $(this).hide();
+    });
+    $('.minusbutton').click(function () {
+        $(this).parent().addClass('box-collapsed');
+        $(this).siblings().show();
+        $(this).hide();
+    });
 
-  var awardsrows = $('#awards tr'); 
-  var awardstbody = $('#awards tbody'); 
-  var arr = $.makeArray(awardsrows); 
-  arr.reverse(); // reverse the order of awards 
-  $(arr).appendTo(awardstbody); 
-  if ($('#awards tr').length > 4 ) {
-    $('#awards tr:gt(2)').hide();
-    $('#awards tr td:nth-child(2)').css('width','547px');
-    $("<div class='atog' id='moreawards'><span> <strong>...</strong> Show more</span> <img src='Images/icon_squareArrow.gif' alt='+' style='vertical-align:top' /></div>").insertAfter('#awards tr:nth-child(3) td:nth-child(2) span'); 
-    $("<div class='atog' id='lessawards'><span>Show less</span> <img src='Images/icon_squareDownArrow.gif' alt='-' style='vertical-align:top' /></div>").insertAfter('#awards tr:last-child td:nth-child(2) span'); 
-  }
-  $('#moreawards').click(function () { 
-    $('#awards tr:gt(2)').toggle();
-    $('#moreawards').hide(); 
-    $('#lessawards').show(); 
-  });        
-  $('#lessawards').click(function () { 
-    $('#awards tr:gt(2)').toggle();
-    $('#moreawards').show(); 
-    $('#lessawards').hide(); 
-  });        
+    var awardsrows = $('#awards tr');
+    var awardstbody = $('#awards tbody');
+    var arr = $.makeArray(awardsrows);
+    arr.reverse(); // reverse the order of awards 
+    $(arr).appendTo(awardstbody);
+    if ($('#awards tr').length > 4) {
+        $('#awards tr:gt(2)').hide();
+        $('#awards tr td:nth-child(2)').css('width', '547px');
+        $("<div class='atog' id='moreawards'><span> <strong>...</strong> Show more</span> <img src='Images/icon_squareArrow.gif' alt='+' style='vertical-align:top' /></div>").insertAfter('#awards tr:nth-child(3) td:nth-child(2) span');
+        $("<div class='atog' id='lessawards'><span>Show less</span> <img src='Images/icon_squareDownArrow.gif' alt='-' style='vertical-align:top' /></div>").insertAfter('#awards tr:last-child td:nth-child(2) span');
+    }
+    $('#moreawards').click(function () {
+        $('#awards tr:gt(2)').toggle();
+        $('#moreawards').hide();
+        $('#lessawards').show();
+    });
+    $('#lessawards').click(function () {
+        $('#awards tr:gt(2)').toggle();
+        $('#moreawards').show();
+        $('#lessawards').hide();
+    });
+    $('#menuContainer').insertAfter('#belowgadgets').css('margin-top', '-8px');
+    if (!$('#ctl00_ctl00_left_hypLogout').length) {
+        var badge = "<ul id='badge'>"
+            + "<li><div class='badge contest' style='margin:10px 0 10px 10px;width:150px;padding-left:8px;'>"
+            + "<p>Got a great idea for a new Profiles feature? "
+            + "You could win an iPad for suggesting it in the <br /><strong>"
+            + "<a href='http://open-proposals.ucsf.edu/opensocial-gadgets' target='_blank'>"
+            + "Gadget Contest</a></strong>.</p></div></li>"
+            + "<li><div class='badge chatter-group' style='margin:10px 0 10px 10px;width:150px;padding-left:8px;'>"
+            + "<p style='padding-top:90px'><strong><a href='" + g_hypLogin + "'>Login</a></strong> to create a "
+            + "UCSF Chatter group right from UCSF Profiles!</p></div></li>"
+            + "<li><div class='badge chatter-follow' style='margin:10px 0 10px 10px;width:150px;padding-left:8px;'>"
+            + "<p style='padding-top:90px'><strong><a href='" + g_hypLogin + "'>Login</a></strong> and follow people on UCSF Chatter! "
+            + "Receive updates when people you follow publish new articles.</p></div></li></ul>";
+        $(badge).insertBefore('#menuContainer');
+        $("#badge li").hide();
+        this.randomtip = function () {
+            var length = $("#badge li").length;
+            var ran = Math.floor(Math.random() * length) + 1;
+            $("#badge li:nth-child(" + ran + ")").show();
+        };
+        $(document).ready(function () {
+            randomtip();
+        });
+    }
 
-  // addition by Eric Meeks to create activity in Javascript so that bots will not trigger the activity
+    // addition by Eric Meeks to create activity in Javascript so that bots will not trigger the activity
     osapi.activities.create(
-    { 	'userId': gadgets.util.getUrlParameters()['Person'],
-	    'activity': {'postedTime': new Date().getTime(), 'title': 'profile was viewed'}
-    }).execute(function(response){});
+    { 'userId': gadgets.util.getUrlParameters()['Person'],
+        'activity': { 'postedTime': new Date().getTime(), 'title': 'profile was viewed' }
+    }).execute(function (response) { });
   
 </script>
 </asp:Content>
+
 

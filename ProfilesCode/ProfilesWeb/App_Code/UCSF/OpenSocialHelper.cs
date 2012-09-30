@@ -142,7 +142,7 @@ public class OpenSocialHelper
                 // only add ones that are visible in this context!
                 if (sandboxOnly || gadget.Show(viewerId, ownerId, page.AppRelativeVirtualPath.Substring(2)))
                 {
-                    String securityToken = SocketSendReceive(viewerId, ownerId, "" + gadget.GetAppId());
+                    String securityToken = SocketSendReceive(viewerId, ownerId,  page.Server.UrlEncode(gadget.GetGadgetURL()));
                     gadgets.Add(new PreparedGadget(gadget, this, moduleId++, securityToken));
                 }
             }
@@ -162,7 +162,7 @@ public class OpenSocialHelper
                 // only add ones that are visible in this context!
                 if (gadgetLogin || gadget.Show(viewerId, ownerId, GetPageName()))
                 {
-                    String securityToken = SocketSendReceive(viewerId, ownerId, "" + gadget.GetAppId());
+                    String securityToken = SocketSendReceive(viewerId, ownerId,  page.Server.UrlEncode(gadget.GetGadgetURL()));
                     gadgets.Add(new PreparedGadget(gadget, this, moduleId++, securityToken));
                 }
             } 
@@ -408,7 +408,7 @@ public class OpenSocialHelper
         return s;
     }
 
-    private static string SocketSendReceive(int viewer, int owner, string gadget)
+    private string SocketSendReceive(int viewer, int owner, string gadget)
     {
         //  These keys need to match what you see in edu.ucsf.profiles.shindig.service.SecureTokenGeneratorService in Shindig
         string[] tokenService = ConfigUtil.GetConfigItem("OpenSocialTokenService").Split(':');
@@ -448,22 +448,18 @@ public class GadgetViewRequirements
     private char viewerReq;  // U for User or null for no requirment
     private char ownerReq;   // R for Registered or null for no requirement
     private string view;
-    private int closedWidth;
-    private int openWidth;
-    private bool startClosed;
     private string chromeId;
+    private string optParams;
     private Int32 display_order;
 
-    public GadgetViewRequirements(String page, char viewerReq, char ownerReq, String view, int closedWidth, int openWidth, bool startClosed, string chromeId, Int32 display_order)
+    public GadgetViewRequirements(String page, char viewerReq, char ownerReq, String view, string chromeId, String optParams, Int32 display_order)
     {
         this.page = page;
         this.viewerReq = viewerReq;
         this.ownerReq = ownerReq;
         this.view = view;
-        this.closedWidth = closedWidth;
-        this.openWidth = openWidth;
-        this.startClosed = startClosed;
         this.chromeId = chromeId;
+        this.optParams = optParams;
         this.display_order = display_order;
     }
 
@@ -482,24 +478,14 @@ public class GadgetViewRequirements
         return view;
     }
 
-    public int GetClosedWidth()
-    {
-        return closedWidth;
-    }
-
-    public int GetOpenWidth()
-    {
-        return openWidth;
-    }
-
-    public bool GetStartClosed()
-    {
-        return startClosed;
-    }
-
     public string GetChromeId()
     {
         return chromeId;
+    }
+
+    public string GetOptParams()
+    {
+        return optParams != null && optParams.Trim().Length > 0 ? optParams : "{}";
     }
 
     internal Int32 GetDisplayOrder()
@@ -543,7 +529,7 @@ public class GadgetSpec
             {
                 Database db = DatabaseFactory.CreateDatabase();
 
-                string sqlCommand = "select page, viewer_req, owner_req, [view], closed_width, open_width, start_closed, chromeId, display_order from shindig_app_views where appId = " + appId;
+                string sqlCommand = "select page, viewer_req, owner_req, [view], chromeId, opt_params, display_order from shindig_app_views where appId = " + appId;
                 DbCommand dbCommand = db.GetSqlStringCommand(sqlCommand);
                 reader = db.ExecuteReader(dbCommand);
                 while (reader.Read())
@@ -552,11 +538,9 @@ public class GadgetSpec
                             reader.IsDBNull(1) ? ' ' : Convert.ToChar(reader[1]),
                             reader.IsDBNull(2) ? ' ' : Convert.ToChar(reader[2]),
                             reader[3].ToString(),
-                            reader.IsDBNull(4) ? '0' : Convert.ToInt32(reader[4]),
-                            reader.IsDBNull(5) ? '0' : Convert.ToInt32(reader[5]),
-                            reader.IsDBNull(6) ? true : Convert.ToBoolean(reader[6]),
-                            reader[7].ToString(),
-                            reader.IsDBNull(8) ? Int32.MaxValue : Convert.ToInt32(reader[8])));
+                            reader[4].ToString(),
+                            reader[5].ToString(),
+                            reader.IsDBNull(6) ? Int32.MaxValue : Convert.ToInt32(reader[6])));
                 }
             }
             catch (Exception e)
@@ -761,23 +745,10 @@ public class PreparedGadget : IComparable<PreparedGadget>
         }
     }
 
-    public int GetOpenWidth()
+    public string GetOptParams()
     {
         GadgetViewRequirements reqs = GetGadgetViewRequirements();
-        return reqs != null ? reqs.GetOpenWidth() : 0;
-    }
-
-    public int GetClosedWidth()
-    {
-        GadgetViewRequirements reqs = GetGadgetViewRequirements();
-        return reqs != null ? reqs.GetClosedWidth() : 0;
-    }
-    
-    public bool GetStartClosed()
-    {
-        GadgetViewRequirements reqs = GetGadgetViewRequirements();
-        // if the page specific reqs are present, honor those.  Otherwise defaut to true for regular gadgets, false for sandbox gadgets
-        return reqs != null ? reqs.GetStartClosed() : !gadgetSpec.FromSandbox();
+        return reqs != null ? reqs.GetOptParams() : "{}";
     }
 
     public string GetChromeId()

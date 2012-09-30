@@ -113,7 +113,7 @@
                  </ul>
                </li>
                <li><asp:Panel ID="pnlNotLoggedInNavbar" runat="server" Visible="false">
-               <asp:HyperLink ID="hypNotLoggedInNavbar" runat="server" CssClass="SearchListLink" Text="Edit My Profile"></asp:HyperLink>
+               <asp:HyperLink ID="hypNotLoggedInNavbar" runat="server" CssClass="SearchListLink" Text="Login / Edit My Profile"></asp:HyperLink>
                </asp:Panel></li>
            </ul>
          </div>
@@ -158,6 +158,7 @@
         <div class="activeBottom">
             &nbsp;</div>
     </div>
+  <div id="menuContainer">
     <div class="activeTop">
         &nbsp;</div>
     <div class="activeMainWrapper">
@@ -230,10 +231,10 @@
     </div>
     <div class="activeBottom">
         &nbsp;</div>
+  </div>
 
     <div id="divLeftNews" runat="server" visible="false">
-
-<!--            
+<!--
         <div class="activeTop">
             &nbsp;</div>
         <div class="activeMainWrapper">
@@ -253,9 +254,7 @@
          </div>
          <div class="activeBottom">
             &nbsp;</div>
--->         
 
-<!--
         <div class="activeTop">
             &nbsp;</div>
         <div class="activeMainWrapper">
@@ -277,7 +276,7 @@
                          </div>
                          <div style="padding-top:6px;padding-bottom:6px;border-bottom:1px solid #CCC;width:142px">
                             Enhance your website with UCSF Profiles data. 
-                            <a href="mailto:ctsi@ucsf.edu">Contact us</a> for details
+                            <a href="mailto:profiles@ucsf.edu">Contact us</a> for details
                          </div>
                          <div style="margin-top: 6px;">
                              UCSF Profiles Gives Faculty Power of Building Networks on Campus                            <a href="http://today.ucsf.edu/stories/ucsf-profiles-gives-faculty-power-of-building-networks-on-campus/" target="_new"><em>UCSF Today</em></a>
@@ -295,6 +294,7 @@
     <asp:Panel ID="pnlOpenSocialTools" runat="server" Visible="false">
         <div id="gadgets-tools" class="gadgets-gadget-parent"></div>
     </asp:Panel>
+    <div id="belowgadgets" style="clear:both;height:1px"></div>
     
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="right" runat="Server">
@@ -316,10 +316,10 @@
           <li class="leaf"><a href="./" class="active">Home</a></li>
           <li class="leaf"><asp:HyperLink ID="hypHeaderLogin" runat="server" NavigateUrl="~/Login.aspx" Visible="true">UCSF Login</asp:HyperLink></li>                                
           <li class="leaf"><asp:HyperLink ID="hypHeaderLogout" runat="server" NavigateUrl="~/Logout.aspx" Visible="false">Logout</asp:HyperLink></li>
-          <li class="leaf"><a href="mailto:ctsi@ucsf.edu">Contact Us</a></li>
+          <li class="leaf"><a href="mailto:profiles@ucsf.edu">Contact Us</a></li>
          </ul>
          <div id="footer-message">
-          <p>The University of California Copyright &copy; 2011 The Regents of the University of California. All Rights Reserved.<br />
+          <p>The University of California Copyright &copy; 2012 The Regents of the University of California. All Rights Reserved.<br />
           Services on this website are for the use of UCSF researchers, CTSI affiliates, industry and community members who wish to establish explicit ties to UCSF.</p>
          </div>
        </div>

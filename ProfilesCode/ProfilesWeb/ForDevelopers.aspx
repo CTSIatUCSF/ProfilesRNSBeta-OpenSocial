@@ -7,6 +7,8 @@ CodeFile="ForDevelopers.aspx.cs" Title="For Developers" Inherits="ForDevelopers"
     Use UCSF Profiles Data to Enhance Your Website
 </div>
 <div id="forDevelopers">
+<p><a href="https://ucsf.my.salesforce.com/_ui/core/chatter/groups/GroupProfilePage?g=0F9A00000004Szj" title="Visit UCSF Chatter">
+  <img src="template_files/cloud.png" alt="cloud" /> Join the UCSF Chatter Profiles Data Consumers group</a></p>
 <h3 style="padding-top: 6px">About the Data</h3>
 <div style="float:right;width:195px;background-color:#659191;margin-right:1px;margin-top: 4px">
 <p style="padding:6px 0 6px 8px;margin:0;font-size:15px;color:#fff;font-weight:bold">We’re happy to help integrate the API into your website, so it matches your site’s 
@@ -22,7 +24,7 @@ look and feel.</p>
 
 <h2 style="padding-top:10px">Search UCSF Profiles from your Website</h2>
 <img src="template_files/minisearch.png" alt="mini-search" style="float:right;padding-left:30px;padding-top:10px" />
-<p>By adding the UCSF Profiles Mini Search box to your website your site visitors can find UCSF researchers, potential collaborators, and mentors directly from your site. To get started, contact <a href="mailto:ctsi@ucsf.edu">ctsi@ucsf.edu</a></p>
+<p>By adding the UCSF Profiles Mini Search box to your website your site visitors can find UCSF researchers, potential collaborators, and mentors directly from your site. To get started, contact <a href="mailto:profiles@ucsf.edu">profiles@ucsf.edu</a></p>
 <p>See a demo at <a href="http://medschool2.ucsf.edu/sfgh/research" target="_new" title="See a demo">San Francisco General Hospital (SFGH)</a></p>
 <blockquote>
 It was very easy to add the Mini Search box with the very clear instructions I received. It allowed us to increase the accuracy and availability of the data on our site and to put an amazing search tool at the fingertips of our researchers.
@@ -33,7 +35,7 @@ Moriah Hart, Analyst, San Francisco General Hospital, UCSF
  
 <h2 style="clear:right;padding-top:10px">Embed UCSF Profiles Data into your Site</h2>
 <img src="template_files/feed.jpg" alt="data feed" style="float:right;padding-top:10px" />
-<p>Enhance your website with automated data from UCSF Profiles, matching your design. <br />To get started, contact <a href="mailto:ctsi@ucsf.edu">ctsi@ucsf.edu</a></p>
+<p>Enhance your website with automated data from UCSF Profiles, matching your design. <br />To get started, contact <a href="mailto:profiles@ucsf.edu">profiles@ucsf.edu</a></p>
 <p>Two formats are available:</p>
 <div style="width:270px; float:left;"> 
   <h3>JSON API</h3>

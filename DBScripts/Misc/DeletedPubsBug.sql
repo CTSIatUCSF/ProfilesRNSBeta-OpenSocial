@@ -29,6 +29,10 @@ where e.pmid is not null;
 select 'exec usp_DeletePublication ' + cast(i.personid as varchar) + ' , ''' + cast(i.pubid as varchar(50)) + ''';' from publications_include i join publications_exclude e on i.PMID = e.pmid and i.personid = e.personid
 where i.pmid is not null;
 
+select 'delete from publications_add where PubID = ''' + cast(a.pubId as varchar(max)) +  ''';' from publications_add a join
+publications_exclude e on a.PMID = e.pmid and a.personid = e.personid
+where a.pmid is not null and e.PMID is not null;
+
 delete from disambiguation_pubmed where( cast(pmid as varchar) + '.' + cast(personid as varchar)) in 
 (select (cast(pmid as varchar) + '.' + cast(personid as varchar)) from publications_exclude);
 

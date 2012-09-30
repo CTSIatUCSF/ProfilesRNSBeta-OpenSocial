@@ -32,6 +32,7 @@ public partial class ProfilesPage : System.Web.UI.MasterPage
         // Set the login URL
         hypLogMeIn.NavigateUrl = strRedirectURL;
         hypHeaderLogin.NavigateUrl = strRedirectURL;
+        JavascriptLiteral.Text = "<script stype=\"text/javascript\"> var g_hypLogin = '" + strRedirectURL + "';</script>";
 
         if (Profile.UserId != 0)
         {

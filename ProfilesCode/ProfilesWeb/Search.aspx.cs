@@ -56,6 +56,8 @@ public partial class Search : BasePage
         string logMeIn = System.Configuration.ConfigurationManager.AppSettings["LoginURL"].ToString() + "?EditMyProfile=true";
         hypLogMeIn2.NavigateUrl = logMeIn;
         hypLogMeIn3.NavigateUrl = logMeIn;
+        hypLogMeIn4.NavigateUrl = System.Configuration.ConfigurationManager.AppSettings["LoginURL"].ToString();
+        hypLogMeIn5.NavigateUrl = System.Configuration.ConfigurationManager.AppSettings["LoginURL"].ToString();
     }
     #endregion
 
@@ -775,7 +777,7 @@ public partial class Search : BasePage
             LtMsg.Visible = true;
             LtMsg.Text = "<span style='color:#990000; font-weight:bold'>" +
                 (OpenSocial() != null && GetKeyword() != null && OpenSocial().IsVisible() && GetKeyword().Length > 0 && !HasAdditionalSearchCriteria() ? 
-                "No keyword matches found.  Please check Full Text Search results below." :
+                "No keyword matches found." :
                 "No matching people could be found. Please check your entry and try again.") + "</span>";
 
             // Kill the session variable used to bind the results grid
