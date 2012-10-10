@@ -22,6 +22,9 @@ join faculty_rank fr on fr.facultyrankid = aff.facultyrankid
 where aff.isprimary = 1
 order by isnull(isnull(isnull(n.[day], ph.[day]), p.[day]), ph.[day]);  
 
+-- activity stream based
+select top 100 * from shindig_activity where cast(activity as nvarchar(max)) not like '%viewed%' order by activityId desc;
+
 
 ----- CLS data for Rachael
 select name from syscolumns where id=object_id('vw_ucsfpro1');

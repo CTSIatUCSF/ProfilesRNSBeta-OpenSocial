@@ -18,7 +18,7 @@ and aff.isprimary = 1;
 -- raw one
 --select top 100 * from shindig_activity;
 WITH XMLNAMESPACES ('http://ns.opensocial.org/2008/opensocial' as pd)
-select per.displayname, act.createdDT, act.activity.value('(//pd:title)[1]', 'nvarchar(max)') activity_type, 
+select top 100 per.displayname, act.createdDT, act.activity.value('(//pd:title)[1]', 'nvarchar(max)') activity_type, 
 --cast(act.activity as nvarchar(max)), 
 act.xtraId1Type, act.xtraId1Value
 from shindig_activity act

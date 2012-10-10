@@ -213,6 +213,11 @@ public class OpenSocialHelper
     // JSON Helper Functions
     public static string BuildJSONPersonIds(List<Int32> personIds, string message)
     {
+        if (personIds.Count == 0)
+        {
+            // just return an empty JSON object
+            return "{}";
+        }
         Dictionary<string, Object> foundPeople = new Dictionary<string, object>();
         foundPeople.Add("personIds", personIds);
         foundPeople.Add("message", message);
@@ -253,7 +258,8 @@ public class OpenSocialHelper
         {
             pubsubdata.Remove(key);
         }
-        if (value != null || value.Length > 0)
+        // don't bother adding an empty JSON object
+        if (value != null && value.Trim().Length > 0 && !"{}".Equals(value))
         {
             pubsubdata.Add(key, value);
         }

@@ -22,6 +22,7 @@ public partial class PubDate : System.Web.UI.Page
         {
             string PMID = Request["PMID"];
             string MPID = Request["MPID"];
+            string PubID = Request["PubID"];
 
             if (PMID != null && PMID.Length > 0)
             {
@@ -30,6 +31,10 @@ public partial class PubDate : System.Web.UI.Page
             else if (MPID != null && MPID.Length > 0)
             {
                 ProcessMPID(MPID);
+            }
+            else if (PubID != null && PubID.Length > 0)
+            {
+                ProcessPubID(PubID);
             }
         }
         catch (Exception ex)
@@ -46,6 +51,12 @@ public partial class PubDate : System.Web.UI.Page
     private void ProcessMPID(string MPID)
     {
         ProcessDateSQL("select publicationdt from my_pubs_general where mpid = '" + MPID + "';");
+    }
+
+    private void ProcessPubID(string PubID)
+    {
+        ProcessDateSQL("select isnull(m.publicationdt, p.PubDate) from publications_include i left outer join my_pubs_general m on i.mpid = m.mpid left outer join " +
+                       "pm_pubs_general p on i.pmid = p.pmid where pubid = '" + PubID + "';");
     }
 
     private void ProcessDateSQL(string dateSQL)

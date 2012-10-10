@@ -486,15 +486,14 @@
         </div>
 -->
       <ul id="badge">
-       <li><div class="badge contest"><p>Got a great idea for a new Profiles feature? You could win an iPad for suggesting it
-         in the <br /><strong><a href="http://open-proposals.ucsf.edu/opensocial-gadgets" target="_blank">
-         Gadget Contest</a></strong>.</p></div></li>
-       <li><div class="badge chatter-group"><p style="padding-top:90px">
-          <asp:HyperLink ID="hypLogMeIn4" runat="server">Login</asp:HyperLink> 
-          to create a UCSF Chatter group right from UCSF Profiles!</p></div></li>
-       <li><div class="badge chatter-follow"><p style="padding-top:90px">
-          <asp:HyperLink ID="hypLogMeIn5" runat="server">Login</asp:HyperLink> 
-          and follow people on UCSF Chatter! Receive updates when people you follow publish new articles.</p></div></li>
+       <li><a href="http://open-proposals.ucsf.edu/opensocial-gadgets" target="_blank"><div class="badge contest">
+         <p>Got a great idea for a new Profiles feature? You could win an iPad for suggesting it
+         in the <br /><strong>Gadget Contest</strong>.</p></div></a></li>
+       <li><asp:HyperLink ID="hypLogMeIn4" runat="server"><div class="badge chatter-group"><p style="padding-top:90px">
+          <strong>Login</strong> to create a UCSF Chatter group right from UCSF Profiles!</p></div></asp:HyperLink></li>
+       <li><asp:HyperLink ID="hypLogMeIn5" runat="server"><div class="badge chatter-follow"><p style="padding-top:90px">
+          <strong>Login</strong> and follow people on UCSF Chatter! 
+          Receive updates when people you follow publish new articles.</p></div></asp:HyperLink></li>
        <li><div class="badge">
         <div class="badge-top">
           <img src="Thumbnail.ashx?id=4669955&random=1234136358" alt="Jeanette Brown" width="62" />

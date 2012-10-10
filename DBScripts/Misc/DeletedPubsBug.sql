@@ -39,3 +39,28 @@ delete from disambiguation_pubmed where( cast(pmid as varchar) + '.' + cast(pers
 --select 'exec usp_cache_pm_author_position_add_one ' + cast(personid as varchar) + ', ' + cast(pmid as varchar) + ';' from
 --tmp_pub_cache;
 
+--- multi ones
+select a.pubid, b.pubid,a.personid, a.pmid from publications_exclude a join
+publications_exclude b on a.personid = b.personid and a.pmid = b.pmid where a.pmid is not null and cast(a.pubid as varchar(max)) > cast(b.pubid as varchar(max));
+
+delete from publications_exclude where pubid in (
+	select b.pubid from publications_exclude a join
+	publications_exclude b on a.personid = b.personid and a.pmid = b.pmid where a.pmid is not null and cast(a.pubid as varchar(max)) > cast(b.pubid as varchar(max)));
+--
+select a.pubid, b.pubid,a.personid, a.pmid from publications_include a join
+publications_include b on a.personid = b.personid and a.pmid = b.pmid where a.pmid is not null and cast(a.pubid as varchar(max)) > cast(b.pubid as varchar(max));
+
+delete from publications_include where pubid in (
+	select b.pubid from publications_include a join
+	publications_include b on a.personid = b.personid and a.pmid = b.pmid where a.pmid is not null and cast(a.pubid as varchar(max)) > cast(b.pubid as varchar(max)));
+--
+select a.pubid, b.pubid,a.personid, a.pmid from publications_add a join
+publications_add b on a.personid = b.personid and a.pmid = b.pmid where a.pmid is not null and cast(a.pubid as varchar(max)) > cast(b.pubid as varchar(max));
+
+delete from publications_add where pubid in (
+	select b.pubid from publications_add a join
+	publications_add b on a.personid = b.personid and a.pmid = b.pmid where a.pmid is not null and cast(a.pubid as varchar(max)) > cast(b.pubid as varchar(max)));
+--
+select personid, pmid, count(*) from publications_exclude where pmid is not null group by personid, pmid order by count(*) desc;
+select personid, pmid, count(*) from publications_add where pmid is not null group by personid, pmid order by count(*) desc;
+select personid, pmid, count(*) from publications_include where pmid is not null group by personid, pmid order by count(*) desc;

@@ -236,17 +236,19 @@
     $('#menuContainer').insertAfter('#belowgadgets').css('margin-top', '-8px');
     if (!$('#ctl00_ctl00_left_hypLogout').length) {
         var badge = "<ul id='badge'>"
-            + "<li><div class='badge contest' style='margin:10px 0 10px 10px;width:150px;padding-left:8px;'>"
+            + "<li><a href='http://open-proposals.ucsf.edu/opensocial-gadgets' target='_blank'>"
+            + "<div class='badge contest' style='margin:10px 0 10px 10px;width:150px;padding-left:8px;'>"
             + "<p>Got a great idea for a new Profiles feature? "
             + "You could win an iPad for suggesting it in the <br /><strong>"
-            + "<a href='http://open-proposals.ucsf.edu/opensocial-gadgets' target='_blank'>"
-            + "Gadget Contest</a></strong>.</p></div></li>"
-            + "<li><div class='badge chatter-group' style='margin:10px 0 10px 10px;width:150px;padding-left:8px;'>"
-            + "<p style='padding-top:90px'><strong><a href='" + g_hypLogin + "'>Login</a></strong> to create a "
-            + "UCSF Chatter group right from UCSF Profiles!</p></div></li>"
-            + "<li><div class='badge chatter-follow' style='margin:10px 0 10px 10px;width:150px;padding-left:8px;'>"
-            + "<p style='padding-top:90px'><strong><a href='" + g_hypLogin + "'>Login</a></strong> and follow people on UCSF Chatter! "
-            + "Receive updates when people you follow publish new articles.</p></div></li></ul>";
+            + "Gadget Contest</strong>.</p></div></a></li>"
+            + "<li><a href='" + g_hypLogin + "'>"
+            + "<div class='badge chatter-group' style='margin:10px 0 10px 10px;width:150px;padding-left:8px;'>"
+            + "<p style='padding-top:90px'><strong>Login</strong> to create a "
+            + "UCSF Chatter group right from UCSF Profiles!</p></div></a></li>"
+            + "<li><a href='" + g_hypLogin + "'>"
+            + "<div class='badge chatter-follow' style='margin:10px 0 10px 10px;width:150px;padding-left:8px;'>"
+            + "<p style='padding-top:90px'><strong>Login</strong> and follow people on UCSF Chatter! "
+            + "Receive updates when people you follow publish new articles.</p></div></a></li></ul>";
         $(badge).insertBefore('#menuContainer');
         $("#badge li").hide();
         this.randomtip = function () {
